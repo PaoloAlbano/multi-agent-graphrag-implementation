@@ -1,0 +1,39 @@
+[project]
+name = "multigraphrag"
+version = "0.1.0"
+description = "Multi-Agent GraphRAG: a text-to-Cypher framework for Labeled Property Graphs (implementation of arXiv:2511.08274)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.27",
+    "neo4j>=5.24",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "python-dotenv>=1.0",
+    "rapidfuzz>=3.9",
+    "rich>=13.7",
+    "tenacity>=9.0",
+    "typer>=0.12",
+]
+
+[project.scripts]
+multigraphrag = "multigraphrag:main"
+
+[build-system]
+requires = ["uv_build>=0.8.12,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.15.20",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
