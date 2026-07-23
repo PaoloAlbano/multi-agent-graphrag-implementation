@@ -45,7 +45,11 @@ class CallLogger:
 
     def __init__(self, path: Path) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
-        self._file = path.open("a", encoding="utf-8")
+        # Truncate, not append: each CLI invocation is a complete, self-contained
+        # run, matching how `--trace` is opened in `evaluation/runner.py`. Appending
+        # to a stale file left over from an earlier invocation at the same path
+        # would silently mix two runs' calls together under the same qids.
+        self._file = path.open("w", encoding="utf-8")
 
     def log(
         self,
