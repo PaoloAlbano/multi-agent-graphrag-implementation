@@ -9,7 +9,28 @@ response the Query Evaluator made while scoring domain X").
 
 import json
 import time
+from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
+
+#: Set by callers that know which CypherBench question a call belongs to
+#: (`evaluation.runner`), read by `CallLogger.log()` below. `None` (the
+#: default) for callers with no such notion, e.g. `multigraphrag ask`. Each
+#: `asyncio` task gets its own copy of the context on creation, so concurrent
+#: questions never see each other's qid/domain/mode.
+_call_context: ContextVar[dict | None] = ContextVar("_call_context", default=None)
+
+
+@contextmanager
+def set_call_context(*, qid: str, domain: str, mode: str):
+    """Attach a CypherBench question's id/domain/mode to every call log entry
+    written while the context manager is active, so a run's `calls.jsonl` can
+    be filtered back to the exact question that produced each LLM call."""
+    token = _call_context.set({"qid": qid, "domain": domain, "mode": mode})
+    try:
+        yield
+    finally:
+        _call_context.reset(token)
 
 
 class CallLogger:
@@ -36,10 +57,14 @@ class CallLogger:
         response: str | None,
         error: str | None,
     ) -> None:
+        context = _call_context.get()
         record = {
             "ts": time.time(),
             "agent": agent,
             "model": model,
+            "qid": context["qid"] if context else None,
+            "domain": context["domain"] if context else None,
+            "mode": context["mode"] if context else None,
             "system_prompt": system_prompt,
             "user_prompt": user_prompt,
             "response": response,

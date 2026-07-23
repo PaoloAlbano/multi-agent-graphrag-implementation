@@ -1,0 +1,17 @@
+name: Validate results
+
+on:
+  pull_request:
+    paths:
+      - "results/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check results/**/{trace,calls}.jsonl and run.json are well-formed
+        run: python scripts/validate_results.py

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Run detail -- Multi-Agent GraphRAG results</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main>
+  <p class="back-link"><a href="index.html">&larr; back to overview</a></p>
+  <h1 id="title">Loading...</h1>
+  <p class="subtitle" id="subtitle"></p>
+
+  <div class="card">
+    <dl id="manifest"></dl>
+  </div>
+
+  <div class="controls">
+    <label><input type="checkbox" id="wrong-only" /> Wrong only</label>
+    <span class="note" id="count"></span>
+  </div>
+
+  <table id="questions">
+    <thead>
+      <tr><th>Question</th><th>Result</th><th>Similarity</th><th>Iterations</th><th></th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+<script type="module">
+import { fetchJSON, fetchJSONL, escapeHtml, formatPct, badge, qs } from "./app.js";
+
+const path = qs("path");
+if (!path) {
+  document.getElementById("title").textContent = "Missing ?path= parameter";
+  throw new Error("no path");
+}
+
+const base = `results/${path}/`;
+
+function renderManifest(manifest) {
+  const fields = [
+    ["Model", manifest.model],
+    ["Temperature", manifest.temperature],
+    ["Reasoning", manifest.reasoning_enabled === false ? "off"
+      : manifest.reasoning_effort ? `on (${manifest.reasoning_effort})`
+      : manifest.reasoning_enabled === null ? "not tracked (legacy run)" : "on"],
+    ["Split", manifest.split],
+    ["Graph variant", manifest.graph_variant],
+    ["Concurrency", manifest.concurrency ?? "not recorded"],
+  ];
+  document.getElementById("manifest").innerHTML = fields
+    .map(([k, v]) => `<dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd>`)
+    .join("");
+
+  if (manifest.migrated) {
+    document.getElementById("manifest").innerHTML += `
+      <dt>Note</dt><dd class="note">${escapeHtml(manifest.migration_note || "Migrated legacy run.")}</dd>`;
+  }
+}
+
+function questionRowHtml(item, index) {
+  const q = escapeHtml(item.question);
+  return `
+    <tr class="q-row" data-index="${index}" data-correct="${item.correct}">
+      <td>${q}</td>
+      <td>${badge(item.correct)}</td>
+      <td>${item.similarity != null ? item.similarity.toFixed(2) : "-"}</td>
+      <td>${item.iterations ?? "-"}</td>
+      <td><button class="toggle-btn" data-index="${index}">details</button></td>
+    </tr>
+    <tr class="detail-row" id="detail-${index}">
+      <td colspan="5"></td>
+    </tr>
+  `;
+}
+
+function detailHtml(item) {
+  const errorBlock = item.error
+    ? `<p><strong>Error:</strong> ${escapeHtml(item.error)}</p>`
+    : "";
+  return `
+    <p><strong>qid:</strong> <code>${escapeHtml(item.qid)}</code></p>
+    <p><strong>Gold Cypher</strong></p>
+    <pre>${escapeHtml(item.gold_cypher)}</pre>
+    <p><strong>Generated Cypher</strong></p>
+    <pre>${escapeHtml(item.generated_cypher || "(none)")}</pre>
+    <p><strong>Answer</strong></p>
+    <pre>${escapeHtml(item.answer || "(none)")}</pre>
+    ${errorBlock}
+    <button class="toggle-btn" data-calls-for="${escapeHtml(item.qid)}">show LLM calls</button>
+    <div class="calls-container" data-calls-container-for="${escapeHtml(item.qid)}"></div>
+  `;
+}
+
+async function renderCalls(qid, container, manifest) {
+  if (container.dataset.loaded) return;
+  container.dataset.loaded = "1";
+  if (!manifest.calls_log) {
+    container.innerHTML = '<p class="note">No call log recorded for this run.</p>';
+    return;
+  }
+  try {
+    const calls = await fetchJSONL(base + manifest.calls_log);
+    if (!manifest.calls_log_scoped) {
+      const note = manifest.calls_log_note || "This run's call log cannot be attributed to individual questions.";
+      const link = base + manifest.calls_log;
+      container.innerHTML = `<p class="note">${escapeHtml(note)} <a href="${link}">Open the raw combined transcript</a> (${calls.length} calls, all questions/domains in this legacy run).</p>`;
+      return;
+    }
+    const matching = calls.filter((c) => c.qid === qid);
+    if (!matching.length) {
+      container.innerHTML = '<p class="note">No matching calls found.</p>';
+      return;
+    }
+    container.innerHTML = matching
+      .map(
+        (c) => `
+        <div class="call">
+          <div class="call-meta">${escapeHtml(c.agent)} &middot; ${escapeHtml(c.model)}${c.error ? " &middot; <strong>error</strong>" : ""}</div>
+          <p><strong>System prompt</strong></p><pre>${escapeHtml(c.system_prompt)}</pre>
+          <p><strong>User prompt</strong></p><pre>${escapeHtml(c.user_prompt)}</pre>
+          <p><strong>${c.error ? "Error" : "Response"}</strong></p><pre>${escapeHtml(c.error || c.response)}</pre>
+        </div>`
+      )
+      .join("");
+  } catch (err) {
+    container.innerHTML = `<p class="note">Failed to load call log: ${escapeHtml(String(err))}</p>`;
+  }
+}
+
+async function main() {
+  const [manifest, items] = await Promise.all([
+    fetchJSON(base + "run.json"),
+    fetchJSONL(base + "trace.jsonl"),
+  ]);
+
+  const entry = manifest.results[0] || {};
+  document.getElementById("title").textContent = `${entry.domain || ""} / ${entry.mode || ""}`;
+  document.getElementById("subtitle").textContent = `${manifest.model} -- ${formatPct(entry.accuracy)} accuracy (${entry.correct}/${entry.total})`;
+  renderManifest(manifest);
+
+  const rowsEl = document.getElementById("rows");
+  const wrongOnly = document.getElementById("wrong-only");
+  const countEl = document.getElementById("count");
+
+  function render() {
+    const filtered = wrongOnly.checked ? items.filter((i) => !i.correct) : items;
+    countEl.textContent = `${filtered.length} of ${items.length} questions`;
+    rowsEl.innerHTML = filtered.map((item, i) => questionRowHtml(item, i)).join("");
+
+    rowsEl.querySelectorAll("button[data-index]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const idx = btn.dataset.index;
+        const detailRow = document.getElementById(`detail-${idx}`);
+        const isOpen = detailRow.classList.toggle("open");
+        if (isOpen && !detailRow.dataset.rendered) {
+          detailRow.dataset.rendered = "1";
+          detailRow.querySelector("td").innerHTML = detailHtml(filtered[idx]);
+          const callsBtn = detailRow.querySelector("button[data-calls-for]");
+          callsBtn.addEventListener("click", () => {
+            const container = detailRow.querySelector("[data-calls-container-for]");
+            renderCalls(callsBtn.dataset.callsFor, container, manifest);
+          });
+        }
+      });
+    });
+  }
+
+  wrongOnly.addEventListener("change", render);
+  render();
+}
+
+main().catch((err) => {
+  document.getElementById("title").textContent = "Failed to load run";
+  document.getElementById("subtitle").textContent = String(err);
+});
+</script>
+</body>
+</html>

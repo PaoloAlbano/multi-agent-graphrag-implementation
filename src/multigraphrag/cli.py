@@ -1,7 +1,10 @@
 """Command-line entry point for the Multi-Agent GraphRAG pipeline."""
 
 import asyncio
+import json
 import logging
+import os
+from datetime import UTC, datetime
 from pathlib import Path
 
 import typer
@@ -143,6 +146,16 @@ def cypherbench_evaluate(
             "distinct from --trace, which records one row per question."
         ),
     ),
+    run_manifest: Path = typer.Option(
+        None,
+        "--run-manifest",
+        help=(
+            "Optional path to write a JSON manifest describing this run (model, temperature, "
+            "reasoning settings, split/domains/modes, graph variant, concurrency, limit, and "
+            "per-domain/mode accuracy) -- self-describing metadata for a published results/ "
+            "directory, so recap/site tooling never has to parse file/directory names."
+        ),
+    ),
     verbose: bool = typer.Option(False, "--verbose", "-v"),
 ) -> None:
     """Run the Single-vs-Agentic accuracy comparison on a CypherBench split/subset."""
@@ -218,6 +231,41 @@ def cypherbench_evaluate(
             console.print(f"Trace written to [bold]{trace}[/bold]")
         if call_log:
             console.print(f"Call log written to [bold]{call_log}[/bold]")
+
+        if run_manifest:
+            manifest = {
+                "model": settings.llm.model,
+                "temperature": settings.llm.temperature,
+                "reasoning_enabled": settings.llm.reasoning_enabled,
+                "reasoning_effort": settings.llm.reasoning_effort,
+                "max_tokens": settings.llm.max_tokens,
+                "structured_output_mode": settings.llm.structured_output_mode,
+                "split": split,
+                "domains": domains_seen,
+                "modes": list(modes),
+                "graph_variant": graph_variant,
+                "concurrency": (concurrency if concurrency is not None else settings.evaluation.concurrency),
+                "limit": limit,
+                "use_judge": judge is not None,
+                "calls_log": (
+                    str(Path(os.path.relpath(call_log, run_manifest.parent))) if call_log else None
+                ),
+                "calls_log_scoped": True if call_log else None,
+                "generated_at": datetime.now(UTC).isoformat(),
+                "results": [
+                    {
+                        "domain": summary.domain,
+                        "mode": summary.mode,
+                        "total": summary.total,
+                        "correct": summary.correct,
+                        "accuracy": summary.accuracy,
+                    }
+                    for summary in report.per_domain_mode
+                ],
+            }
+            run_manifest.parent.mkdir(parents=True, exist_ok=True)
+            run_manifest.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+            console.print(f"Run manifest written to [bold]{run_manifest}[/bold]")
 
     asyncio.run(_run())
 

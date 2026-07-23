@@ -31,7 +31,7 @@ from multigraphrag.evaluation.judge import LLMJudge
 from multigraphrag.evaluation.matching import score_records_against_gold
 from multigraphrag.graph.memgraph_client import MemgraphClient
 from multigraphrag.graph.models import GraphSchema
-from multigraphrag.llm.call_log import CallLogger
+from multigraphrag.llm.call_log import CallLogger, set_call_context
 from multigraphrag.workflow.pipeline import GraphRAGPipeline
 from multigraphrag.workflow.single_pass import SinglePassRunner
 
@@ -112,8 +112,9 @@ async def _run_agentic_item(
     judge: LLMJudge | None = None,
 ) -> EvalItemResult:
     try:
-        result = await pipeline.ask(task.nl_question, schema_text=schema_text)
-        similarity, correct, judge_reasoning = await _score(task, result.records, result.answer, judge)
+        with set_call_context(qid=task.qid, domain=domain, mode="agentic"):
+            result = await pipeline.ask(task.nl_question, schema_text=schema_text)
+            similarity, correct, judge_reasoning = await _score(task, result.records, result.answer, judge)
         return EvalItemResult(
             qid=task.qid,
             domain=domain,
@@ -154,8 +155,9 @@ async def _run_single_pass_item(
     judge: LLMJudge | None = None,
 ) -> EvalItemResult:
     try:
-        result = await runner.ask(task.nl_question, schema_text)
-        similarity, correct, judge_reasoning = await _score(task, result.records, result.answer, judge)
+        with set_call_context(qid=task.qid, domain=domain, mode="single"):
+            result = await runner.ask(task.nl_question, schema_text)
+            similarity, correct, judge_reasoning = await _score(task, result.records, result.answer, judge)
         return EvalItemResult(
             qid=task.qid,
             domain=domain,

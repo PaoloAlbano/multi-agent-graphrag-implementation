@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-07-21T07:58:46.460639+00:00",
+  "groups": [
+    {
+      "model": "Qwen/Qwen3.5-27B",
+      "model_slug": "Qwen--Qwen3.5-27B",
+      "config": "temp1.0-reasoning-untracked",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 22,
+            "accuracy": 0.55,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 20,
+            "accuracy": 0.5,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 25,
+            "accuracy": 0.625,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 18,
+            "accuracy": 0.45,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.545,
+        "agentic": 0.595
+      }
+    }
+  ]
+}

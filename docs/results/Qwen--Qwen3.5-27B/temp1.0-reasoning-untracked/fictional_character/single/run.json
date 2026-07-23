@@ -1,0 +1,38 @@
+{
+  "model": "Qwen/Qwen3.5-27B",
+  "temperature": 1.0,
+  "temperature_source": "inferred_from_filename ('_t1' suffix)",
+  "reasoning_enabled": null,
+  "reasoning_effort": null,
+  "reasoning_note": "predates reasoning_enabled/reasoning_effort config support in this codebase",
+  "max_tokens": null,
+  "structured_output_mode": null,
+  "split": "test",
+  "domains": [
+    "fictional_character"
+  ],
+  "modes": [
+    "single"
+  ],
+  "graph_variant": "simplekg",
+  "graph_variant_source": "assumed from session convention (every model-comparison run in this development session used the full-scale simplekg variant); not recorded in the legacy run itself",
+  "concurrency": null,
+  "concurrency_note": "not recorded for legacy runs",
+  "limit": 40,
+  "use_judge": false,
+  "calls_log": "../../_legacy-calls/test4-run-calls.jsonl",
+  "calls_log_scoped": false,
+  "calls_log_note": "Combined transcript for the whole legacy run (all domains/modes in this batch); predates per-question qid tagging, so it cannot be filtered down to this specific domain/mode/question.",
+  "generated_at": "2026-07-21T07:57:59.681376+00:00",
+  "migrated": true,
+  "migration_note": "Migrated from data/cypherbench/trace_test4_qwen35_t1.jsonl + data/cypherbench/calls/calls_test4_qwen35_t1.jsonl; confirmed zero rows with a non-null error before migration.",
+  "results": [
+    {
+      "domain": "fictional_character",
+      "mode": "single",
+      "total": 40,
+      "correct": 27,
+      "accuracy": 0.675
+    }
+  ]
+}

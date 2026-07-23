@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Multi-Agent GraphRAG -- CypherBench results</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main>
+  <h1>Multi-Agent GraphRAG -- CypherBench results</h1>
+  <p class="subtitle">
+    Single-pass baseline vs. the full multi-agent self-correction pipeline,
+    per model and CypherBench domain. Generated from this repo's
+    <code>results/**/run.json</code> manifests -- see the repo README for how
+    to reproduce a run or submit a new model's results via PR.
+  </p>
+  <p id="generated-at" class="note"></p>
+  <div id="groups"></div>
+</main>
+<script type="module">
+import { fetchJSON, formatPct, formatDelta, escapeHtml } from "./app.js";
+
+function renderGroup(group) {
+  const domains = Object.entries(group.domains).sort(([a], [b]) => a.localeCompare(b));
+  const rows = domains
+    .map(([domain, modes]) => {
+      const single = modes.single;
+      const agentic = modes.agentic;
+      const singleCell = single
+        ? `<a href="run.html?path=${encodeURIComponent(single.path)}">${formatPct(single.accuracy)}</a>`
+        : "-";
+      const agenticCell = agentic
+        ? `<a href="run.html?path=${encodeURIComponent(agentic.path)}">${formatPct(agentic.accuracy)}</a>`
+        : "-";
+      const delta = formatDelta(single?.accuracy, agentic?.accuracy);
+      return `<tr><td>${escapeHtml(domain)}</td><td>${singleCell}</td><td>${agenticCell}</td><td>${delta}</td></tr>`;
+    })
+    .join("");
+
+  const avgDelta = formatDelta(group.average.single, group.average.agentic);
+
+  return `
+    <section>
+      <h2>${escapeHtml(group.model)} <span class="note">(${escapeHtml(group.config)})</span></h2>
+      <table>
+        <thead><tr><th>Domain</th><th>single</th><th>agentic</th><th>delta</th></tr></thead>
+        <tbody>
+          ${rows}
+          <tr><td><strong>Average</strong></td>
+              <td><strong>${formatPct(group.average.single)}</strong></td>
+              <td><strong>${formatPct(group.average.agentic)}</strong></td>
+              <td><strong>${avgDelta}</strong></td></tr>
+        </tbody>
+      </table>
+    </section>
+  `;
+}
+
+async function main() {
+  const data = await fetchJSON("data.json");
+  document.getElementById("generated-at").textContent = `Generated ${data.generated_at}`;
+  const container = document.getElementById("groups");
+  if (!data.groups.length) {
+    container.innerHTML = '<p class="note">No results yet -- submit a PR under results/.</p>';
+    return;
+  }
+  container.innerHTML = data.groups.map(renderGroup).join("");
+}
+
+main().catch((err) => {
+  document.getElementById("groups").innerHTML =
+    `<p class="note">Failed to load results: ${err}</p>`;
+});
+</script>
+</body>
+</html>

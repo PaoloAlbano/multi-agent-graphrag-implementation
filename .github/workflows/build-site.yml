@@ -1,0 +1,34 @@
+name: Regenerate results recap + site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "results/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate results/RECAP.md + results/recap.json
+        run: python scripts/build_recap.py
+      - name: Regenerate docs/ (GitHub Pages)
+        run: python scripts/build_site.py
+      - name: Commit regenerated files, if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/RECAP.md results/recap.json docs/
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Regenerate recap + site from results/"
+            git push
+          fi
