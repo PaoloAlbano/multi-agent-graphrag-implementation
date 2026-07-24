@@ -11,6 +11,10 @@ natural language answer.
 This is a from-scratch implementation based on reading the paper; it is not
 affiliated with the original authors and does not reuse their code.
 
+**[Browse benchmark results](https://paoloalbano.github.io/multi-agent-graphrag-implementation/)**
+-- per-model, per-domain Single-vs-Agentic accuracy, with drill-down into
+individual questions and (for new runs) their full LLM call transcripts.
+
 ## Architecture
 
 Seven cooperating agents plus a graph database executor, driven by a plain

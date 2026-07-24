@@ -1,0 +1,31 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0.0,
+  "reasoning_enabled": false,
+  "reasoning_effort": "medium",
+  "max_tokens": 16000,
+  "structured_output_mode": "json_schema",
+  "split": "train",
+  "domains": [
+    "biology"
+  ],
+  "modes": [
+    "single"
+  ],
+  "graph_variant": "simplekg",
+  "concurrency": 40,
+  "limit": 40,
+  "use_judge": false,
+  "calls_log": "calls.jsonl",
+  "calls_log_scoped": true,
+  "generated_at": "2026-07-24T00:24:47.175282+00:00",
+  "results": [
+    {
+      "domain": "biology",
+      "mode": "single",
+      "total": 40,
+      "correct": 19,
+      "accuracy": 0.475
+    }
+  ]
+}

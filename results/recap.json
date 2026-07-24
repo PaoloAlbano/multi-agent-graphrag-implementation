@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T18:54:14.435924+00:00",
+  "generated_at": "2026-07-24T16:07:36.535289+00:00",
   "groups": [
     {
       "model": "Qwen/Qwen3.5-27B",
@@ -80,6 +80,990 @@
       "average": {
         "single": 0.545,
         "agentic": 0.595
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "model_slug": "openai--gpt-oss-120b",
+      "config": "temp0.0-reasoning-medium",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 18,
+            "accuracy": 0.45,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 25,
+            "accuracy": 0.625,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 16,
+            "accuracy": 0.4,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 15,
+            "accuracy": 0.375,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.605,
+        "agentic": 0.55
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "model_slug": "openai--gpt-oss-120b",
+      "config": "temp0.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 20,
+            "accuracy": 0.5,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 21,
+            "accuracy": 0.525,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 12,
+            "accuracy": 0.3,
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.585,
+        "agentic": 0.5549999999999999
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "model_slug": "openai--gpt-oss-120b",
+      "config": "temp1.0-reasoning-medium",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 17,
+            "accuracy": 0.425,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 19,
+            "accuracy": 0.475,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 25,
+            "accuracy": 0.625,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 13,
+            "accuracy": 0.325,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.545,
+        "agentic": 0.545
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "model_slug": "openai--gpt-oss-120b",
+      "config": "temp1.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 18,
+            "accuracy": 0.45,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 20,
+            "accuracy": 0.5,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 17,
+            "accuracy": 0.425,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.58,
+        "agentic": 0.5599999999999999
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "model_slug": "openai--gpt-oss-20b",
+      "config": "temp0.0-reasoning-medium",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 22,
+            "accuracy": 0.55,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/single"
+          }
+        },
+        "biology": {
+          "agentic": {
+            "total": 40,
+            "correct": 17,
+            "accuracy": 0.425,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 19,
+            "accuracy": 0.475,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 21,
+            "accuracy": 0.525,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 25,
+            "accuracy": 0.625,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 31,
+            "accuracy": 0.775,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 17,
+            "accuracy": 0.425,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/single"
+          }
+        },
+        "movie": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/single"
+          }
+        },
+        "nba": {
+          "agentic": {
+            "total": 40,
+            "correct": 31,
+            "accuracy": 0.775,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/single"
+          }
+        },
+        "politics": {
+          "agentic": {
+            "total": 40,
+            "correct": 12,
+            "accuracy": 0.3,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 12,
+            "accuracy": 0.3,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/single"
+          }
+        },
+        "soccer": {
+          "agentic": {
+            "total": 40,
+            "correct": 15,
+            "accuracy": 0.375,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 15,
+            "accuracy": 0.375,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/single"
+          }
+        },
+        "terrorist_attack": {
+          "agentic": {
+            "total": 40,
+            "correct": 30,
+            "accuracy": 0.75,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.5795454545454546,
+        "agentic": 0.5386363636363636
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "model_slug": "openai--gpt-oss-20b",
+      "config": "temp0.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 21,
+            "accuracy": 0.525,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/single"
+          }
+        },
+        "biology": {
+          "agentic": {
+            "total": 40,
+            "correct": 18,
+            "accuracy": 0.45,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 19,
+            "accuracy": 0.475,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 30,
+            "accuracy": 0.75,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 17,
+            "accuracy": 0.425,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 15,
+            "accuracy": 0.375,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/single"
+          }
+        },
+        "movie": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/single"
+          }
+        },
+        "nba": {
+          "agentic": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/single"
+          }
+        },
+        "politics": {
+          "agentic": {
+            "total": 40,
+            "correct": 10,
+            "accuracy": 0.25,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 11,
+            "accuracy": 0.275,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/single"
+          }
+        },
+        "soccer": {
+          "agentic": {
+            "total": 40,
+            "correct": 16,
+            "accuracy": 0.4,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 15,
+            "accuracy": 0.375,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/single"
+          }
+        },
+        "terrorist_attack": {
+          "agentic": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.5659090909090909,
+        "agentic": 0.5636363636363636
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "model_slug": "openai--gpt-oss-20b",
+      "config": "temp1.0-reasoning-medium",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 22,
+            "accuracy": 0.55,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 21,
+            "accuracy": 0.525,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/single"
+          }
+        },
+        "biology": {
+          "agentic": {
+            "total": 40,
+            "correct": 19,
+            "accuracy": 0.475,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 18,
+            "accuracy": 0.45,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 30,
+            "accuracy": 0.75,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 31,
+            "accuracy": 0.775,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 33,
+            "accuracy": 0.825,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 19,
+            "accuracy": 0.475,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/single"
+          }
+        },
+        "movie": {
+          "agentic": {
+            "total": 40,
+            "correct": 25,
+            "accuracy": 0.625,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/single"
+          }
+        },
+        "nba": {
+          "agentic": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 21,
+            "accuracy": 0.525,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/single"
+          }
+        },
+        "politics": {
+          "agentic": {
+            "total": 40,
+            "correct": 10,
+            "accuracy": 0.25,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 11,
+            "accuracy": 0.275,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/single"
+          }
+        },
+        "soccer": {
+          "agentic": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/single"
+          }
+        },
+        "terrorist_attack": {
+          "agentic": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.5431818181818181,
+        "agentic": 0.5659090909090909
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "model_slug": "openai--gpt-oss-20b",
+      "config": "temp1.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 20,
+            "accuracy": 0.5,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 21,
+            "accuracy": 0.525,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/single"
+          }
+        },
+        "biology": {
+          "agentic": {
+            "total": 40,
+            "correct": 16,
+            "accuracy": 0.4,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 18,
+            "accuracy": 0.45,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/single"
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/single"
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/single"
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/single"
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 16,
+            "accuracy": 0.4,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/single"
+          }
+        },
+        "movie": {
+          "agentic": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/single"
+          }
+        },
+        "nba": {
+          "agentic": {
+            "total": 40,
+            "correct": 26,
+            "accuracy": 0.65,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/single"
+          }
+        },
+        "politics": {
+          "agentic": {
+            "total": 40,
+            "correct": 10,
+            "accuracy": 0.25,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 11,
+            "accuracy": 0.275,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/single"
+          }
+        },
+        "soccer": {
+          "agentic": {
+            "total": 40,
+            "correct": 16,
+            "accuracy": 0.4,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 15,
+            "accuracy": 0.375,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/single"
+          }
+        },
+        "terrorist_attack": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/agentic"
+          },
+          "single": {
+            "total": 40,
+            "correct": 31,
+            "accuracy": 0.775,
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/single"
+          }
+        }
+      },
+      "average": {
+        "single": 0.5659090909090909,
+        "agentic": 0.5340909090909091
       }
     }
   ]

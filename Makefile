@@ -93,10 +93,15 @@ cypherbench-eval-agentic: ## Shortcut: only the full Multi-Agent GraphRAG pipeli
 # cypherbench-eval target above, meant to be committed to results/ via a PR.
 #
 # Examples:
+#   make cypherbench-download-domain                          # all 11 domains
 #   make cypherbench-download-domain DOMAIN=geography
+#   make run-single  MODEL=Qwen/Qwen3.5-27B                    # all 11 domains
 #   make run-single  MODEL=Qwen/Qwen3.5-27B DOMAIN=geography
+#   make run-single  MODEL=Qwen/Qwen3.5-27B DOMAIN=geography,art
 #   make run-agentic MODEL=Qwen/Qwen3.5-27B DOMAIN=geography TEMP=1.0 REASONING=off
 CYPHERBENCH_TRAIN_ONLY_DOMAINS := art biology soccer terrorist_attack
+# Must mirror CYPHERBENCH_DOMAINS in src/multigraphrag/evaluation/cypherbench.py.
+ALL_CYPHERBENCH_DOMAINS := art biology company fictional_character flight_accident geography movie nba politics soccer terrorist_attack
 
 RESULTS_DIR := results
 MODEL :=
@@ -108,36 +113,39 @@ RUN_CONCURRENCY := 2
 RUN_GRAPH_VARIANT := simplekg
 
 MODEL_SLUG := $(subst /,--,$(MODEL))
-RUN_SPLIT := $(if $(filter $(DOMAIN),$(CYPHERBENCH_TRAIN_ONLY_DOMAINS)),train,test)
-RUN_CONFIG_DIR := $(RESULTS_DIR)/$(MODEL_SLUG)/temp$(TEMP)-reasoning-$(REASONING)/$(DOMAIN)
 RUN_ENV = MULTIGRAPHRAG_LLM__MODEL=$(MODEL) MULTIGRAPHRAG_LLM__TEMPERATURE=$(TEMP) $(if $(filter off,$(REASONING)),MULTIGRAPHRAG_LLM__REASONING_ENABLED=false,MULTIGRAPHRAG_LLM__REASONING_ENABLED=true MULTIGRAPHRAG_LLM__REASONING_EFFORT=$(REASONING))
 
-cypherbench-download-domain: ## Download one full-scale CypherBench domain, e.g. make cypherbench-download-domain DOMAIN=geography
-	@test -n "$(DOMAIN)" || (echo "DOMAIN is required, e.g. DOMAIN=geography" && exit 1)
+cypherbench-download-domain: ## Download one/some/all full-scale CypherBench domain(s). DOMAIN=geography or DOMAIN=geography,art or omit for all 11.
 	$(UV) run multigraphrag cypherbench download --dest $(CYPHERBENCH_DIR) \
-		--domains $(DOMAIN) --graph-variant $(RUN_GRAPH_VARIANT)
+		--graph-variant $(RUN_GRAPH_VARIANT) \
+		$(if $(DOMAIN),--domains $(DOMAIN),)
 
-run-single: ## Run the single-pass baseline for one model/domain into results/, e.g. make run-single MODEL=Qwen/Qwen3.5-27B DOMAIN=geography
+# Shared recipe body for run-single/run-agentic: loops over DOMAIN (comma-
+# separated, or every domain when unset), deriving each domain's split
+# (train-only domains vs. the rest) and results/ leaf path in the shell,
+# since that has to happen per-domain once DOMAIN can name more than one.
+define RUN_EVAL_LOOP
 	@test -n "$(MODEL)" || (echo "MODEL is required, e.g. MODEL=Qwen/Qwen3.5-27B" && exit 1)
-	@test -n "$(DOMAIN)" || (echo "DOMAIN is required, e.g. DOMAIN=geography" && exit 1)
-	$(RUN_ENV) $(UV) run multigraphrag cypherbench evaluate --dest $(CYPHERBENCH_DIR) \
-		--split $(RUN_SPLIT) --domains $(DOMAIN) --mode single \
-		--graph-variant $(RUN_GRAPH_VARIANT) --concurrency $(RUN_CONCURRENCY) \
-		$(if $(LIMIT),--limit $(LIMIT),) \
-		--trace $(RUN_CONFIG_DIR)/single/trace.jsonl \
-		--call-log $(RUN_CONFIG_DIR)/single/calls.jsonl \
-		--run-manifest $(RUN_CONFIG_DIR)/single/run.json
+	@domains="$(DOMAIN)"; \
+	if [ -z "$$domains" ]; then domains="$(ALL_CYPHERBENCH_DOMAINS)"; else domains=$$(echo "$$domains" | tr ',' ' '); fi; \
+	for d in $$domains; do \
+		case " $(CYPHERBENCH_TRAIN_ONLY_DOMAINS) " in *" $$d "*) split=train ;; *) split=test ;; esac; \
+		out="$(RESULTS_DIR)/$(MODEL_SLUG)/temp$(TEMP)-reasoning-$(REASONING)/$$d/$(1)"; \
+		echo "=== $$d ($(1), split=$$split) ==="; \
+		$(RUN_ENV) $(UV) run multigraphrag cypherbench evaluate --dest $(CYPHERBENCH_DIR) \
+			--split $$split --domains $$d --mode $(1) \
+			--graph-variant $(RUN_GRAPH_VARIANT) --concurrency $(RUN_CONCURRENCY) \
+			$(if $(LIMIT),--limit $(LIMIT),) \
+			--trace $$out/trace.jsonl --call-log $$out/calls.jsonl --run-manifest $$out/run.json \
+			|| exit 1; \
+	done
+endef
 
-run-agentic: ## Run the full Multi-Agent GraphRAG pipeline for one model/domain into results/, e.g. make run-agentic MODEL=Qwen/Qwen3.5-27B DOMAIN=geography
-	@test -n "$(MODEL)" || (echo "MODEL is required, e.g. MODEL=Qwen/Qwen3.5-27B" && exit 1)
-	@test -n "$(DOMAIN)" || (echo "DOMAIN is required, e.g. DOMAIN=geography" && exit 1)
-	$(RUN_ENV) $(UV) run multigraphrag cypherbench evaluate --dest $(CYPHERBENCH_DIR) \
-		--split $(RUN_SPLIT) --domains $(DOMAIN) --mode agentic \
-		--graph-variant $(RUN_GRAPH_VARIANT) --concurrency $(RUN_CONCURRENCY) \
-		$(if $(LIMIT),--limit $(LIMIT),) \
-		--trace $(RUN_CONFIG_DIR)/agentic/trace.jsonl \
-		--call-log $(RUN_CONFIG_DIR)/agentic/calls.jsonl \
-		--run-manifest $(RUN_CONFIG_DIR)/agentic/run.json
+run-single: ## Run the single-pass baseline into results/. DOMAIN=geography or geography,art or omit for all 11 domains.
+	$(call RUN_EVAL_LOOP,single)
+
+run-agentic: ## Run the full Multi-Agent GraphRAG pipeline into results/. DOMAIN=geography or geography,art or omit for all 11 domains.
+	$(call RUN_EVAL_LOOP,agentic)
 
 recap: ## Regenerate results/RECAP.md + results/recap.json from all results/**/run.json
 	$(UV) run python scripts/build_recap.py

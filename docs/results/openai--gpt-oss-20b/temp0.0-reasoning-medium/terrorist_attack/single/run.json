@@ -1,0 +1,31 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0.0,
+  "reasoning_enabled": true,
+  "reasoning_effort": "medium",
+  "max_tokens": 16000,
+  "structured_output_mode": "json_schema",
+  "split": "train",
+  "domains": [
+    "terrorist_attack"
+  ],
+  "modes": [
+    "single"
+  ],
+  "graph_variant": "simplekg",
+  "concurrency": 20,
+  "limit": 40,
+  "use_judge": false,
+  "calls_log": "calls.jsonl",
+  "calls_log_scoped": true,
+  "generated_at": "2026-07-23T21:30:33.410292+00:00",
+  "results": [
+    {
+      "domain": "terrorist_attack",
+      "mode": "single",
+      "total": 40,
+      "correct": 29,
+      "accuracy": 0.725
+    }
+  ]
+}
