@@ -1,0 +1,31 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.0,
+  "reasoning_enabled": true,
+  "reasoning_effort": "medium",
+  "max_tokens": 16000,
+  "structured_output_mode": "json_schema",
+  "split": "train",
+  "domains": [
+    "art"
+  ],
+  "modes": [
+    "agentic"
+  ],
+  "graph_variant": "simplekg",
+  "concurrency": 40,
+  "limit": 40,
+  "use_judge": false,
+  "calls_log": "calls.jsonl",
+  "calls_log_scoped": true,
+  "generated_at": "2026-07-24T09:05:16.460329+00:00",
+  "results": [
+    {
+      "domain": "art",
+      "mode": "agentic",
+      "total": 40,
+      "correct": 18,
+      "accuracy": 0.45
+    }
+  ]
+}
