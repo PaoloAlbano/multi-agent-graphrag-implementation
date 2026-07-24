@@ -1,6 +1,50 @@
 # Results recap
 
-_Generated 2026-07-24T16:13:52.024931+00:00_
+_Generated 2026-07-24T21:00:15.278758+00:00_
+
+## Qwen/Qwen3.5-27B (temp0.0-reasoning-medium)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 52.5% | 47.5% | -5.0% |
+| company | 60.0% | 67.5% | +7.5% |
+| fictional_character | 60.0% | 67.5% | +7.5% |
+| flight_accident | 62.5% | 45.0% | -17.5% |
+| geography | 35.0% | 40.0% | +5.0% |
+| **Average** | 54.0% | 53.5% | -0.5% |
+
+## Qwen/Qwen3.5-27B (temp0.0-reasoning-off)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 32.5% | 42.5% | +10.0% |
+| company | 40.0% | 55.0% | +15.0% |
+| fictional_character | 42.5% | 35.0% | -7.5% |
+| flight_accident | 62.5% | 62.5% | +0.0% |
+| geography | 27.5% | 40.0% | +12.5% |
+| **Average** | 41.0% | 47.0% | +6.0% |
+
+## Qwen/Qwen3.5-27B (temp1.0-reasoning-medium)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 47.5% | 57.5% | +10.0% |
+| company | 62.5% | 60.0% | -2.5% |
+| fictional_character | 57.5% | 55.0% | -2.5% |
+| flight_accident | 57.5% | 47.5% | -10.0% |
+| geography | 35.0% | 35.0% | +0.0% |
+| **Average** | 52.0% | 51.0% | -1.0% |
+
+## Qwen/Qwen3.5-27B (temp1.0-reasoning-off)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 37.5% | 30.0% | -7.5% |
+| company | 40.0% | 45.0% | +5.0% |
+| fictional_character | 40.0% | 42.5% | +2.5% |
+| flight_accident | 57.5% | 42.5% | -15.0% |
+| geography | 25.0% | 30.0% | +5.0% |
+| **Average** | 40.0% | 38.0% | -2.0% |
 
 ## Qwen/Qwen3.5-27B (temp1.0-reasoning-untracked)
 
