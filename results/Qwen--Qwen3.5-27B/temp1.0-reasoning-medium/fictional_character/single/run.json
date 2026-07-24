@@ -1,0 +1,31 @@
+{
+  "model": "Qwen/Qwen3.5-27B",
+  "temperature": 1.0,
+  "reasoning_enabled": true,
+  "reasoning_effort": "medium",
+  "max_tokens": 16000,
+  "structured_output_mode": "json_schema",
+  "split": "test",
+  "domains": [
+    "fictional_character"
+  ],
+  "modes": [
+    "single"
+  ],
+  "graph_variant": "simplekg",
+  "concurrency": 10,
+  "limit": 40,
+  "use_judge": false,
+  "calls_log": "calls.jsonl",
+  "calls_log_scoped": true,
+  "generated_at": "2026-07-24T18:39:28.862344+00:00",
+  "results": [
+    {
+      "domain": "fictional_character",
+      "mode": "single",
+      "total": 40,
+      "correct": 23,
+      "accuracy": 0.575
+    }
+  ]
+}
