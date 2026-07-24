@@ -1,6 +1,6 @@
 # Results recap
 
-_Generated 2026-07-24T12:59:17.847434+00:00_
+_Generated 2026-07-24T16:07:36.535289+00:00_
 
 ## Qwen/Qwen3.5-27B (temp1.0-reasoning-untracked)
 
