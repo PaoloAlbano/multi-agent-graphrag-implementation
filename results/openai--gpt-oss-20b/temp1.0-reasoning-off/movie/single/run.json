@@ -1,0 +1,31 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "temperature": 1.0,
+  "reasoning_enabled": false,
+  "reasoning_effort": "medium",
+  "max_tokens": 16000,
+  "structured_output_mode": "json_schema",
+  "split": "test",
+  "domains": [
+    "movie"
+  ],
+  "modes": [
+    "single"
+  ],
+  "graph_variant": "simplekg",
+  "concurrency": 40,
+  "limit": 40,
+  "use_judge": false,
+  "calls_log": "calls.jsonl",
+  "calls_log_scoped": true,
+  "generated_at": "2026-07-24T06:08:28.177472+00:00",
+  "results": [
+    {
+      "domain": "movie",
+      "mode": "single",
+      "total": 40,
+      "correct": 26,
+      "accuracy": 0.65
+    }
+  ]
+}
