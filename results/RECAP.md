@@ -1,6 +1,6 @@
 # Results recap
 
-_Generated 2026-07-25T08:52:49.575504+00:00_
+_Generated 2026-07-25T11:31:17.553551+00:00_
 
 ## Qwen/Qwen3.5-27B (temp0.0-reasoning-medium)
 
@@ -61,12 +61,45 @@ _Generated 2026-07-25T08:52:49.575504+00:00_
 
 | Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |
 |---|---|---|---|---|---|
-| art | 57.5% | - | - | 2.3 | - |
-| company | 62.5% | - | - | 2.4 | - |
-| fictional_character | 60.0% | - | - | 2.5 | - |
-| flight_accident | 85.0% | - | - | 2.3 | - |
-| geography | 35.0% | - | - | 2.8 | - |
-| **Average** | 60.0% | - | - | 2.5 | - |
+| art | 57.5% | 60.0% | +2.5% | 2.3 | 7.2 |
+| company | 62.5% | 60.0% | -2.5% | 2.4 | 7.7 |
+| fictional_character | 60.0% | 67.5% | +7.5% | 2.5 | 7.6 |
+| flight_accident | 85.0% | 82.5% | -2.5% | 2.3 | 6.4 |
+| geography | 35.0% | 50.0% | +15.0% | 2.8 | 9.6 |
+| **Average** | 60.0% | 64.0% | +4.0% | 2.5 | 7.7 |
+
+## deepseek-ai/DeepSeek-V4-Flash (temp0.0-reasoning-off)
+
+| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |
+|---|---|---|---|---|---|
+| art | 57.5% | 57.5% | +0.0% | 2.4 | 7.3 |
+| company | 72.5% | 60.0% | -12.5% | 2.5 | 7.2 |
+| fictional_character | 57.5% | 75.0% | +17.5% | 2.4 | 7.8 |
+| flight_accident | 82.5% | 92.5% | +10.0% | 2.2 | 5.1 |
+| geography | 35.0% | 57.5% | +22.5% | 2.7 | 8.8 |
+| **Average** | 61.0% | 68.5% | +7.5% | 2.4 | 7.2 |
+
+## deepseek-ai/DeepSeek-V4-Flash (temp1.0-reasoning-medium)
+
+| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |
+|---|---|---|---|---|---|
+| art | 57.5% | 50.0% | -7.5% | 2.4 | 8.4 |
+| company | 70.0% | 60.0% | -10.0% | 2.6 | 8.6 |
+| fictional_character | 67.5% | 67.5% | +0.0% | 2.4 | 7.2 |
+| flight_accident | 77.5% | 77.5% | +0.0% | 2.4 | 5.4 |
+| geography | 32.5% | 45.0% | +12.5% | 3.0 | 9.8 |
+| **Average** | 61.0% | 60.0% | -1.0% | 2.5 | 7.9 |
+
+## deepseek-ai/DeepSeek-V4-Flash (temp1.0-reasoning-off)
+
+| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |
+|---|---|---|---|---|---|
+| art | 60.0% | 60.0% | +0.0% | 2.3 | 8.3 |
+| company | 67.5% | 60.0% | -7.5% | 2.5 | 7.8 |
+| fictional_character | 70.0% | 60.0% | -10.0% | 2.3 | 9.1 |
+| flight_accident | 90.0% | 87.5% | -2.5% | 2.4 | 5.8 |
+| geography | 30.0% | 42.5% | +12.5% | 2.6 | 9.8 |
+| **Average** | 63.5% | 62.0% | -1.5% | 2.4 | 8.1 |
 
 ## nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 (temp0.0-reasoning-medium)
 

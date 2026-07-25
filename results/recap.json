@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T08:52:49.575504+00:00",
+  "generated_at": "2026-07-25T11:31:17.553551+00:00",
   "groups": [
     {
       "model": "Qwen/Qwen3.5-27B",
@@ -472,6 +472,13 @@
       "config": "temp0.0-reasoning-medium",
       "domains": {
         "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 7.25
+          },
           "single": {
             "total": 40,
             "correct": 23,
@@ -481,6 +488,13 @@
           }
         },
         "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 7.7
+          },
           "single": {
             "total": 40,
             "correct": 25,
@@ -490,6 +504,13 @@
           }
         },
         "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 7.625
+          },
           "single": {
             "total": 40,
             "correct": 24,
@@ -499,6 +520,13 @@
           }
         },
         "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 33,
+            "accuracy": 0.825,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 6.375
+          },
           "single": {
             "total": 40,
             "correct": 34,
@@ -508,6 +536,13 @@
           }
         },
         "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 20,
+            "accuracy": 0.5,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 9.55
+          },
           "single": {
             "total": 40,
             "correct": 14,
@@ -519,9 +554,288 @@
       },
       "average": {
         "single": 0.6,
-        "agentic": null,
+        "agentic": 0.64,
         "llm_calls_single": 2.4699999999999998,
-        "llm_calls_agentic": null
+        "llm_calls_agentic": 7.7
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
+      "config": "temp0.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 7.275
+          },
+          "single": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.35
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 7.225
+          },
+          "single": {
+            "total": 40,
+            "correct": 29,
+            "accuracy": 0.725,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.45
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 30,
+            "accuracy": 0.75,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 7.775
+          },
+          "single": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.4
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 37,
+            "accuracy": 0.925,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 5.075
+          },
+          "single": {
+            "total": 40,
+            "correct": 33,
+            "accuracy": 0.825,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.25
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 8.75
+          },
+          "single": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.725
+          }
+        }
+      },
+      "average": {
+        "single": 0.61,
+        "agentic": 0.6849999999999999,
+        "llm_calls_single": 2.435,
+        "llm_calls_agentic": 7.220000000000001
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
+      "config": "temp1.0-reasoning-medium",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 20,
+            "accuracy": 0.5,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 8.425
+          },
+          "single": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.35
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 8.6
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.575
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 7.2
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.425
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 31,
+            "accuracy": 0.775,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 5.4
+          },
+          "single": {
+            "total": 40,
+            "correct": 31,
+            "accuracy": 0.775,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.4
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 18,
+            "accuracy": 0.45,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 9.75
+          },
+          "single": {
+            "total": 40,
+            "correct": 13,
+            "accuracy": 0.325,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.975
+          }
+        }
+      },
+      "average": {
+        "single": 0.61,
+        "agentic": 0.6,
+        "llm_calls_single": 2.545,
+        "llm_calls_agentic": 7.875
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
+      "config": "temp1.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 8.275
+          },
+          "single": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.325
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 7.8
+          },
+          "single": {
+            "total": 40,
+            "correct": 27,
+            "accuracy": 0.675,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.5
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 9.075
+          },
+          "single": {
+            "total": 40,
+            "correct": 28,
+            "accuracy": 0.7,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.325
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 40,
+            "correct": 35,
+            "accuracy": 0.875,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 5.8
+          },
+          "single": {
+            "total": 40,
+            "correct": 36,
+            "accuracy": 0.9,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.35
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 40,
+            "correct": 17,
+            "accuracy": 0.425,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 9.775
+          },
+          "single": {
+            "total": 40,
+            "correct": 12,
+            "accuracy": 0.3,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.575
+          }
+        }
+      },
+      "average": {
+        "single": 0.635,
+        "agentic": 0.62,
+        "llm_calls_single": 2.415,
+        "llm_calls_agentic": 8.145
       }
     },
     {
