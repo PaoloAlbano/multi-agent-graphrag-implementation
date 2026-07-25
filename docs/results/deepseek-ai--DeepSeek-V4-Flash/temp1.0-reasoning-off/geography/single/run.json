@@ -24,8 +24,9 @@
       "domain": "geography",
       "mode": "single",
       "total": 40,
-      "correct": 12,
-      "accuracy": 0.3
+      "correct": 13,
+      "accuracy": 0.325
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

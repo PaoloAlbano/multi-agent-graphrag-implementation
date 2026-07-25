@@ -119,7 +119,7 @@ def main() -> None:
     for trace_path in RESULTS_ROOT.rglob("trace.jsonl"):
         _validate_jsonl(trace_path, TRACE_REQUIRED_FIELDS, errors=errors, extra_check=_validate_trace_row)
 
-    for calls_path in RESULTS_ROOT.rglob("calls.jsonl"):
+    for calls_path in (*RESULTS_ROOT.rglob("calls.jsonl"), *RESULTS_ROOT.rglob("judge_calls.jsonl")):
         _validate_jsonl(calls_path, CALLS_REQUIRED_FIELDS, errors=errors)
 
     for run_json_path in RESULTS_ROOT.rglob("run.json"):

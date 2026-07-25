@@ -27,5 +27,6 @@
       "correct": 20,
       "accuracy": 0.5
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

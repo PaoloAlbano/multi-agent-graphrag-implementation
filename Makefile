@@ -156,6 +156,11 @@ site: ## Local preview only -- CI regenerates this on merge to main, don't commi
 validate-results: ## Check results/**/{trace,calls,run}.jsonl|json are well-formed
 	$(UV) run python scripts/validate_results.py
 
+rejudge: ## Re-score existing results/**/trace.jsonl with an LLM-as-a-judge, no pipeline re-run. PREFIX=Qwen--Qwen3.5-27B FORCE=1 (optional)
+	$(UV) run multigraphrag cypherbench rejudge --dest $(CYPHERBENCH_DIR) \
+		$(if $(PREFIX),--results-prefix $(PREFIX),) \
+		$(if $(FORCE),--force,)
+
 clean: ## Remove caches and build artifacts
 	rm -rf .venv .ruff_cache .pytest_cache dist build
 	find . -name '__pycache__' -type d -prune -exec rm -rf {} +

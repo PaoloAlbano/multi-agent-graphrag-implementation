@@ -12,9 +12,10 @@ from rich.console import Console
 from rich.markdown import Markdown
 from rich.table import Table
 
-from multigraphrag.composition import build_llm_judge, build_pipeline, load_settings
+from multigraphrag.composition import build_llm_judge, build_pipeline, build_self_judge, load_settings
 from multigraphrag.config import Settings
 from multigraphrag.evaluation.cypherbench import CYPHERBENCH_DOMAINS, download_cypherbench
+from multigraphrag.evaluation.rejudge import find_leaves, read_leaf_model, rejudge_leaf
 from multigraphrag.evaluation.runner import ALL_MODES, EvalMode, run_evaluation
 from multigraphrag.graph.memgraph_client import MemgraphClient
 from multigraphrag.llm.call_log import CallLogger
@@ -266,6 +267,75 @@ def cypherbench_evaluate(
             console.print(f"Run manifest written to [bold]{run_manifest}[/bold]")
 
     asyncio.run(_run())
+
+
+@cypherbench_app.command("rejudge")
+def cypherbench_rejudge(
+    dest: Path = typer.Option(Path("data/cypherbench"), help="Directory the dataset was downloaded into."),
+    results_prefix: str = typer.Option(
+        None,
+        "--results-prefix",
+        help=(
+            "Only rejudge leaves under results/ whose relative path starts with this "
+            "prefix, e.g. 'Qwen--Qwen3.5-27B' for one model or "
+            "'Qwen--Qwen3.5-27B/temp1.0-reasoning-medium' for one config. Omit to "
+            "scan all of results/."
+        ),
+    ),
+    force: bool = typer.Option(
+        False, "--force", help="Rejudge leaves even if their run.json already has use_judge=true."
+    ),
+    self_judge: bool = typer.Option(
+        True,
+        "--self-judge/--fixed-judge",
+        help=(
+            "Judge each leaf with the same model that produced it (ignoring any dedicated "
+            "MULTIGRAPHRAG_EVALUATION__JUDGE__* config). Default on. Pass --fixed-judge to "
+            "instead use one fixed judge (MULTIGRAPHRAG_EVALUATION__JUDGE__* if configured, "
+            "otherwise MULTIGRAPHRAG_LLM__*) for every leaf, for a paper-faithful "
+            "cross-model-comparable score at the cost of self-serving bias risk."
+        ),
+    ),
+    concurrency: int = typer.Option(10, help="Max questions judged concurrently per leaf."),
+    verbose: bool = typer.Option(False, "--verbose", "-v"),
+) -> None:
+    """Re-score existing results/**/trace.jsonl files with an LLM-as-a-judge,
+    without re-running the pipeline (no Memgraph, no agent calls -- one judge
+    call per question, using the question/answer already on disk plus the
+    gold answer looked up by qid from the CypherBench task files)."""
+    logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO)
+    settings = load_settings()
+
+    leaves = find_leaves(Path("results"), prefix=results_prefix, force=force)
+    if not leaves:
+        console.print(
+            "No leaves to rejudge (nothing matched, or everything is already judged -- try --force)."
+        )
+        return
+
+    async def _run() -> None:
+        for leaf_dir in leaves:
+            call_logger = CallLogger(leaf_dir / "judge_calls.jsonl")
+            if self_judge:
+                judge, judge_client = build_self_judge(
+                    settings, read_leaf_model(leaf_dir), call_logger=call_logger
+                )
+            else:
+                judge, judge_client = build_llm_judge(settings, call_logger=call_logger)
+            try:
+                summary = await rejudge_leaf(leaf_dir, dest, judge, concurrency=concurrency)
+            except Exception as exc:  # noqa: BLE001 -- one broken leaf must not abort the whole batch
+                console.print(f"[red]{leaf_dir}[/red] failed: {exc}")
+                continue
+            finally:
+                await judge_client.aclose()
+                call_logger.close()
+            console.print(
+                f"[dim]{leaf_dir}[/dim] {summary['correct']}/{summary['total']} ({summary['accuracy']:.1%})"
+            )
+
+    asyncio.run(_run())
+    console.print(f"Rejudged {len(leaves)} leaf/leaves. Run `make recap` to refresh RECAP.md/recap.json.")
 
 
 def main() -> None:

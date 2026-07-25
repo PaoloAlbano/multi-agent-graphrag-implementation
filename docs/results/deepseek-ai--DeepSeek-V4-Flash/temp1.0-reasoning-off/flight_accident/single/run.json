@@ -24,8 +24,9 @@
       "domain": "flight_accident",
       "mode": "single",
       "total": 40,
-      "correct": 36,
-      "accuracy": 0.9
+      "correct": 37,
+      "accuracy": 0.925
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }
