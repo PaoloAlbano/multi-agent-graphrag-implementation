@@ -119,15 +119,20 @@ def build_single_pass_runner(
 
 def build_llm_judge(
     settings: Settings, *, call_logger: CallLogger | None = None
-) -> tuple["LLMJudge", LLMClient] | None:
-    """Wire the optional LLM-as-a-judge scorer, or None if `settings.evaluation.judge` is unset.
+) -> tuple["LLMJudge", LLMClient]:
+    """Wire the LLM-as-a-judge scorer.
+
+    Uses `settings.evaluation.judge` if explicitly configured (e.g. a separate,
+    dedicated judge model/endpoint); otherwise falls back to `settings.llm` --
+    the same model/endpoint the agents under test use -- so `--use-judge` works
+    out of the box without a second model to stand up, at the cost of the judge
+    not being fully independent from the model being evaluated.
 
     Imports `LLMJudge` lazily: `evaluation`'s package `__init__` imports `runner.py`,
     which imports this module, so a top-level import here would be circular.
     """
-    if settings.evaluation.judge is None:
-        return None
     from multigraphrag.evaluation.judge import LLMJudge
 
-    client = build_llm_client(settings.evaluation.judge, agent_name="judge", call_logger=call_logger)
+    judge_settings = settings.evaluation.judge or settings.llm
+    client = build_llm_client(judge_settings, agent_name="judge", call_logger=call_logger)
     return LLMJudge(client), client

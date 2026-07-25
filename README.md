@@ -256,23 +256,28 @@ Notes:
   this can speed up a run substantially. Each agent's own
   `LLMSettings.max_concurrency` still separately bounds in-flight requests to
   its endpoint.
-- **Scoring**: by default, correctness is computed deterministically by
-  comparing the pipeline's raw Cypher result values against CypherBench's
-  `answer_json` ground truth (normalized value-multiset Jaccard similarity,
-  threshold 0.8; see `evaluation/matching.py`). This is an approximation
-  chosen for reproducibility -- it is not CypherBench's own official metric,
-  and absolute numbers won't match it exactly. It is intended for consistent
-  *relative* comparison between the Single and Agentic configurations here.
-- **Optional LLM-as-a-judge**: pass `--use-judge` to instead score the
-  natural language answer with a dedicated judge LLM, configured via
-  `MULTIGRAPHRAG_EVALUATION__JUDGE__BASE_URL/MODEL/API_KEY` (same shape as
-  `LLMSettings`, so it can be a different model/endpoint than any agent under
-  test -- closer to the paper's own methodology of a separate judge model,
-  e.g. GigaChat 2 MAX). The judge's exact prompt (including its few-shot
-  examples) is not published, so this is an independent reconstruction of the
-  same idea (`evaluation/judge.py`), not a byte-for-byte reproduction of the
-  paper's judge. The deterministic `similarity` score is still always computed
-  and recorded alongside the judge's verdict for reference.
+- **Scoring**: by default (`--use-judge` is on unless you pass `--no-judge`),
+  correctness is scored by an **LLM-as-a-judge** over the natural language
+  answer -- the paper's own methodology. It uses
+  `MULTIGRAPHRAG_EVALUATION__JUDGE__BASE_URL/MODEL/API_KEY` if explicitly
+  configured (same shape as `LLMSettings`, so it can be a separate, dedicated
+  judge model/endpoint, e.g. the paper's GigaChat 2 MAX); otherwise it falls
+  back to the same model/endpoint under test (`MULTIGRAPHRAG_LLM__*`), so
+  `--use-judge` works with zero extra setup at the cost of the judge not
+  being fully independent from the model being evaluated. The judge's exact
+  prompt (including its few-shot examples) is not published, so this is an
+  independent reconstruction of the same idea (`evaluation/judge.py`), not a
+  byte-for-byte reproduction of the paper's judge.
+- **Deterministic fallback** (`--no-judge`): scores by comparing the
+  pipeline's raw Cypher result values against CypherBench's `answer_json`
+  ground truth (normalized value-multiset Jaccard similarity, threshold 0.8;
+  see `evaluation/matching.py`) -- free and judge-free, but a coarser
+  approximation: it penalizes an otherwise-correct answer whose Cypher
+  returns extra context columns beyond the gold query's single column, since
+  it compares the *entire* returned value multiset rather than the final
+  natural-language answer. The deterministic `similarity` score is always
+  computed and recorded alongside the judge's verdict (when a judge is used)
+  for reference either way.
 
 ## Publishing results / contributing a model
 

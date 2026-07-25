@@ -1,0 +1,31 @@
+{
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "temperature": 1.0,
+  "reasoning_enabled": true,
+  "reasoning_effort": "medium",
+  "max_tokens": 16000,
+  "structured_output_mode": "json_schema",
+  "split": "train",
+  "domains": [
+    "art"
+  ],
+  "modes": [
+    "single"
+  ],
+  "graph_variant": "simplekg",
+  "concurrency": 20,
+  "limit": 40,
+  "use_judge": true,
+  "calls_log": "calls.jsonl",
+  "calls_log_scoped": true,
+  "generated_at": "2026-07-25T09:44:00.557416+00:00",
+  "results": [
+    {
+      "domain": "art",
+      "mode": "single",
+      "total": 40,
+      "correct": 23,
+      "accuracy": 0.575
+    }
+  ]
+}

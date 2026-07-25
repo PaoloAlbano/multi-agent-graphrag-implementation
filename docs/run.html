@@ -8,7 +8,11 @@
 </head>
 <body>
 <main>
-  <p class="back-link"><a href="index.html">&larr; back to overview</a></p>
+  <p class="back-link">
+    <a href="index.html">&larr; back to overview</a>
+    &middot;
+    <a href="https://github.com/PaoloAlbano/multi-agent-graphrag-implementation">&lt;/&gt; View code on GitHub</a>
+  </p>
   <h1 id="title">Loading...</h1>
   <p class="subtitle" id="subtitle"></p>
 
@@ -23,7 +27,7 @@
 
   <table id="questions">
     <thead>
-      <tr><th>Question</th><th>Result</th><th>Similarity</th><th>Iterations</th><th></th></tr>
+      <tr><th>Question</th><th>Result</th><th>Similarity</th><th>Iterations</th><th>LLM calls</th><th></th></tr>
     </thead>
     <tbody id="rows"></tbody>
   </table>
@@ -60,23 +64,35 @@ function renderManifest(manifest) {
   }
 }
 
-function questionRowHtml(item, index) {
+function questionRowHtml(item, index, callCounts) {
   const q = escapeHtml(item.question);
+  const callCount = callCounts ? (callCounts.get(item.qid) ?? "-") : "-";
   return `
     <tr class="q-row" data-index="${index}" data-correct="${item.correct}">
       <td>${q}</td>
       <td>${badge(item.correct)}</td>
       <td>${item.similarity != null ? item.similarity.toFixed(2) : "-"}</td>
       <td>${item.iterations ?? "-"}</td>
+      <td>${callCount}</td>
       <td><button class="toggle-btn" data-index="${index}">details</button></td>
     </tr>
     <tr class="detail-row" id="detail-${index}">
-      <td colspan="5"></td>
+      <td colspan="6"></td>
     </tr>
   `;
 }
 
-function detailHtml(item) {
+function agentBreakdownHtml(qid, callsByQid) {
+  if (!callsByQid) return "";
+  const calls = callsByQid.get(qid);
+  if (!calls || !calls.length) return "";
+  const byAgent = new Map();
+  for (const c of calls) byAgent.set(c.agent, (byAgent.get(c.agent) || 0) + 1);
+  const parts = [...byAgent.entries()].map(([agent, n]) => `${escapeHtml(agent)}: ${n}`);
+  return `<p><strong>LLM calls for this question (${calls.length} total):</strong> ${parts.join(", ")}</p>`;
+}
+
+function detailHtml(item, callsByQid) {
   const errorBlock = item.error
     ? `<p><strong>Error:</strong> ${escapeHtml(item.error)}</p>`
     : "";
@@ -89,45 +105,37 @@ function detailHtml(item) {
     <p><strong>Answer</strong></p>
     <pre>${escapeHtml(item.answer || "(none)")}</pre>
     ${errorBlock}
+    ${agentBreakdownHtml(item.qid, callsByQid)}
     <button class="toggle-btn" data-calls-for="${escapeHtml(item.qid)}">show LLM calls</button>
     <div class="calls-container" data-calls-container-for="${escapeHtml(item.qid)}"></div>
   `;
 }
 
-async function renderCalls(qid, container, manifest) {
+function renderCallsFromCache(qid, container, manifest, allCalls) {
   if (container.dataset.loaded) return;
   container.dataset.loaded = "1";
-  if (!manifest.calls_log) {
-    container.innerHTML = '<p class="note">No call log recorded for this run.</p>';
+  if (!manifest.calls_log_scoped) {
+    const note = manifest.calls_log_note || "This run's call log cannot be attributed to individual questions.";
+    const link = base + manifest.calls_log;
+    container.innerHTML = `<p class="note">${escapeHtml(note)} <a href="${link}">Open the raw combined transcript</a> (${allCalls.length} calls, all questions/domains in this legacy run).</p>`;
     return;
   }
-  try {
-    const calls = await fetchJSONL(base + manifest.calls_log);
-    if (!manifest.calls_log_scoped) {
-      const note = manifest.calls_log_note || "This run's call log cannot be attributed to individual questions.";
-      const link = base + manifest.calls_log;
-      container.innerHTML = `<p class="note">${escapeHtml(note)} <a href="${link}">Open the raw combined transcript</a> (${calls.length} calls, all questions/domains in this legacy run).</p>`;
-      return;
-    }
-    const matching = calls.filter((c) => c.qid === qid);
-    if (!matching.length) {
-      container.innerHTML = '<p class="note">No matching calls found.</p>';
-      return;
-    }
-    container.innerHTML = matching
-      .map(
-        (c) => `
-        <div class="call">
-          <div class="call-meta">${escapeHtml(c.agent)} &middot; ${escapeHtml(c.model)}${c.error ? " &middot; <strong>error</strong>" : ""}</div>
-          <p><strong>System prompt</strong></p><pre>${escapeHtml(c.system_prompt)}</pre>
-          <p><strong>User prompt</strong></p><pre>${escapeHtml(c.user_prompt)}</pre>
-          <p><strong>${c.error ? "Error" : "Response"}</strong></p><pre>${escapeHtml(c.error || c.response)}</pre>
-        </div>`
-      )
-      .join("");
-  } catch (err) {
-    container.innerHTML = `<p class="note">Failed to load call log: ${escapeHtml(String(err))}</p>`;
+  const matching = allCalls.filter((c) => c.qid === qid);
+  if (!matching.length) {
+    container.innerHTML = '<p class="note">No matching calls found.</p>';
+    return;
   }
+  container.innerHTML = matching
+    .map(
+      (c) => `
+      <div class="call">
+        <div class="call-meta">${escapeHtml(c.agent)} &middot; ${escapeHtml(c.model)}${c.error ? " &middot; <strong>error</strong>" : ""}</div>
+        <p><strong>System prompt</strong></p><pre>${escapeHtml(c.system_prompt)}</pre>
+        <p><strong>User prompt</strong></p><pre>${escapeHtml(c.user_prompt)}</pre>
+        <p><strong>${c.error ? "Error" : "Response"}</strong></p><pre>${escapeHtml(c.error || c.response)}</pre>
+      </div>`
+    )
+    .join("");
 }
 
 async function main() {
@@ -141,6 +149,28 @@ async function main() {
   document.getElementById("subtitle").textContent = `${manifest.model} -- ${formatPct(entry.accuracy)} accuracy (${entry.correct}/${entry.total})`;
   renderManifest(manifest);
 
+  // Fetch the call log once up front (not lazily per-question) so every row
+  // can show its LLM call count, not just the one a user happens to expand.
+  let allCalls = null;
+  let callCounts = null;
+  let callsByQid = null;
+  if (manifest.calls_log) {
+    try {
+      allCalls = await fetchJSONL(base + manifest.calls_log);
+      if (manifest.calls_log_scoped) {
+        callCounts = new Map();
+        callsByQid = new Map();
+        for (const c of allCalls) {
+          callCounts.set(c.qid, (callCounts.get(c.qid) || 0) + 1);
+          if (!callsByQid.has(c.qid)) callsByQid.set(c.qid, []);
+          callsByQid.get(c.qid).push(c);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to load call log:", err);
+    }
+  }
+
   const rowsEl = document.getElementById("rows");
   const wrongOnly = document.getElementById("wrong-only");
   const countEl = document.getElementById("count");
@@ -148,7 +178,7 @@ async function main() {
   function render() {
     const filtered = wrongOnly.checked ? items.filter((i) => !i.correct) : items;
     countEl.textContent = `${filtered.length} of ${items.length} questions`;
-    rowsEl.innerHTML = filtered.map((item, i) => questionRowHtml(item, i)).join("");
+    rowsEl.innerHTML = filtered.map((item, i) => questionRowHtml(item, i, callCounts)).join("");
 
     rowsEl.querySelectorAll("button[data-index]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -157,11 +187,12 @@ async function main() {
         const isOpen = detailRow.classList.toggle("open");
         if (isOpen && !detailRow.dataset.rendered) {
           detailRow.dataset.rendered = "1";
-          detailRow.querySelector("td").innerHTML = detailHtml(filtered[idx]);
+          detailRow.querySelector("td").innerHTML = detailHtml(filtered[idx], callsByQid);
           const callsBtn = detailRow.querySelector("button[data-calls-for]");
           callsBtn.addEventListener("click", () => {
             const container = detailRow.querySelector("[data-calls-container-for]");
-            renderCalls(callsBtn.dataset.callsFor, container, manifest);
+            if (allCalls) renderCallsFromCache(callsBtn.dataset.callsFor, container, manifest, allCalls);
+            else container.innerHTML = '<p class="note">No call log recorded for this run.</p>';
           });
         }
       });
