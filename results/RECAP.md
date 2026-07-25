@@ -1,6 +1,6 @@
 # Results recap
 
-_Generated 2026-07-24T21:02:46.756380+00:00_
+_Generated 2026-07-25T08:26:58.610229+00:00_
 
 ## Qwen/Qwen3.5-27B (temp0.0-reasoning-medium)
 
@@ -56,6 +56,50 @@ _Generated 2026-07-24T21:02:46.756380+00:00_
 | flight_accident | 60.0% | 70.0% | +10.0% |
 | geography | 35.0% | 45.0% | +10.0% |
 | **Average** | 54.5% | 59.5% | +5.0% |
+
+## nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 (temp0.0-reasoning-medium)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 47.5% | 42.5% | -5.0% |
+| company | 67.5% | 60.0% | -7.5% |
+| fictional_character | 52.5% | 37.5% | -15.0% |
+| flight_accident | 72.5% | 75.0% | +2.5% |
+| geography | 42.5% | 40.0% | -2.5% |
+| **Average** | 56.5% | 51.0% | -5.5% |
+
+## nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 (temp0.0-reasoning-off)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 27.5% | 30.0% | +2.5% |
+| company | 30.0% | 20.0% | -10.0% |
+| fictional_character | 17.5% | 20.0% | +2.5% |
+| flight_accident | 27.5% | 17.5% | -10.0% |
+| geography | 27.5% | 37.5% | +10.0% |
+| **Average** | 26.0% | 25.0% | -1.0% |
+
+## nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 (temp1.0-reasoning-medium)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 47.5% | 45.0% | -2.5% |
+| company | 72.5% | 65.0% | -7.5% |
+| fictional_character | 47.5% | 42.5% | -5.0% |
+| flight_accident | 72.5% | 55.0% | -17.5% |
+| geography | 45.0% | 35.0% | -10.0% |
+| **Average** | 57.0% | 48.5% | -8.5% |
+
+## nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 (temp1.0-reasoning-off)
+
+| Domain | single | agentic | delta |
+|---|---|---|---|
+| art | 32.5% | 22.5% | -10.0% |
+| company | 25.0% | 22.5% | -2.5% |
+| fictional_character | 25.0% | 20.0% | -5.0% |
+| flight_accident | 25.0% | 27.5% | +2.5% |
+| geography | 30.0% | 20.0% | -10.0% |
+| **Average** | 27.5% | 22.5% | -5.0% |
 
 ## openai/gpt-oss-120b (temp0.0-reasoning-medium)
 

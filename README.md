@@ -307,7 +307,14 @@ bookkeeping needed. `REASONING` accepts `off`, `low`, `medium`, or `high`
 
 Then:
 
-1. Open a PR adding the new `results/**` files.
+1. Open a PR adding **only** the new raw `results/<model>/.../{trace,calls}.jsonl`
+   and `run.json` files -- do **not** run `make recap`/`make site` or commit
+   `results/RECAP.md`, `results/recap.json`, or anything under `docs/` in
+   your branch. Those are generated artifacts that `main`'s CI regenerates
+   after every merge (see below); committing them yourself just creates
+   merge/rebase conflicts against whatever `main` regenerated since your
+   branch diverged, with no benefit (your copy gets thrown away and rebuilt
+   from the full `results/` tree anyway).
 2. `.github/workflows/validate-results.yml` runs `scripts/validate_results.py`
    on the PR, checking every `trace.jsonl`/`calls.jsonl`/`run.json` has the
    expected fields.
@@ -317,9 +324,10 @@ Then:
    published via GitHub Pages -- configure the repo to serve `/docs` from
    `main`), committing the result back automatically.
 
-Locally, the same two steps are `make recap` and `make site` (open
-`docs/index.html` with `python -m http.server` from inside `docs/` to
-preview).
+`make recap` and `make site` exist for **local preview only** (open
+`docs/index.html` with `python -m http.server` from inside `docs/` to see
+how your new results will look) -- run them locally to check, but don't
+commit what they produce.
 
 **Known limitation**: runs migrated from this project's early exploratory
 testing (see `scripts/migrate_legacy_results.py`) predate per-question call
