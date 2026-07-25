@@ -24,8 +24,9 @@
       "domain": "art",
       "mode": "single",
       "total": 40,
-      "correct": 23,
-      "accuracy": 0.575
+      "correct": 25,
+      "accuracy": 0.625
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

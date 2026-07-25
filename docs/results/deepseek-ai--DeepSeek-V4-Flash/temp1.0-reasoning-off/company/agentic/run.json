@@ -24,8 +24,9 @@
       "domain": "company",
       "mode": "agentic",
       "total": 40,
-      "correct": 24,
-      "accuracy": 0.6
+      "correct": 29,
+      "accuracy": 0.725
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

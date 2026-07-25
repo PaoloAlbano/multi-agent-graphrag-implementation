@@ -136,3 +136,21 @@ def build_llm_judge(
     judge_settings = settings.evaluation.judge or settings.llm
     client = build_llm_client(judge_settings, agent_name="judge", call_logger=call_logger)
     return LLMJudge(client), client
+
+
+def build_self_judge(
+    settings: Settings, model: str, *, call_logger: CallLogger | None = None
+) -> tuple["LLMJudge", LLMClient]:
+    """Wire an LLM-as-a-judge scorer using `model` (a specific run's own model)
+    rather than `settings.evaluation.judge` -- i.e. each model judges its own
+    answers, ignoring any dedicated judge configured via
+    `MULTIGRAPHRAG_EVALUATION__JUDGE__*`. Connection details (base URL, API
+    key, timeouts, ...) are still taken from `settings.llm`; only the model
+    name is overridden. Used by `cypherbench rejudge` to self-judge each
+    results leaf with the model that actually produced it.
+    """
+    from multigraphrag.evaluation.judge import LLMJudge
+
+    judge_settings = settings.llm.model_copy(update={"model": model})
+    client = build_llm_client(judge_settings, agent_name="judge", call_logger=call_logger)
+    return LLMJudge(client), client

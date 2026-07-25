@@ -15,7 +15,7 @@
   "graph_variant": "simplekg",
   "concurrency": 40,
   "limit": 40,
-  "use_judge": false,
+  "use_judge": true,
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
   "generated_at": "2026-07-24T04:41:31.616234+00:00",
@@ -24,8 +24,9 @@
       "domain": "soccer",
       "mode": "single",
       "total": 40,
-      "correct": 14,
-      "accuracy": 0.35
+      "correct": 18,
+      "accuracy": 0.45
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

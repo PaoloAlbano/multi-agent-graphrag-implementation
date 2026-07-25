@@ -15,7 +15,7 @@
   "graph_variant": "simplekg",
   "concurrency": 20,
   "limit": 40,
-  "use_judge": false,
+  "use_judge": true,
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
   "generated_at": "2026-07-24T09:39:47.001346+00:00",
@@ -24,8 +24,9 @@
       "domain": "flight_accident",
       "mode": "single",
       "total": 40,
-      "correct": 28,
-      "accuracy": 0.7
+      "correct": 31,
+      "accuracy": 0.775
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

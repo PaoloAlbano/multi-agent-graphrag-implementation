@@ -85,7 +85,11 @@ def _average(domains: dict[str, dict], mode: str) -> float | None:
 
 
 def _average_calls(domains: dict[str, dict], mode: str) -> float | None:
-    values = [d[mode]["avg_llm_calls"] for d in domains.values() if mode in d and d[mode]["avg_llm_calls"] is not None]
+    values = [
+        d[mode]["avg_llm_calls"]
+        for d in domains.values()
+        if mode in d and d[mode]["avg_llm_calls"] is not None
+    ]
     return sum(values) / len(values) if values else None
 
 
@@ -123,7 +127,9 @@ def _build_recap_md(recap: dict) -> str:
     for group in recap["groups"]:
         lines.append(f"## {group['model']} ({group['config']})")
         lines.append("")
-        lines.append("| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |")
+        lines.append(
+            "| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |"
+        )
         lines.append("|---|---|---|---|---|---|")
         for domain, modes in sorted(group["domains"].items()):
             single = modes.get("single", {}).get("accuracy")

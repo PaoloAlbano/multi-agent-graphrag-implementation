@@ -24,8 +24,9 @@
       "domain": "company",
       "mode": "single",
       "total": 40,
-      "correct": 27,
-      "accuracy": 0.675
+      "correct": 28,
+      "accuracy": 0.7
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

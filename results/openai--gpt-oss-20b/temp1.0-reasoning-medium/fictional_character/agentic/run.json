@@ -15,7 +15,7 @@
   "graph_variant": "simplekg",
   "concurrency": 40,
   "limit": 40,
-  "use_judge": false,
+  "use_judge": true,
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
   "generated_at": "2026-07-24T05:08:11.461194+00:00",
@@ -24,8 +24,9 @@
       "domain": "fictional_character",
       "mode": "agentic",
       "total": 40,
-      "correct": 23,
-      "accuracy": 0.575
+      "correct": 25,
+      "accuracy": 0.625
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

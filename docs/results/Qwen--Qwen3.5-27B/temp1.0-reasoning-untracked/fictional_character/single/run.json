@@ -19,7 +19,7 @@
   "concurrency": null,
   "concurrency_note": "not recorded for legacy runs",
   "limit": 40,
-  "use_judge": false,
+  "use_judge": true,
   "calls_log": "../../_legacy-calls/test4-run-calls.jsonl",
   "calls_log_scoped": false,
   "calls_log_note": "Combined transcript for the whole legacy run (all domains/modes in this batch); predates per-question qid tagging, so it cannot be filtered down to this specific domain/mode/question.",
@@ -31,8 +31,9 @@
       "domain": "fictional_character",
       "mode": "single",
       "total": 40,
-      "correct": 27,
-      "accuracy": 0.675
+      "correct": 33,
+      "accuracy": 0.825
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }

@@ -24,8 +24,9 @@
       "domain": "fictional_character",
       "mode": "agentic",
       "total": 40,
-      "correct": 27,
-      "accuracy": 0.675
+      "correct": 26,
+      "accuracy": 0.65
     }
-  ]
+  ],
+  "judge_calls_log": "judge_calls.jsonl"
 }
