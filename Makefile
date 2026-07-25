@@ -147,10 +147,10 @@ run-single: ## Run the single-pass baseline into results/. DOMAIN=geography or g
 run-agentic: ## Run the full Multi-Agent GraphRAG pipeline into results/. DOMAIN=geography or geography,art or omit for all 11 domains.
 	$(call RUN_EVAL_LOOP,agentic)
 
-recap: ## Regenerate results/RECAP.md + results/recap.json from all results/**/run.json
+recap: ## Local preview only -- CI regenerates this on merge to main, don't commit the output on a branch
 	$(UV) run python scripts/build_recap.py
 
-site: ## Regenerate docs/ (static site) from results/, ready for GitHub Pages
+site: ## Local preview only -- CI regenerates this on merge to main, don't commit the output on a branch
 	$(UV) run python scripts/build_site.py
 
 validate-results: ## Check results/**/{trace,calls,run}.jsonl|json are well-formed
