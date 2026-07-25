@@ -129,12 +129,16 @@ def cypherbench_evaluate(
         ),
     ),
     use_judge: bool = typer.Option(
-        False,
-        "--use-judge",
+        True,
+        "--use-judge/--no-judge",
         help=(
-            "Score answers with an LLM-as-a-judge (requires MULTIGRAPHRAG_EVALUATION__JUDGE__* "
-            "to be configured) instead of the deterministic value-overlap heuristic. Closer to "
-            "the paper's own scoring methodology, at the cost of one extra LLM call per item."
+            "Score answers with an LLM-as-a-judge -- the paper's own scoring methodology -- "
+            "instead of the deterministic value-overlap heuristic, which penalizes correct "
+            "answers whose Cypher happens to return extra context columns beyond the gold "
+            "query's single column (see evaluation/matching.py). Default on. Uses "
+            "MULTIGRAPHRAG_EVALUATION__JUDGE__* if configured, otherwise falls back to the "
+            "same model/endpoint under test (MULTIGRAPHRAG_LLM__*). Pass --no-judge to use "
+            "only the deterministic heuristic (free, but the coarser approximation)."
         ),
     ),
     call_log: Path = typer.Option(
@@ -170,13 +174,7 @@ def cypherbench_evaluate(
     else:
         raise typer.BadParameter("mode must be 'single', 'agentic', or 'both'")
 
-    judge_built = None
-    if use_judge:
-        judge_built = build_llm_judge(settings)
-        if judge_built is None:
-            raise typer.BadParameter(
-                "--use-judge requires MULTIGRAPHRAG_EVALUATION__JUDGE__BASE_URL/MODEL to be set."
-            )
+    judge_built = build_llm_judge(settings) if use_judge else None
 
     async def _run() -> None:
         judge, judge_client = judge_built if judge_built else (None, None)

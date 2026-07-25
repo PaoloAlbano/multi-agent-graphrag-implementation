@@ -30,6 +30,22 @@ def _leaf_group_key(run_json_path: Path) -> tuple[str, str]:
     return model_dir.name, config_dir.name
 
 
+def _avg_calls_per_question(run_json_path: Path, manifest: dict, total_questions: int) -> float | None:
+    """Average number of LLM calls (across every agent) per question, for
+    leaves whose call log carries `qid` (i.e. not a legacy pre-qid-tagging
+    run) -- lets the site/recap show how many agent calls the pipeline
+    actually makes before landing on an answer, not just `iterations`
+    (which only counts Query Generator retries, not the other six agents).
+    """
+    if not manifest.get("calls_log_scoped") or not manifest.get("calls_log") or not total_questions:
+        return None
+    calls_path = run_json_path.parent / manifest["calls_log"]
+    if not calls_path.exists():
+        return None
+    total_calls = sum(1 for line in calls_path.read_text(encoding="utf-8").splitlines() if line.strip())
+    return total_calls / total_questions
+
+
 def _collect_groups() -> dict[tuple[str, str], dict]:
     groups: dict[tuple[str, str], dict] = {}
 
@@ -57,6 +73,7 @@ def _collect_groups() -> dict[tuple[str, str], dict]:
                 "correct": entry["correct"],
                 "accuracy": entry["accuracy"],
                 "path": str(leaf_dir),
+                "avg_llm_calls": _avg_calls_per_question(run_json_path, manifest, entry["total"]),
             }
 
     return groups
@@ -64,6 +81,11 @@ def _collect_groups() -> dict[tuple[str, str], dict]:
 
 def _average(domains: dict[str, dict], mode: str) -> float | None:
     values = [d[mode]["accuracy"] for d in domains.values() if mode in d]
+    return sum(values) / len(values) if values else None
+
+
+def _average_calls(domains: dict[str, dict], mode: str) -> float | None:
+    values = [d[mode]["avg_llm_calls"] for d in domains.values() if mode in d and d[mode]["avg_llm_calls"] is not None]
     return sum(values) / len(values) if values else None
 
 
@@ -79,6 +101,8 @@ def _build_recap_json(groups: dict[tuple[str, str], dict]) -> dict:
                 "average": {
                     "single": _average(group["domains"], "single"),
                     "agentic": _average(group["domains"], "agentic"),
+                    "llm_calls_single": _average_calls(group["domains"], "single"),
+                    "llm_calls_agentic": _average_calls(group["domains"], "agentic"),
                 },
             }
             for group in groups.values()
@@ -90,26 +114,38 @@ def _format_pct(value: float | None) -> str:
     return f"{value:.1%}" if value is not None else "-"
 
 
+def _format_calls(value: float | None) -> str:
+    return f"{value:.1f}" if value is not None else "-"
+
+
 def _build_recap_md(recap: dict) -> str:
     lines = ["# Results recap", "", f"_Generated {recap['generated_at']}_", ""]
     for group in recap["groups"]:
         lines.append(f"## {group['model']} ({group['config']})")
         lines.append("")
-        lines.append("| Domain | single | agentic | delta |")
-        lines.append("|---|---|---|---|")
+        lines.append("| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |")
+        lines.append("|---|---|---|---|---|---|")
         for domain, modes in sorted(group["domains"].items()):
             single = modes.get("single", {}).get("accuracy")
             agentic = modes.get("agentic", {}).get("accuracy")
             delta = agentic - single if single is not None and agentic is not None else None
             delta_str = f"{delta:+.1%}" if delta is not None else "-"
-            lines.append(f"| {domain} | {_format_pct(single)} | {_format_pct(agentic)} | {delta_str} |")
+            calls_single = _format_calls(modes.get("single", {}).get("avg_llm_calls"))
+            calls_agentic = _format_calls(modes.get("agentic", {}).get("avg_llm_calls"))
+            lines.append(
+                f"| {domain} | {_format_pct(single)} | {_format_pct(agentic)} | {delta_str} "
+                f"| {calls_single} | {calls_agentic} |"
+            )
 
         avg_single = group["average"]["single"]
         avg_agentic = group["average"]["agentic"]
         avg_delta = avg_agentic - avg_single if avg_single is not None and avg_agentic is not None else None
         avg_delta_str = f"{avg_delta:+.1%}" if avg_delta is not None else "-"
+        avg_calls_single = _average_calls(group["domains"], "single")
+        avg_calls_agentic = _average_calls(group["domains"], "agentic")
         lines.append(
-            f"| **Average** | {_format_pct(avg_single)} | {_format_pct(avg_agentic)} | {avg_delta_str} |"
+            f"| **Average** | {_format_pct(avg_single)} | {_format_pct(avg_agentic)} | {avg_delta_str} "
+            f"| {_format_calls(avg_calls_single)} | {_format_calls(avg_calls_agentic)} |"
         )
         lines.append("")
     return "\n".join(lines)

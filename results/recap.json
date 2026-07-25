@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T08:29:42.285228+00:00",
+  "generated_at": "2026-07-25T08:52:49.575504+00:00",
   "groups": [
     {
       "model": "Qwen/Qwen3.5-27B",
@@ -11,13 +11,15 @@
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/art/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 4.85
           },
           "single": {
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/art/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.225
           }
         },
         "company": {
@@ -25,13 +27,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/company/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 4.05
           },
           "single": {
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/company/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.2
           }
         },
         "fictional_character": {
@@ -39,13 +43,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/fictional_character/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 4.3
           },
           "single": {
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/fictional_character/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.275
           }
         },
         "flight_accident": {
@@ -53,13 +59,15 @@
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/flight_accident/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 2.875
           },
           "single": {
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/flight_accident/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.025
           }
         },
         "geography": {
@@ -67,19 +75,23 @@
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/geography/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 4.725
           },
           "single": {
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/geography/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.3
           }
         }
       },
       "average": {
         "single": 0.54,
-        "agentic": 0.535
+        "agentic": 0.535,
+        "llm_calls_single": 2.205,
+        "llm_calls_agentic": 4.159999999999999
       }
     },
     {
@@ -92,13 +104,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/art/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 5.95
           },
           "single": {
             "total": 40,
             "correct": 13,
             "accuracy": 0.325,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/art/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.45
           }
         },
         "company": {
@@ -106,13 +120,15 @@
             "total": 40,
             "correct": 22,
             "accuracy": 0.55,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/company/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 5.675
           },
           "single": {
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/company/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.575
           }
         },
         "fictional_character": {
@@ -120,13 +136,15 @@
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/fictional_character/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 6.675
           },
           "single": {
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/fictional_character/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.575
           }
         },
         "flight_accident": {
@@ -134,13 +152,15 @@
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/flight_accident/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 4.025
           },
           "single": {
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/flight_accident/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.175
           }
         },
         "geography": {
@@ -148,19 +168,23 @@
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 4.75
           },
           "single": {
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/single"
+            "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.225
           }
         }
       },
       "average": {
         "single": 0.41,
-        "agentic": 0.47000000000000003
+        "agentic": 0.47000000000000003,
+        "llm_calls_single": 2.4,
+        "llm_calls_agentic": 5.415
       }
     },
     {
@@ -173,13 +197,15 @@
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/art/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 5.075
           },
           "single": {
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/art/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.425
           }
         },
         "company": {
@@ -187,13 +213,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/company/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 4.125
           },
           "single": {
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/company/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.175
           }
         },
         "fictional_character": {
@@ -201,13 +229,15 @@
             "total": 40,
             "correct": 22,
             "accuracy": 0.55,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/fictional_character/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 4.825
           },
           "single": {
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/fictional_character/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.225
           }
         },
         "flight_accident": {
@@ -215,13 +245,15 @@
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/flight_accident/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 3.9
           },
           "single": {
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/flight_accident/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.225
           }
         },
         "geography": {
@@ -229,19 +261,23 @@
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/geography/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 5.95
           },
           "single": {
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/geography/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.35
           }
         }
       },
       "average": {
         "single": 0.5199999999999999,
-        "agentic": 0.51
+        "agentic": 0.51,
+        "llm_calls_single": 2.2800000000000002,
+        "llm_calls_agentic": 4.775
       }
     },
     {
@@ -254,13 +290,15 @@
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/art/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 4.7
           },
           "single": {
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/art/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.3
           }
         },
         "company": {
@@ -268,13 +306,15 @@
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/company/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 5.45
           },
           "single": {
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/company/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.675
           }
         },
         "fictional_character": {
@@ -282,13 +322,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 5.175
           },
           "single": {
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.325
           }
         },
         "flight_accident": {
@@ -296,13 +338,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 4.275
           },
           "single": {
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.1
           }
         },
         "geography": {
@@ -310,19 +354,23 @@
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 4.65
           },
           "single": {
             "total": 40,
             "correct": 10,
             "accuracy": 0.25,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.05
           }
         }
       },
       "average": {
         "single": 0.4,
-        "agentic": 0.38
+        "agentic": 0.38,
+        "llm_calls_single": 2.29,
+        "llm_calls_agentic": 4.85
       }
     },
     {
@@ -335,13 +383,15 @@
             "total": 40,
             "correct": 22,
             "accuracy": 0.55,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/agentic",
+            "avg_llm_calls": null
           },
           "single": {
             "total": 40,
             "correct": 20,
             "accuracy": 0.5,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/single",
+            "avg_llm_calls": null
           }
         },
         "company": {
@@ -349,13 +399,15 @@
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/agentic",
+            "avg_llm_calls": null
           },
           "single": {
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/single",
+            "avg_llm_calls": null
           }
         },
         "fictional_character": {
@@ -363,13 +415,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/agentic",
+            "avg_llm_calls": null
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/single",
+            "avg_llm_calls": null
           }
         },
         "flight_accident": {
@@ -377,13 +431,15 @@
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/agentic",
+            "avg_llm_calls": null
           },
           "single": {
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/single",
+            "avg_llm_calls": null
           }
         },
         "geography": {
@@ -391,19 +447,81 @@
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/agentic"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/agentic",
+            "avg_llm_calls": null
           },
           "single": {
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/single"
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/single",
+            "avg_llm_calls": null
           }
         }
       },
       "average": {
         "single": 0.545,
-        "agentic": 0.595
+        "agentic": 0.595,
+        "llm_calls_single": null,
+        "llm_calls_agentic": null
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
+      "config": "temp0.0-reasoning-medium",
+      "domains": {
+        "art": {
+          "single": {
+            "total": 40,
+            "correct": 23,
+            "accuracy": 0.575,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.325
+          }
+        },
+        "company": {
+          "single": {
+            "total": 40,
+            "correct": 25,
+            "accuracy": 0.625,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.4
+          }
+        },
+        "fictional_character": {
+          "single": {
+            "total": 40,
+            "correct": 24,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.55
+          }
+        },
+        "flight_accident": {
+          "single": {
+            "total": 40,
+            "correct": 34,
+            "accuracy": 0.85,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.3
+          }
+        },
+        "geography": {
+          "single": {
+            "total": 40,
+            "correct": 14,
+            "accuracy": 0.35,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.775
+          }
+        }
+      },
+      "average": {
+        "single": 0.6,
+        "agentic": null,
+        "llm_calls_single": 2.4699999999999998,
+        "llm_calls_agentic": null
       }
     },
     {
@@ -416,13 +534,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/art/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 9.45
           },
           "single": {
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/art/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.925
           }
         },
         "company": {
@@ -430,13 +550,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/company/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 9.2
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/company/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.475
           }
         },
         "fictional_character": {
@@ -444,13 +566,15 @@
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/fictional_character/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 9.2
           },
           "single": {
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/fictional_character/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.675
           }
         },
         "flight_accident": {
@@ -458,13 +582,15 @@
             "total": 40,
             "correct": 30,
             "accuracy": 0.75,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/flight_accident/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 7.075
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/flight_accident/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.475
           }
         },
         "geography": {
@@ -472,19 +598,23 @@
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/geography/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 8.275
           },
           "single": {
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/geography/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 3.1
           }
         }
       },
       "average": {
         "single": 0.5650000000000001,
-        "agentic": 0.51
+        "agentic": 0.51,
+        "llm_calls_single": 2.73,
+        "llm_calls_agentic": 8.639999999999999
       }
     },
     {
@@ -497,13 +627,15 @@
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/art/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 12.65
           },
           "single": {
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/art/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/art/single",
+            "avg_llm_calls": 3.625
           }
         },
         "company": {
@@ -511,13 +643,15 @@
             "total": 40,
             "correct": 8,
             "accuracy": 0.2,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/company/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 15.325
           },
           "single": {
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/company/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/company/single",
+            "avg_llm_calls": 4.55
           }
         },
         "fictional_character": {
@@ -525,13 +659,15 @@
             "total": 40,
             "correct": 8,
             "accuracy": 0.2,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/fictional_character/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 14.2
           },
           "single": {
             "total": 40,
             "correct": 7,
             "accuracy": 0.175,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/fictional_character/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 4.125
           }
         },
         "flight_accident": {
@@ -539,13 +675,15 @@
             "total": 40,
             "correct": 7,
             "accuracy": 0.175,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/flight_accident/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 14.65
           },
           "single": {
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/flight_accident/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 4.325
           }
         },
         "geography": {
@@ -553,19 +691,23 @@
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/geography/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 11.125
           },
           "single": {
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/geography/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/geography/single",
+            "avg_llm_calls": 3.7
           }
         }
       },
       "average": {
         "single": 0.26,
-        "agentic": 0.25
+        "agentic": 0.25,
+        "llm_calls_single": 4.0649999999999995,
+        "llm_calls_agentic": 13.59
       }
     },
     {
@@ -578,13 +720,15 @@
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/art/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 8.3
           },
           "single": {
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/art/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.725
           }
         },
         "company": {
@@ -592,13 +736,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/company/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 7.05
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/company/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.525
           }
         },
         "fictional_character": {
@@ -606,13 +752,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/fictional_character/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 9.25
           },
           "single": {
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/fictional_character/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.825
           }
         },
         "flight_accident": {
@@ -620,13 +768,15 @@
             "total": 40,
             "correct": 22,
             "accuracy": 0.55,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/flight_accident/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 7.7
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/flight_accident/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 3.1
           }
         },
         "geography": {
@@ -634,19 +784,23 @@
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/geography/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 9.825
           },
           "single": {
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/geography/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 3.0
           }
         }
       },
       "average": {
         "single": 0.5700000000000001,
-        "agentic": 0.485
+        "agentic": 0.485,
+        "llm_calls_single": 2.835,
+        "llm_calls_agentic": 8.425
       }
     },
     {
@@ -659,13 +813,15 @@
             "total": 40,
             "correct": 9,
             "accuracy": 0.225,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/art/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 14.025
           },
           "single": {
             "total": 40,
             "correct": 13,
             "accuracy": 0.325,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/art/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/art/single",
+            "avg_llm_calls": 3.825
           }
         },
         "company": {
@@ -673,13 +829,15 @@
             "total": 40,
             "correct": 9,
             "accuracy": 0.225,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/company/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 14.375
           },
           "single": {
             "total": 40,
             "correct": 10,
             "accuracy": 0.25,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/company/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/company/single",
+            "avg_llm_calls": 4.375
           }
         },
         "fictional_character": {
@@ -687,13 +845,15 @@
             "total": 40,
             "correct": 8,
             "accuracy": 0.2,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/fictional_character/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 14.5
           },
           "single": {
             "total": 40,
             "correct": 10,
             "accuracy": 0.25,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/fictional_character/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 3.475
           }
         },
         "flight_accident": {
@@ -701,13 +861,15 @@
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/flight_accident/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 13.35
           },
           "single": {
             "total": 40,
             "correct": 10,
             "accuracy": 0.25,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/flight_accident/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 4.35
           }
         },
         "geography": {
@@ -715,19 +877,23 @@
             "total": 40,
             "correct": 8,
             "accuracy": 0.2,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/geography/agentic"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 12.825
           },
           "single": {
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/geography/single"
+            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/geography/single",
+            "avg_llm_calls": 3.8
           }
         }
       },
       "average": {
         "single": 0.275,
-        "agentic": 0.225
+        "agentic": 0.225,
+        "llm_calls_single": 3.965,
+        "llm_calls_agentic": 13.815000000000001
       }
     },
     {
@@ -740,13 +906,15 @@
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 7.425
           },
           "single": {
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.775
           }
         },
         "company": {
@@ -754,13 +922,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 4.7
           },
           "single": {
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.225
           }
         },
         "fictional_character": {
@@ -768,13 +938,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 5.725
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.25
           }
         },
         "flight_accident": {
@@ -782,13 +954,15 @@
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 4.2
           },
           "single": {
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.05
           }
         },
         "geography": {
@@ -796,19 +970,23 @@
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 7.2
           },
           "single": {
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.55
           }
         }
       },
       "average": {
         "single": 0.605,
-        "agentic": 0.55
+        "agentic": 0.55,
+        "llm_calls_single": 2.37,
+        "llm_calls_agentic": 5.85
       }
     },
     {
@@ -821,13 +999,15 @@
             "total": 40,
             "correct": 20,
             "accuracy": 0.5,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 8.45
           },
           "single": {
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/single",
+            "avg_llm_calls": 3.0
           }
         },
         "company": {
@@ -835,13 +1015,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 5.1
           },
           "single": {
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.175
           }
         },
         "fictional_character": {
@@ -849,13 +1031,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 5.75
           },
           "single": {
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.275
           }
         },
         "flight_accident": {
@@ -863,13 +1047,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 4.375
           },
           "single": {
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.25
           }
         },
         "geography": {
@@ -877,19 +1063,23 @@
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/agentic"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 7.275
           },
           "single": {
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/single"
+            "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.625
           }
         }
       },
       "average": {
         "single": 0.585,
-        "agentic": 0.5549999999999999
+        "agentic": 0.5549999999999999,
+        "llm_calls_single": 2.465,
+        "llm_calls_agentic": 6.1899999999999995
       }
     },
     {
@@ -902,13 +1092,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 7.5
           },
           "single": {
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.675
           }
         },
         "company": {
@@ -916,13 +1108,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 5.075
           },
           "single": {
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.275
           }
         },
         "fictional_character": {
@@ -930,13 +1124,15 @@
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 4.725
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.075
           }
         },
         "flight_accident": {
@@ -944,13 +1140,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 3.6
           },
           "single": {
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.1
           }
         },
         "geography": {
@@ -958,19 +1156,23 @@
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 6.475
           },
           "single": {
             "total": 40,
             "correct": 13,
             "accuracy": 0.325,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.45
           }
         }
       },
       "average": {
         "single": 0.545,
-        "agentic": 0.545
+        "agentic": 0.545,
+        "llm_calls_single": 2.315,
+        "llm_calls_agentic": 5.475
       }
     },
     {
@@ -983,13 +1185,15 @@
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 8.325
           },
           "single": {
             "total": 40,
             "correct": 20,
             "accuracy": 0.5,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.775
           }
         },
         "company": {
@@ -997,13 +1201,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 4.85
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.125
           }
         },
         "fictional_character": {
@@ -1011,13 +1217,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 5.075
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.15
           }
         },
         "flight_accident": {
@@ -1025,13 +1233,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 4.0
           },
           "single": {
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.15
           }
         },
         "geography": {
@@ -1039,19 +1249,23 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/agentic"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 7.65
           },
           "single": {
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/single"
+            "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.75
           }
         }
       },
       "average": {
         "single": 0.58,
-        "agentic": 0.5599999999999999
+        "agentic": 0.5599999999999999,
+        "llm_calls_single": 2.3899999999999997,
+        "llm_calls_agentic": 5.9799999999999995
       }
     },
     {
@@ -1064,13 +1278,15 @@
             "total": 40,
             "correct": 22,
             "accuracy": 0.55,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 7.25
           },
           "single": {
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.625
           }
         },
         "biology": {
@@ -1078,13 +1294,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/agentic",
+            "avg_llm_calls": 8.725
           },
           "single": {
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/single",
+            "avg_llm_calls": 2.525
           }
         },
         "company": {
@@ -1092,13 +1310,15 @@
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 7.875
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.35
           }
         },
         "fictional_character": {
@@ -1106,13 +1326,15 @@
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 6.4
           },
           "single": {
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.325
           }
         },
         "flight_accident": {
@@ -1120,13 +1342,15 @@
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 5.95
           },
           "single": {
             "total": 40,
             "correct": 31,
             "accuracy": 0.775,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.4
           }
         },
         "geography": {
@@ -1134,13 +1358,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 8.725
           },
           "single": {
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.775
           }
         },
         "movie": {
@@ -1148,13 +1374,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/agentic",
+            "avg_llm_calls": 6.525
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/single",
+            "avg_llm_calls": 2.225
           }
         },
         "nba": {
@@ -1162,13 +1390,15 @@
             "total": 40,
             "correct": 31,
             "accuracy": 0.775,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/agentic",
+            "avg_llm_calls": 6.575
           },
           "single": {
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/single",
+            "avg_llm_calls": 2.15
           }
         },
         "politics": {
@@ -1176,13 +1406,15 @@
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/agentic",
+            "avg_llm_calls": 12.5
           },
           "single": {
             "total": 40,
             "correct": 12,
             "accuracy": 0.3,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/single",
+            "avg_llm_calls": 2.775
           }
         },
         "soccer": {
@@ -1190,13 +1422,15 @@
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/agentic",
+            "avg_llm_calls": 11.0
           },
           "single": {
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/single",
+            "avg_llm_calls": 2.4
           }
         },
         "terrorist_attack": {
@@ -1204,19 +1438,23 @@
             "total": 40,
             "correct": 30,
             "accuracy": 0.75,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/agentic",
+            "avg_llm_calls": 5.9
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/single",
+            "avg_llm_calls": 2.35
           }
         }
       },
       "average": {
         "single": 0.5795454545454546,
-        "agentic": 0.5386363636363636
+        "agentic": 0.5386363636363636,
+        "llm_calls_single": 2.4454545454545453,
+        "llm_calls_agentic": 7.947727272727272
       }
     },
     {
@@ -1229,13 +1467,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 6.65
           },
           "single": {
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.475
           }
         },
         "biology": {
@@ -1243,13 +1483,15 @@
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/agentic",
+            "avg_llm_calls": 8.825
           },
           "single": {
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/single",
+            "avg_llm_calls": 2.15
           }
         },
         "company": {
@@ -1257,13 +1499,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 8.325
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.35
           }
         },
         "fictional_character": {
@@ -1271,13 +1515,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 6.4
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.4
           }
         },
         "flight_accident": {
@@ -1285,13 +1531,15 @@
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 6.075
           },
           "single": {
             "total": 40,
             "correct": 30,
             "accuracy": 0.75,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.4
           }
         },
         "geography": {
@@ -1299,13 +1547,15 @@
             "total": 40,
             "correct": 17,
             "accuracy": 0.425,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 8.525
           },
           "single": {
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.575
           }
         },
         "movie": {
@@ -1313,13 +1563,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/agentic",
+            "avg_llm_calls": 5.95
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/single",
+            "avg_llm_calls": 2.325
           }
         },
         "nba": {
@@ -1327,13 +1579,15 @@
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/agentic",
+            "avg_llm_calls": 7.7
           },
           "single": {
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/single",
+            "avg_llm_calls": 2.25
           }
         },
         "politics": {
@@ -1341,13 +1595,15 @@
             "total": 40,
             "correct": 10,
             "accuracy": 0.25,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/agentic",
+            "avg_llm_calls": 12.275
           },
           "single": {
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/single",
+            "avg_llm_calls": 2.55
           }
         },
         "soccer": {
@@ -1355,13 +1611,15 @@
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/agentic",
+            "avg_llm_calls": 10.675
           },
           "single": {
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/single",
+            "avg_llm_calls": 2.45
           }
         },
         "terrorist_attack": {
@@ -1369,19 +1627,23 @@
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/agentic"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/agentic",
+            "avg_llm_calls": 5.475
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/single"
+            "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/single",
+            "avg_llm_calls": 2.425
           }
         }
       },
       "average": {
         "single": 0.5659090909090909,
-        "agentic": 0.5636363636363636
+        "agentic": 0.5636363636363636,
+        "llm_calls_single": 2.3954545454545455,
+        "llm_calls_agentic": 7.8977272727272725
       }
     },
     {
@@ -1394,13 +1656,15 @@
             "total": 40,
             "correct": 22,
             "accuracy": 0.55,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 7.825
           },
           "single": {
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.725
           }
         },
         "biology": {
@@ -1408,13 +1672,15 @@
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/agentic",
+            "avg_llm_calls": 8.175
           },
           "single": {
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/single",
+            "avg_llm_calls": 2.525
           }
         },
         "company": {
@@ -1422,13 +1688,15 @@
             "total": 40,
             "correct": 30,
             "accuracy": 0.75,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 7.625
           },
           "single": {
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.7
           }
         },
         "fictional_character": {
@@ -1436,13 +1704,15 @@
             "total": 40,
             "correct": 23,
             "accuracy": 0.575,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 7.475
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.275
           }
         },
         "flight_accident": {
@@ -1450,13 +1720,15 @@
             "total": 40,
             "correct": 31,
             "accuracy": 0.775,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 4.725
           },
           "single": {
             "total": 40,
             "correct": 33,
             "accuracy": 0.825,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.3
           }
         },
         "geography": {
@@ -1464,13 +1736,15 @@
             "total": 40,
             "correct": 19,
             "accuracy": 0.475,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 8.2
           },
           "single": {
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.6
           }
         },
         "movie": {
@@ -1478,13 +1752,15 @@
             "total": 40,
             "correct": 25,
             "accuracy": 0.625,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/agentic",
+            "avg_llm_calls": 7.725
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/single",
+            "avg_llm_calls": 2.325
           }
         },
         "nba": {
@@ -1492,13 +1768,15 @@
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/agentic",
+            "avg_llm_calls": 5.6
           },
           "single": {
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/single",
+            "avg_llm_calls": 2.3
           }
         },
         "politics": {
@@ -1506,13 +1784,15 @@
             "total": 40,
             "correct": 10,
             "accuracy": 0.25,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/agentic",
+            "avg_llm_calls": 11.6
           },
           "single": {
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/single",
+            "avg_llm_calls": 2.9
           }
         },
         "soccer": {
@@ -1520,13 +1800,15 @@
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/agentic",
+            "avg_llm_calls": 11.6
           },
           "single": {
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/single",
+            "avg_llm_calls": 2.575
           }
         },
         "terrorist_attack": {
@@ -1534,19 +1816,23 @@
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/agentic",
+            "avg_llm_calls": 5.85
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/single",
+            "avg_llm_calls": 2.125
           }
         }
       },
       "average": {
         "single": 0.5431818181818181,
-        "agentic": 0.5659090909090909
+        "agentic": 0.5659090909090909,
+        "llm_calls_single": 2.4863636363636363,
+        "llm_calls_agentic": 7.854545454545454
       }
     },
     {
@@ -1559,13 +1845,15 @@
             "total": 40,
             "correct": 20,
             "accuracy": 0.5,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 7.0
           },
           "single": {
             "total": 40,
             "correct": 21,
             "accuracy": 0.525,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.45
           }
         },
         "biology": {
@@ -1573,13 +1861,15 @@
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/agentic",
+            "avg_llm_calls": 8.475
           },
           "single": {
             "total": 40,
             "correct": 18,
             "accuracy": 0.45,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/single",
+            "avg_llm_calls": 2.575
           }
         },
         "company": {
@@ -1587,13 +1877,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 7.075
           },
           "single": {
             "total": 40,
             "correct": 29,
             "accuracy": 0.725,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.6
           }
         },
         "fictional_character": {
@@ -1601,13 +1893,15 @@
             "total": 40,
             "correct": 24,
             "accuracy": 0.6,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 5.95
           },
           "single": {
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.325
           }
         },
         "flight_accident": {
@@ -1615,13 +1909,15 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 6.125
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.55
           }
         },
         "geography": {
@@ -1629,13 +1925,15 @@
             "total": 40,
             "correct": 14,
             "accuracy": 0.35,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 9.925
           },
           "single": {
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.7
           }
         },
         "movie": {
@@ -1643,13 +1941,15 @@
             "total": 40,
             "correct": 28,
             "accuracy": 0.7,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/agentic",
+            "avg_llm_calls": 6.35
           },
           "single": {
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/single",
+            "avg_llm_calls": 2.4
           }
         },
         "nba": {
@@ -1657,13 +1957,15 @@
             "total": 40,
             "correct": 26,
             "accuracy": 0.65,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/agentic",
+            "avg_llm_calls": 5.125
           },
           "single": {
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/single",
+            "avg_llm_calls": 2.175
           }
         },
         "politics": {
@@ -1671,13 +1973,15 @@
             "total": 40,
             "correct": 10,
             "accuracy": 0.25,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/agentic",
+            "avg_llm_calls": 12.3
           },
           "single": {
             "total": 40,
             "correct": 11,
             "accuracy": 0.275,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/single",
+            "avg_llm_calls": 2.45
           }
         },
         "soccer": {
@@ -1685,13 +1989,15 @@
             "total": 40,
             "correct": 16,
             "accuracy": 0.4,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/agentic",
+            "avg_llm_calls": 10.35
           },
           "single": {
             "total": 40,
             "correct": 15,
             "accuracy": 0.375,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/single",
+            "avg_llm_calls": 2.8
           }
         },
         "terrorist_attack": {
@@ -1699,19 +2005,23 @@
             "total": 40,
             "correct": 27,
             "accuracy": 0.675,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/agentic"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/agentic",
+            "avg_llm_calls": 6.575
           },
           "single": {
             "total": 40,
             "correct": 31,
             "accuracy": 0.775,
-            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/single"
+            "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/single",
+            "avg_llm_calls": 2.225
           }
         }
       },
       "average": {
         "single": 0.5659090909090909,
-        "agentic": 0.5340909090909091
+        "agentic": 0.5340909090909091,
+        "llm_calls_single": 2.477272727272727,
+        "llm_calls_agentic": 7.75
       }
     }
   ]
