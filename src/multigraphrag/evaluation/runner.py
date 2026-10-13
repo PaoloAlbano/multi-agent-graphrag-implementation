@@ -228,8 +228,9 @@ async def run_evaluation(
     split: str,
     domains: list[str] | None = None,
     limit: int | None = None,
+    qids: set[str] | None = None,
     modes: tuple[EvalMode, ...] = ALL_MODES,
-    graph_variant: str = "simplekg_sampled",
+    graph_variant: str = "simplekg",
     trace_path: Path | None = None,
     concurrency: int | None = None,
     judge: LLMJudge | None = None,
@@ -246,8 +247,11 @@ async def run_evaluation(
     it scores every answer (in addition to the always-computed deterministic
     similarity); otherwise the deterministic heuristic alone determines
     correctness.
+
+    `qids` narrows the run to an explicit set of question ids (used to repair
+    a broken leaf by re-running only the questions that failed).
     """
-    tasks = load_tasks(dataset_dir, split, domains=domains, limit=limit)
+    tasks = load_tasks(dataset_dir, split, domains=domains, limit=limit, qids=qids)
     if not tasks:
         raise ValueError("No CypherBench tasks matched the given split/domains/limit.")
 

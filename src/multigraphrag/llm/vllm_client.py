@@ -53,7 +53,7 @@ class LLMResponseParsingError(RuntimeError):
 def _retryable() -> retry:
     return retry(
         reraise=True,
-        stop=stop_after_attempt(3),
+        stop=stop_after_attempt(2),
         wait=wait_exponential(multiplier=0.5, min=0.5, max=8),
         retry=retry_if_exception_type((httpx.TransportError, LLMRequestError)),
     )
@@ -80,6 +80,15 @@ class VllmClient(LLMClient):
             base_url=settings.base_url,
             timeout=settings.request_timeout,
             headers=headers,
+            # The gateway closes keep-alive connections aggressively (observed
+            # after long/runaway generations). Reusing a closed connection
+            # raises a bare TransportError with an empty message that stalls
+            # the pipeline until the 300s timeout. Opening a fresh connection
+            # per request avoids this entirely.
+            limits=httpx.Limits(
+                max_keepalive_connections=0,
+                max_connections=settings.max_concurrency or 10,
+            ),
         )
         self._call_logger = call_logger
         self._agent_name = agent_name
@@ -116,7 +125,13 @@ class VllmClient(LLMClient):
             ],
             "temperature": self._settings.temperature,
         }
-        if self._settings.max_tokens is not None:
+        # `None` and `-1` both mean "let the endpoint apply its own default":
+        # either way the field is omitted from the payload. `-1` is the
+        # conventional sentinel (e.g. vLLM/OpenAI CLI) for "no cap", and some
+        # backends misbehave when max_tokens is huge (Qwen3.5-27B on the
+        # gateway was observed emitting lots of empty tokens past the real
+        # answer, which can trip long/empty responses).
+        if self._settings.max_tokens not in (None, -1):
             payload["max_tokens"] = self._settings.max_tokens
 
         if not self._settings.reasoning_enabled:
@@ -131,14 +146,32 @@ class VllmClient(LLMClient):
         payload.update(self._settings.extra_body)
         return payload
 
-    async def _post_chat_completion(self, payload: dict) -> dict:
+    async def _post_chat_completion(self, payload: dict) -> str:
+        """POST /chat/completions and return the assistant message content.
+
+        Extracting the content *inside* the retry is important: some backends
+        return a 200 OK with `message.content == null` (observed with
+        reasoning-capable models on the gateway). That is a transient,
+        retryable condition -- not a malformed request -- so we surface it as
+        `LLMRequestError` from within `_call()` where tenacity can retry it.
+        """
         attempt = _retryable()
 
         @attempt
-        async def _call() -> dict:
+        async def _call() -> str:
             try:
                 response = await self._client.post("/chat/completions", json=payload)
             except httpx.TransportError as exc:
+                # Log the *type* and repr of the underlying exception: some
+                # TransportError subclasses have an empty str() (observed:
+                # `Transport error calling LLM endpoint: ` with nothing after
+                # the colon), which hides whether it was a ConnectError,
+                # ReadTimeout, RemoteProtocolError, etc.
+                logger.warning(
+                    "LLM transport failure: type=%s repr=%r",
+                    type(exc).__name__,
+                    repr(exc),
+                )
                 raise LLMRequestError(f"Transport error calling LLM endpoint: {exc}") from exc
             if response.status_code >= 500:
                 raise LLMRequestError(f"LLM endpoint returned {response.status_code}: {response.text[:500]}")
@@ -148,15 +181,20 @@ class VllmClient(LLMClient):
                 raise LLMResponseParsingError(
                     f"LLM endpoint rejected request ({response.status_code}): {response.text[:500]}"
                 )
-            return response.json()
+            try:
+                content = self._extract_content(response.json())
+            except LLMResponseParsingError as exc:
+                # e.g. `content: null` under a 200 OK -- transient on some
+                # backends, so retry instead of failing the question.
+                raise LLMRequestError(str(exc)) from exc
+            return content
 
         return await _call()
 
     async def complete(self, *, system_prompt: str, user_prompt: str) -> str:
         payload = self._base_payload(system_prompt, user_prompt)
         try:
-            data = await self._post_chat_completion(payload)
-            content = self._extract_content(data)
+            content = await self._post_chat_completion(payload)
         except Exception as exc:
             self._log_call(
                 system_prompt=system_prompt, user_prompt=user_prompt, response=None, error=str(exc)
@@ -188,8 +226,7 @@ class VllmClient(LLMClient):
             payload = self._base_payload(system_prompt, sent_user_prompt)
 
         try:
-            data = await self._post_chat_completion(payload)
-            content = self._extract_content(data)
+            content = await self._post_chat_completion(payload)
         except Exception as exc:
             self._log_call(
                 system_prompt=system_prompt, user_prompt=sent_user_prompt, response=None, error=str(exc)
@@ -212,9 +249,14 @@ class VllmClient(LLMClient):
     @staticmethod
     def _extract_content(data: dict) -> str:
         try:
-            return data["choices"][0]["message"]["content"]
+            content = data["choices"][0]["message"]["content"]
         except (KeyError, IndexError, TypeError) as exc:
             raise LLMResponseParsingError(f"Unexpected completion payload shape: {data}") from exc
+        if content is None:
+            raise LLMResponseParsingError(
+                "LLM endpoint returned empty content (message.content is null)"
+            )
+        return content
 
     @staticmethod
     def _parse_structured(content: str, response_model: type[TModel]) -> TModel:
@@ -226,13 +268,75 @@ class VllmClient(LLMClient):
             if text.lower().startswith("json"):
                 text = text[4:]
             text = text.strip()
-        try:
-            raw = json.loads(text)
-        except json.JSONDecodeError as exc:
-            raise LLMResponseParsingError(f"Model did not return valid JSON: {text[:500]}") from exc
+        raw = VllmClient._extract_first_json_object(text)
         try:
             return response_model.model_validate(raw)
         except ValidationError as exc:
             raise LLMResponseParsingError(
                 f"Model JSON did not match {response_model.__name__}: {exc}"
             ) from exc
+
+    @staticmethod
+    def _extract_first_json_object(text: str) -> object:
+        """Parse the first valid JSON object in ``text``.
+
+        Some models (observed: Qwen3.5-27B on the gateway) emit a valid JSON
+        object and then keep generating padding whitespace/newlines past the
+        closing brace -- a runaway-generation artifact that can be tens of
+        thousands of characters long. ``json.loads`` on the whole string fails
+        in that case (e.g. `Expecting ',' delimiter`), so we:
+
+        1. try a plain parse of the trimmed text first (fast path);
+        2. otherwise scan for the first ``{`` and extract the *balanced*
+           object, ignoring trailing garbage;
+        3. if the object is unbalanced (missing its closing brace), try
+           appending the minimal closing brace(s) so a truncated-but-valid
+           object still parses.
+        """
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            pass
+
+        start = text.find("{")
+        if start == -1:
+            raise LLMResponseParsingError(f"Model did not return valid JSON: {text[:500]}")
+
+        # Scan the substring from the first `{` tracking brace depth, while
+        # skipping braces inside string literals.
+        depth = 0
+        in_string = False
+        escaped = False
+        for i in range(start, len(text)):
+            ch = text[i]
+            if in_string:
+                if escaped:
+                    escaped = False
+                elif ch == "\\":
+                    escaped = True
+                elif ch == '"':
+                    in_string = False
+                continue
+            if ch == '"':
+                in_string = True
+            elif ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    candidate = text[start : i + 1]
+                    try:
+                        return json.loads(candidate)
+                    except json.JSONDecodeError:
+                        break  # not a clean object; fall through to recovery
+
+        # Unbalanced: the model stopped mid-object (runaway padding). Try
+        # closing the object with the missing braces and re-parse.
+        if depth > 0:
+            candidate = text[start:] + "}" * depth
+            try:
+                return json.loads(candidate)
+            except json.JSONDecodeError:
+                pass
+
+        raise LLMResponseParsingError(f"Model did not return valid JSON: {text[:500]}")

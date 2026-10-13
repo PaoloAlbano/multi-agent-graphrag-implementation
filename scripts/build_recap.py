@@ -64,6 +64,7 @@ def _collect_groups() -> dict[tuple[str, str], dict]:
         )
 
         leaf_dir = run_json_path.parent.relative_to(RESULTS_ROOT)
+        external_judge = manifest.get("external_judge")
         for entry in manifest.get("results", []):
             domain = entry["domain"]
             mode = entry["mode"]
@@ -74,6 +75,19 @@ def _collect_groups() -> dict[tuple[str, str], dict]:
                 "accuracy": entry["accuracy"],
                 "path": str(leaf_dir),
                 "avg_llm_calls": _avg_calls_per_question(run_json_path, manifest, entry["total"]),
+                # Optional fixed-judge score (run.json `external_judge` block,
+                # written by `make rejudge-fixed`). None when not (yet) done.
+                "external_judge": (
+                    {
+                        "accuracy": external_judge["accuracy"],
+                        "total": external_judge["total"],
+                        "correct": external_judge["correct"],
+                        "model": external_judge.get("model"),
+                        "calls_log": external_judge.get("calls_log"),
+                    }
+                    if external_judge
+                    else None
+                ),
             }
 
     return groups
@@ -84,12 +98,34 @@ def _average(domains: dict[str, dict], mode: str) -> float | None:
     return sum(values) / len(values) if values else None
 
 
+def _average_external(domains: dict[str, dict], mode: str) -> float | None:
+    """Average of the external (fixed) judge's accuracy for `mode`, across
+    domains that have an `external_judge` block."""
+    values = [
+        d[mode]["external_judge"]["accuracy"]
+        for d in domains.values()
+        if mode in d and d[mode]["external_judge"] is not None
+    ]
+    return sum(values) / len(values) if values else None
+
+
 def _average_calls(domains: dict[str, dict], mode: str) -> float | None:
     values = [
         d[mode]["avg_llm_calls"]
         for d in domains.values()
         if mode in d and d[mode]["avg_llm_calls"] is not None
     ]
+    return sum(values) / len(values) if values else None
+
+
+def _average_external_delta(domains: dict[str, dict]) -> float | None:
+    """Average of (ext agentic - ext single) across domains that have both."""
+    values = []
+    for d in domains.values():
+        s = d.get("single", {}).get("external_judge")
+        a = d.get("agentic", {}).get("external_judge")
+        if s is not None and a is not None:
+            values.append(a["accuracy"] - s["accuracy"])
     return sum(values) / len(values) if values else None
 
 
@@ -107,6 +143,9 @@ def _build_recap_json(groups: dict[tuple[str, str], dict]) -> dict:
                     "agentic": _average(group["domains"], "agentic"),
                     "llm_calls_single": _average_calls(group["domains"], "single"),
                     "llm_calls_agentic": _average_calls(group["domains"], "agentic"),
+                    "external_single": _average_external(group["domains"], "single"),
+                    "external_agentic": _average_external(group["domains"], "agentic"),
+                    "external_delta": _average_external_delta(group["domains"]),
                 },
             }
             for group in groups.values()
@@ -127,10 +166,22 @@ def _build_recap_md(recap: dict) -> str:
     for group in recap["groups"]:
         lines.append(f"## {group['model']} ({group['config']})")
         lines.append("")
-        lines.append(
-            "| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |"
+        has_external = any(
+            modes.get("single", {}).get("external_judge")
+            or modes.get("agentic", {}).get("external_judge")
+            for modes in group["domains"].values()
         )
-        lines.append("|---|---|---|---|---|---|")
+        if has_external:
+            lines.append(
+                "| Domain | single | agentic | delta | ext single | ext agentic | ext delta | "
+                "avg LLM calls (single) | avg LLM calls (agentic) |"
+            )
+            lines.append("|---|---|---|---|---|---|---|---|---|")
+        else:
+            lines.append(
+                "| Domain | single | agentic | delta | avg LLM calls (single) | avg LLM calls (agentic) |"
+            )
+            lines.append("|---|---|---|---|---|---|")
         for domain, modes in sorted(group["domains"].items()):
             single = modes.get("single", {}).get("accuracy")
             agentic = modes.get("agentic", {}).get("accuracy")
@@ -138,10 +189,26 @@ def _build_recap_md(recap: dict) -> str:
             delta_str = f"{delta:+.1%}" if delta is not None else "-"
             calls_single = _format_calls(modes.get("single", {}).get("avg_llm_calls"))
             calls_agentic = _format_calls(modes.get("agentic", {}).get("avg_llm_calls"))
-            lines.append(
-                f"| {domain} | {_format_pct(single)} | {_format_pct(agentic)} | {delta_str} "
-                f"| {calls_single} | {calls_agentic} |"
-            )
+            if has_external:
+                ext_single = modes.get("single", {}).get("external_judge")
+                ext_agentic = modes.get("agentic", {}).get("external_judge")
+                ext_delta = (
+                    ext_agentic["accuracy"] - ext_single["accuracy"]
+                    if ext_single and ext_agentic
+                    else None
+                )
+                ext_delta_str = f"{ext_delta:+.1%}" if ext_delta is not None else "-"
+                lines.append(
+                    f"| {domain} | {_format_pct(single)} | {_format_pct(agentic)} | {delta_str} "
+                    f"| {_format_pct(ext_single['accuracy'] if ext_single else None)} "
+                    f"| {_format_pct(ext_agentic['accuracy'] if ext_agentic else None)} "
+                    f"| {ext_delta_str} | {calls_single} | {calls_agentic} |"
+                )
+            else:
+                lines.append(
+                    f"| {domain} | {_format_pct(single)} | {_format_pct(agentic)} | {delta_str} "
+                    f"| {calls_single} | {calls_agentic} |"
+                )
 
         avg_single = group["average"]["single"]
         avg_agentic = group["average"]["agentic"]
@@ -149,10 +216,19 @@ def _build_recap_md(recap: dict) -> str:
         avg_delta_str = f"{avg_delta:+.1%}" if avg_delta is not None else "-"
         avg_calls_single = _average_calls(group["domains"], "single")
         avg_calls_agentic = _average_calls(group["domains"], "agentic")
-        lines.append(
-            f"| **Average** | {_format_pct(avg_single)} | {_format_pct(avg_agentic)} | {avg_delta_str} "
-            f"| {_format_calls(avg_calls_single)} | {_format_calls(avg_calls_agentic)} |"
-        )
+        if has_external:
+            lines.append(
+                f"| **Average** | {_format_pct(avg_single)} | {_format_pct(avg_agentic)} | {avg_delta_str} "
+                f"| {_format_pct(group['average']['external_single'])} "
+                f"| {_format_pct(group['average']['external_agentic'])} "
+                f"| {_format_pct(group['average'].get('external_delta'))} "
+                f"| {_format_calls(avg_calls_single)} | {_format_calls(avg_calls_agentic)} |"
+            )
+        else:
+            lines.append(
+                f"| **Average** | {_format_pct(avg_single)} | {_format_pct(avg_agentic)} | {avg_delta_str} "
+                f"| {_format_calls(avg_calls_single)} | {_format_calls(avg_calls_agentic)} |"
+            )
         lines.append("")
     return "\n".join(lines)
 

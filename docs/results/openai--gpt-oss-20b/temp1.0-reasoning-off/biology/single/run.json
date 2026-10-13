@@ -3,7 +3,7 @@
   "temperature": 1.0,
   "reasoning_enabled": false,
   "reasoning_effort": "medium",
-  "max_tokens": 16000,
+  "max_tokens": 32768,
   "structured_output_mode": "json_schema",
   "split": "train",
   "domains": [
@@ -13,20 +13,29 @@
     "single"
   ],
   "graph_variant": "simplekg",
-  "concurrency": 40,
-  "limit": 40,
+  "concurrency": 20,
+  "limit": 100,
   "use_judge": true,
+  "judge_mode": "self",
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
-  "generated_at": "2026-07-24T05:55:21.593987+00:00",
+  "generated_at": "2026-09-29T14:57:38.415268+00:00",
   "results": [
     {
       "domain": "biology",
       "mode": "single",
-      "total": 40,
-      "correct": 15,
-      "accuracy": 0.375
+      "total": 100,
+      "correct": 34,
+      "accuracy": 0.34
     }
   ],
+  "external_judge": {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "total": 100,
+    "correct": 34,
+    "accuracy": 0.34,
+    "calls_log": "judge_fixed_calls.jsonl",
+    "judge_mode": "fixed"
+  },
   "judge_calls_log": "judge_calls.jsonl"
 }

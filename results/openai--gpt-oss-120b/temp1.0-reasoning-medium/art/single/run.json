@@ -3,7 +3,7 @@
   "temperature": 1.0,
   "reasoning_enabled": true,
   "reasoning_effort": "medium",
-  "max_tokens": 16000,
+  "max_tokens": 32768,
   "structured_output_mode": "json_schema",
   "split": "train",
   "domains": [
@@ -13,20 +13,29 @@
     "single"
   ],
   "graph_variant": "simplekg",
-  "concurrency": 10,
-  "limit": 40,
+  "concurrency": 20,
+  "limit": 100,
   "use_judge": true,
+  "judge_mode": "self",
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
-  "generated_at": "2026-07-24T11:13:05.617157+00:00",
+  "generated_at": "2026-09-29T04:51:33.976452+00:00",
   "results": [
     {
       "domain": "art",
       "mode": "single",
-      "total": 40,
-      "correct": 19,
-      "accuracy": 0.475
+      "total": 100,
+      "correct": 50,
+      "accuracy": 0.5
     }
   ],
+  "external_judge": {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "total": 100,
+    "correct": 49,
+    "accuracy": 0.49,
+    "calls_log": "judge_fixed_calls.jsonl",
+    "judge_mode": "fixed"
+  },
   "judge_calls_log": "judge_calls.jsonl"
 }

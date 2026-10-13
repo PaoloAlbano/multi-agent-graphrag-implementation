@@ -27,7 +27,7 @@
 
   <table id="questions">
     <thead>
-      <tr><th>Question</th><th>Result</th><th>Similarity</th><th>Iterations</th><th>LLM calls</th><th></th></tr>
+      <tr><th>Question</th><th>Result</th><th>Similarity</th><th>Iterations</th><th>Query calls</th><th></th></tr>
     </thead>
     <tbody id="rows"></tbody>
   </table>
@@ -43,7 +43,7 @@ if (!path) {
 
 const base = `results/${path}/`;
 
-function renderManifest(manifest) {
+function renderManifest(manifest, entry) {
   const fields = [
     ["Model", manifest.model],
     ["Temperature", manifest.temperature],
@@ -52,10 +52,51 @@ function renderManifest(manifest) {
       : manifest.reasoning_enabled === null ? "not tracked (legacy run)" : "on"],
     ["Split", manifest.split],
     ["Graph variant", manifest.graph_variant],
+    ["Questions", entry ? `${entry.total}` : (manifest.limit ?? "not recorded")],
     ["Concurrency", manifest.concurrency ?? "not recorded"],
   ];
+  const isExternal = window.location.hash === "#external";
+  const ext = manifest.external_judge;
+  // Determine which judge is displayed. In the default view we show the judge
+  // that produced the primary score ("self-judge" for self-judged runs, the
+  // fixed judge for fixed runs). In the #external view we always show the
+  // fixed (external) judge. The score and judge-calls link always match the
+  // displayed judge.
+  let judgeWord = null, judgeName = null, judgeScore = null, judgeCallsLog = null;
+  if (isExternal && ext) {
+    judgeWord = "fixed judge";
+    judgeName = ext.model || "fixed judge";
+    judgeScore = ext;
+    judgeCallsLog = ext.calls_log;
+  } else if (manifest.judge_mode === "fixed") {
+    judgeWord = "fixed judge";
+    judgeName = (ext && ext.model) || "fixed judge";
+    judgeScore = ext || null;
+    judgeCallsLog = ext && ext.calls_log;
+  } else if (manifest.judge_mode === "self") {
+    judgeWord = "self-judge";
+    judgeName = manifest.model;
+    judgeScore = entry && entry.total != null
+      ? { accuracy: entry.accuracy, correct: entry.correct, total: entry.total }
+      : null;
+    judgeCallsLog = manifest.judge_calls_log;
+  }
+  if (judgeWord) {
+    const parts = [`<strong>${judgeWord}</strong> (${escapeHtml(judgeName)})`];
+    if (judgeScore && judgeScore.total != null) {
+      parts.push(`${formatPct(judgeScore.accuracy)} (${judgeScore.correct}/${judgeScore.total})`);
+    }
+    if (judgeCallsLog) {
+      parts.push(`<a href="${base + judgeCallsLog}">judge calls log</a>`);
+    }
+    fields.push(["Judge", parts.join(" &middot; "), true]);
+  }
+  if (manifest.limit != null) {
+    fields.push(["Limit", manifest.limit]);
+  }
   document.getElementById("manifest").innerHTML = fields
-    .map(([k, v]) => `<dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd>`)
+    .map(([k, v, html]) =>
+      `<dt${isExternal && k === "Judge" ? ' id="external"' : ""}>${escapeHtml(k)}</dt><dd>${html ? v : escapeHtml(v)}</dd>`)
     .join("");
 
   if (manifest.migrated) {
@@ -64,16 +105,30 @@ function renderManifest(manifest) {
   }
 }
 
-function questionRowHtml(item, index, callCounts) {
+function questionRowHtml(item, index, callBreakdown) {
   const q = escapeHtml(item.question);
-  const callCount = callCounts ? (callCounts.get(item.qid) ?? "-") : "-";
+  const breakdown = callBreakdown ? callBreakdown.get(item.qid) : null;
+  const qgCount = breakdown ? (breakdown.query_generator || 0) : 0;
+  // Number of query-generation calls. In single mode this is always 1 (retry
+  // attempts and errors are not counted); in agentic mode it reflects the
+  // refinement iterations.
+  let callsCell = "-";
+  if (item.mode === "single") {
+    if ((item.iterations ?? 0) > 0) {
+      const title = qgCount > 1 ? `1 query generated (${qgCount} attempts)` : "1 query generated";
+      callsCell = `<span class="calls" title="${escapeHtml(title)}">1</span>`;
+    }
+  } else if (qgCount > 0) {
+    const title = qgCount === 1 ? "1 query generated" : `${qgCount} queries generated`;
+    callsCell = `<span class="calls" title="${escapeHtml(title)}">${qgCount}</span>`;
+  }
   return `
     <tr class="q-row" data-index="${index}" data-correct="${item.correct}">
       <td>${q}</td>
       <td>${badge(item.correct)}</td>
       <td>${item.similarity != null ? item.similarity.toFixed(2) : "-"}</td>
       <td>${item.iterations ?? "-"}</td>
-      <td>${callCount}</td>
+      <td>${callsCell}</td>
       <td><button class="toggle-btn" data-index="${index}">details</button></td>
     </tr>
     <tr class="detail-row" id="detail-${index}">
@@ -147,21 +202,23 @@ async function main() {
   const entry = manifest.results[0] || {};
   document.getElementById("title").textContent = `${entry.domain || ""} / ${entry.mode || ""}`;
   document.getElementById("subtitle").textContent = `${manifest.model} -- ${formatPct(entry.accuracy)} accuracy (${entry.correct}/${entry.total})`;
-  renderManifest(manifest);
+  renderManifest(manifest, entry);
 
   // Fetch the call log once up front (not lazily per-question) so every row
   // can show its LLM call count, not just the one a user happens to expand.
   let allCalls = null;
-  let callCounts = null;
+  let callBreakdown = null;
   let callsByQid = null;
   if (manifest.calls_log) {
     try {
       allCalls = await fetchJSONL(base + manifest.calls_log);
       if (manifest.calls_log_scoped) {
-        callCounts = new Map();
+        callBreakdown = new Map();
         callsByQid = new Map();
         for (const c of allCalls) {
-          callCounts.set(c.qid, (callCounts.get(c.qid) || 0) + 1);
+          if (!callBreakdown.has(c.qid)) callBreakdown.set(c.qid, {});
+          const bd = callBreakdown.get(c.qid);
+          bd[c.agent] = (bd[c.agent] || 0) + 1;
           if (!callsByQid.has(c.qid)) callsByQid.set(c.qid, []);
           callsByQid.get(c.qid).push(c);
         }
@@ -178,7 +235,7 @@ async function main() {
   function render() {
     const filtered = wrongOnly.checked ? items.filter((i) => !i.correct) : items;
     countEl.textContent = `${filtered.length} of ${items.length} questions`;
-    rowsEl.innerHTML = filtered.map((item, i) => questionRowHtml(item, i, callCounts)).join("");
+    rowsEl.innerHTML = filtered.map((item, i) => questionRowHtml(item, i, callBreakdown)).join("");
 
     rowsEl.querySelectorAll("button[data-index]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -201,6 +258,14 @@ async function main() {
 
   wrongOnly.addEventListener("change", render);
   render();
+
+  // Re-render the manifest when the user toggles between the default view and
+  // the #external view via the browser's back/forward buttons (which only
+  // change the hash without reloading the page).
+  window.addEventListener("hashchange", () => {
+    const entry = manifest.results[0] || {};
+    renderManifest(manifest, entry);
+  });
 }
 
 main().catch((err) => {

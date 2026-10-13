@@ -22,7 +22,14 @@ class QueryGeneration(BaseModel):
     """Output of the Query Generator agent."""
 
     cypher: str = Field(description="A single executable Cypher query answering the user question.")
-    rationale: str = Field(description="Brief explanation of the query logic, in natural language.")
+    rationale: str | None = Field(
+        default=None,
+        description=(
+            "Brief explanation of the query logic, in natural language. Optional: "
+            "some backends truncate the response (runaway generation) after the "
+            "cypher, omitting this field -- the query is still usable."
+        ),
+    )
 
 
 class EvaluationResult(BaseModel):

@@ -241,6 +241,20 @@ Notes:
   movie, nba, politics, soccer, terrorist_attack`), `--limit N` to cap
   questions per domain -- so you can run on just the train split, just the
   test split, or a single category.
+- **Why `limit=100` (per domain)?** CypherBench's test split has 189-401
+  questions per domain, so a run over every domain is expensive. `limit` is
+  applied **per domain** (not globally -- see
+  `tests/test_cypherbench_tasks.py`), so each selected domain contributes
+  exactly `N` questions. The default is **100 questions per domain**,
+  balancing three things: (1) statistical power -- at N=40 the 95% CI on an
+  accuracy is roughly ±15pp, at N=100 it narrows to ±10pp; (2) evaluation
+  cost -- the agentic pipeline makes ~5-10 LLM calls per question over the
+  full-scale graphs; (3) cross-model comparability -- every model in
+  `results/` runs the *same* per-domain cap so the numbers line up. It is
+  purely a budget knob: override with `LIMIT=N` (Makefile) or `--limit N`
+  (CLI) at any time. If you change it, keep it identical across the models
+  you want to compare, and the per-run `run.json` records the exact `limit`
+  used.
 - **Graph loading**: for each domain in scope, its CypherBench graph is loaded
   into the configured Memgraph instance (wiping whatever was there before),
   the schema is introspected once, then every requested mode runs over that
@@ -258,16 +272,28 @@ Notes:
   its endpoint.
 - **Scoring**: by default (`--use-judge` is on unless you pass `--no-judge`),
   correctness is scored by an **LLM-as-a-judge** over the natural language
-  answer -- the paper's own methodology. It uses
-  `MULTIGRAPHRAG_EVALUATION__JUDGE__BASE_URL/MODEL/API_KEY` if explicitly
-  configured (same shape as `LLMSettings`, so it can be a separate, dedicated
-  judge model/endpoint, e.g. the paper's GigaChat 2 MAX); otherwise it falls
-  back to the same model/endpoint under test (`MULTIGRAPHRAG_LLM__*`), so
-  `--use-judge` works with zero extra setup at the cost of the judge not
-  being fully independent from the model being evaluated. The judge's exact
-  prompt (including its few-shot examples) is not published, so this is an
-  independent reconstruction of the same idea (`evaluation/judge.py`), not a
-  byte-for-byte reproduction of the paper's judge.
+  answer -- the paper's own methodology. The judge's exact prompt (including
+  its few-shot examples) is not published, so this is an independent
+  reconstruction of the same idea (`evaluation/judge.py`), not a
+  byte-for-byte reproduction of the paper's judge. The judge's model is
+  chosen exactly as follows, and the choice is **recorded in every
+  `run.json`** so the methodology is never ambiguous:
+  - **Self-judge** (`judge_mode: "self"`): each model judges its own
+    answers. This is what the current `results/` use. It needs zero extra
+    infrastructure, but has a well-known **self-serving bias** risk -- a
+    model tends to be lenient with its own mistakes, so absolute numbers are
+    *not* directly comparable across models, only within a model across
+    domains/configs (and even then only approximately).
+  - **Fixed judge** (`judge_mode: "fixed"`): one dedicated judge model
+    (`MULTIGRAPHRAG_EVALUATION__JUDGE__*` -- same shape as `LLMSettings`,
+    e.g. a strong model like the paper's GigaChat 2 MAX) scores **every**
+    model's answers. This is the paper-faithful, cross-model-comparable
+    setup, at the cost of standing up one extra model. Run it after the fact
+    on existing traces with `make rejudge-fixed` (no pipeline re-run needed).
+  Each leaf can carry **both**: `judge_mode: "self"` plus an optional
+  `external_judge` block recording the fixed judge's verdicts, so the site
+  can show both scores side by side. The deterministic `similarity` score is
+  always computed and recorded alongside for reference.
 - **Deterministic fallback** (`--no-judge`): scores by comparing the
   pipeline's raw Cypher result values against CypherBench's `answer_json`
   ground truth (normalized value-multiset Jaccard similarity, threshold 0.8;
@@ -305,10 +331,60 @@ Each invocation covers exactly one domain and one mode and writes directly
 into the `results/` layout above -- no manual `--trace`/`--call-log` path
 bookkeeping needed. `REASONING` accepts `off`, `low`, `medium`, or `high`
 (forwarded to `MULTIGRAPHRAG_LLM__REASONING_ENABLED`/`__REASONING_EFFORT`);
-`TEMP`, `LIMIT` (default 40), `CONCURRENCY` (default 2), and
+`TEMP`, `LIMIT` (default 100), `CONCURRENCY` (default 20), and
 `GRAPH_VARIANT` (default `simplekg`, full-scale) are all overridable, e.g.
 `make run-single MODEL=... DOMAIN=... CONCURRENCY=1` for the larger domains
 (`art`, `geography`) if Memgraph runs low on memory.
+
+### What a "config" directory means (`temp<T>-reasoning-<effort|off>`)
+
+Each model's results live under one directory per *config* -- a fixed
+`(temperature, reasoning)` pair, i.e. one cell of the following matrix:
+
+| | `reasoning-off` | `reasoning-medium` |
+|---|---|---|
+| `temp0.0` | `temp0.0-reasoning-off` | `temp0.0-reasoning-medium` |
+| `temp1.0` | `temp1.0-reasoning-off` | `temp1.0-reasoning-medium` |
+
+- `temp<T>` is the sampling temperature (`0.0` greedy vs `1.0`).
+- `reasoning-off` sets `MULTIGRAPHRAG_LLM__REASONING_ENABLED=false`
+  (suppresses chain-of-thought via `enable_thinking=false`).
+- `reasoning-medium` sets `REASONING_ENABLED=true` +
+  `REASONING_EFFORT=medium` (for gpt-oss-style effort knobs; ignored
+  harmlessly by models that don't recognize it, e.g. Qwen3).
+
+The four standard configs in `results/` are exactly the 2×2 cells above.
+A `run.json` records the authoritative `temperature` / `reasoning_enabled` /
+`reasoning_effort` values, so the directory name is just a human-readable
+shorthand -- never parse it as the source of truth.
+
+### Which split a domain uses (train-only vs test)
+
+The 11 CypherBench domains are split unevenly across `train`/`test`: only
+`company, fictional_character, flight_accident, geography, movie, nba,
+politics` appear in `test`, while `art, biology, soccer, terrorist_attack`
+only appear in `train`. The Makefile encodes this (`CYPHERBENCH_TRAIN_ONLY_DOMAINS`)
+and picks the split per domain automatically -- you don't need to, but it's
+why e.g. `art` results live under `split: train` while `geography` uses
+`split: test`. If you invoke the CLI directly, pass the correct `--split` for
+the domain you're running (see the table in `data/cypherbench/*.json`).
+
+### Comparability across the published runs
+
+The current `results/` are a mix of two generations:
+
+- **`openai--gpt-oss-20b`** is the oldest: 11 domains, `limit` 40, run before
+  the current methodology was settled. It's kept as-is (it was the highest
+  budget anyway), but treat its numbers as *indicative* -- its per-domain
+  accuracy has a wider CI (±15pp) than the newer runs.
+- **Every other model** (`Qwen3.5-27B`, `gpt-oss-120b`, `Nemotron-3-Nano-30B`)
+  covers the same **5 shared domains** (`art, company, fictional_character,
+  flight_accident, geography`) at `limit` 100, so they're directly comparable
+  with each other. The shared-domain subset is what the overview table's
+  per-model averages are computed over, keeping the comparison apples-to-apples.
+
+If budget allows later, re-running `gpt-oss-20b` on the shared 5 domains at
+`limit` 100 would fold it into the comparable set.
 
 Then:
 
