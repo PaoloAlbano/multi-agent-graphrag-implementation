@@ -3,7 +3,7 @@
   "temperature": 0.0,
   "reasoning_enabled": false,
   "reasoning_effort": "medium",
-  "max_tokens": 16000,
+  "max_tokens": 32768,
   "structured_output_mode": "json_schema",
   "split": "test",
   "domains": [
@@ -13,20 +13,29 @@
     "agentic"
   ],
   "graph_variant": "simplekg",
-  "concurrency": 40,
-  "limit": 40,
+  "concurrency": 20,
+  "limit": 100,
   "use_judge": true,
+  "judge_mode": "self",
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
-  "generated_at": "2026-07-24T02:08:10.954083+00:00",
+  "generated_at": "2026-09-29T11:40:48.668110+00:00",
   "results": [
     {
       "domain": "flight_accident",
       "mode": "agentic",
-      "total": 40,
-      "correct": 32,
-      "accuracy": 0.8
+      "total": 100,
+      "correct": 67,
+      "accuracy": 0.67
     }
   ],
-  "judge_calls_log": "judge_calls.jsonl"
+  "judge_calls_log": "judge_calls.jsonl",
+  "external_judge": {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "total": 100,
+    "correct": 68,
+    "accuracy": 0.68,
+    "calls_log": "judge_fixed_calls.jsonl",
+    "judge_mode": "fixed"
+  }
 }

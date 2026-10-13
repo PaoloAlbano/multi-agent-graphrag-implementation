@@ -19,6 +19,7 @@ wheels/
 # CypherBench downloads and evaluation traces (large/reproducible via `make cypherbench-download`)
 data/cypherbench/
 trace_*.jsonl
+logs/
 
 .vscode/
 .claude/

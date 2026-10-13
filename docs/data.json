@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T18:53:32.530573+00:00",
+  "generated_at": "2026-10-13T02:45:39.591369+00:00",
   "groups": [
     {
       "model": "Qwen/Qwen3.5-27B",
@@ -8,90 +8,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 22,
-            "accuracy": 0.55,
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 4.85
+            "avg_llm_calls": 6.42,
+            "external_judge": {
+              "accuracy": 0.54,
+              "total": 100,
+              "correct": 54,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
+            "total": 100,
+            "correct": 61,
+            "accuracy": 0.61,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.225
+            "avg_llm_calls": 2.38,
+            "external_judge": {
+              "accuracy": 0.56,
+              "total": 100,
+              "correct": 56,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 80,
+            "accuracy": 0.8,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.05
+            "avg_llm_calls": 4.74,
+            "external_judge": {
+              "accuracy": 0.73,
+              "total": 100,
+              "correct": 73,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 74,
+            "accuracy": 0.74,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.2
+            "avg_llm_calls": 2.24,
+            "external_judge": {
+              "accuracy": 0.69,
+              "total": 100,
+              "correct": 69,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 81,
+            "accuracy": 0.81,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 4.3
+            "avg_llm_calls": 5.88,
+            "external_judge": {
+              "accuracy": 0.79,
+              "total": 100,
+              "correct": 79,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 79,
+            "accuracy": 0.79,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.275
+            "avg_llm_calls": 2.46,
+            "external_judge": {
+              "accuracy": 0.78,
+              "total": 100,
+              "correct": 78,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 92,
+            "accuracy": 0.92,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 2.875
+            "avg_llm_calls": 4.0,
+            "external_judge": {
+              "accuracy": 0.9,
+              "total": 100,
+              "correct": 90,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 37,
-            "accuracy": 0.925,
+            "total": 100,
+            "correct": 89,
+            "accuracy": 0.89,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.025
+            "avg_llm_calls": 2.11,
+            "external_judge": {
+              "accuracy": 0.88,
+              "total": 100,
+              "correct": 88,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 4.725
+            "avg_llm_calls": 8.42,
+            "external_judge": {
+              "accuracy": 0.55,
+              "total": 100,
+              "correct": 55,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 50,
+            "accuracy": 0.5,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.3
+            "avg_llm_calls": 2.71,
+            "external_judge": {
+              "accuracy": 0.47,
+              "total": 100,
+              "correct": 47,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.685,
-        "agentic": 0.64,
-        "llm_calls_single": 2.205,
-        "llm_calls_agentic": 4.159999999999999
+        "single": 0.7060000000000001,
+        "agentic": 0.742,
+        "llm_calls_single": 2.38,
+        "llm_calls_agentic": 5.892,
+        "external_single": 0.6759999999999999,
+        "external_agentic": 0.7020000000000001,
+        "external_delta": 0.026000000000000023
       }
     },
     {
@@ -101,90 +174,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 22,
-            "accuracy": 0.55,
+            "total": 100,
+            "correct": 45,
+            "accuracy": 0.45,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 5.95
+            "avg_llm_calls": 8.92,
+            "external_judge": {
+              "accuracy": 0.44,
+              "total": 100,
+              "correct": 44,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 42,
+            "accuracy": 0.42,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/art/single",
-            "avg_llm_calls": 2.45
+            "avg_llm_calls": 3.08,
+            "external_judge": {
+              "accuracy": 0.4,
+              "total": 100,
+              "correct": 40,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 61,
+            "accuracy": 0.61,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 5.675
+            "avg_llm_calls": 7.41,
+            "external_judge": {
+              "accuracy": 0.59,
+              "total": 100,
+              "correct": 59,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 55,
+            "accuracy": 0.55,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.575
+            "avg_llm_calls": 3.16,
+            "external_judge": {
+              "accuracy": 0.55,
+              "total": 100,
+              "correct": 55,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 17,
-            "accuracy": 0.425,
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 6.675
+            "avg_llm_calls": 8.07,
+            "external_judge": {
+              "accuracy": 0.58,
+              "total": 100,
+              "correct": 58,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 21,
-            "accuracy": 0.525,
+            "total": 100,
+            "correct": 53,
+            "accuracy": 0.53,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.575
+            "avg_llm_calls": 3.11,
+            "external_judge": {
+              "accuracy": 0.5,
+              "total": 100,
+              "correct": 50,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 34,
+            "total": 100,
+            "correct": 85,
             "accuracy": 0.85,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.025
+            "avg_llm_calls": 4.97,
+            "external_judge": {
+              "accuracy": 0.85,
+              "total": 100,
+              "correct": 85,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 34,
+            "total": 100,
+            "correct": 85,
             "accuracy": 0.85,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.175
+            "avg_llm_calls": 2.38,
+            "external_judge": {
+              "accuracy": 0.83,
+              "total": 100,
+              "correct": 83,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 47,
+            "accuracy": 0.47,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 4.75
+            "avg_llm_calls": 9.34,
+            "external_judge": {
+              "accuracy": 0.44,
+              "total": 100,
+              "correct": 44,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 33,
+            "accuracy": 0.33,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.225
+            "avg_llm_calls": 3.38,
+            "external_judge": {
+              "accuracy": 0.32,
+              "total": 100,
+              "correct": 32,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.54,
-        "agentic": 0.6,
-        "llm_calls_single": 2.4,
-        "llm_calls_agentic": 5.415
+        "single": 0.536,
+        "agentic": 0.594,
+        "llm_calls_single": 3.022,
+        "llm_calls_agentic": 7.742,
+        "external_single": 0.52,
+        "external_agentic": 0.58,
+        "external_delta": 0.05999999999999998
       }
     },
     {
@@ -194,90 +340,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
+            "total": 100,
+            "correct": 57,
+            "accuracy": 0.57,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 5.075
+            "avg_llm_calls": 7.85,
+            "external_judge": {
+              "accuracy": 0.55,
+              "total": 100,
+              "correct": 55,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 58,
+            "accuracy": 0.58,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.425
+            "avg_llm_calls": 2.37,
+            "external_judge": {
+              "accuracy": 0.53,
+              "total": 100,
+              "correct": 53,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 72,
+            "accuracy": 0.72,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.125
+            "avg_llm_calls": 5.0,
+            "external_judge": {
+              "accuracy": 0.68,
+              "total": 100,
+              "correct": 68,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 70,
+            "accuracy": 0.7,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.175
+            "avg_llm_calls": 2.38,
+            "external_judge": {
+              "accuracy": 0.68,
+              "total": 100,
+              "correct": 68,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 83,
+            "accuracy": 0.83,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 4.825
+            "avg_llm_calls": 5.97,
+            "external_judge": {
+              "accuracy": 0.8,
+              "total": 100,
+              "correct": 80,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 87,
+            "accuracy": 0.87,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.225
+            "avg_llm_calls": 2.25,
+            "external_judge": {
+              "accuracy": 0.86,
+              "total": 100,
+              "correct": 86,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
+            "total": 100,
+            "correct": 89,
+            "accuracy": 0.89,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 3.9
+            "avg_llm_calls": 4.65,
+            "external_judge": {
+              "accuracy": 0.88,
+              "total": 100,
+              "correct": 88,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 37,
-            "accuracy": 0.925,
+            "total": 100,
+            "correct": 93,
+            "accuracy": 0.93,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.225
+            "avg_llm_calls": 2.19,
+            "external_judge": {
+              "accuracy": 0.9,
+              "total": 100,
+              "correct": 90,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 5.95
+            "avg_llm_calls": 8.61,
+            "external_judge": {
+              "accuracy": 0.56,
+              "total": 100,
+              "correct": 56,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 49,
+            "accuracy": 0.49,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.35
+            "avg_llm_calls": 2.74,
+            "external_judge": {
+              "accuracy": 0.45,
+              "total": 100,
+              "correct": 45,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.7300000000000001,
-        "agentic": 0.635,
-        "llm_calls_single": 2.2800000000000002,
-        "llm_calls_agentic": 4.775
+        "single": 0.714,
+        "agentic": 0.72,
+        "llm_calls_single": 2.386,
+        "llm_calls_agentic": 6.4159999999999995,
+        "external_single": 0.6839999999999999,
+        "external_agentic": 0.6940000000000001,
+        "external_delta": 0.01000000000000002
       }
     },
     {
@@ -287,183 +506,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 13,
-            "accuracy": 0.325,
+            "total": 100,
+            "correct": 44,
+            "accuracy": 0.44,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 4.7
+            "avg_llm_calls": 10.2,
+            "external_judge": {
+              "accuracy": 0.43,
+              "total": 100,
+              "correct": 43,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
+            "total": 100,
+            "correct": 45,
             "accuracy": 0.45,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/art/single",
-            "avg_llm_calls": 2.3
+            "avg_llm_calls": 2.93,
+            "external_judge": {
+              "accuracy": 0.42,
+              "total": 100,
+              "correct": 42,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 63,
+            "accuracy": 0.63,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 5.45
+            "avg_llm_calls": 8.33,
+            "external_judge": {
+              "accuracy": 0.64,
+              "total": 100,
+              "correct": 64,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 17,
-            "accuracy": 0.425,
+            "total": 100,
+            "correct": 52,
+            "accuracy": 0.52,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.675
+            "avg_llm_calls": 2.95,
+            "external_judge": {
+              "accuracy": 0.5,
+              "total": 100,
+              "correct": 50,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 5.175
-          },
-          "single": {
-            "total": 40,
-            "correct": 22,
-            "accuracy": 0.55,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.325
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 26,
+            "total": 100,
+            "correct": 65,
             "accuracy": 0.65,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.275
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 8.13,
+            "external_judge": {
+              "accuracy": 0.64,
+              "total": 100,
+              "correct": 64,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.1
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 4.65
-          },
-          "single": {
-            "total": 40,
-            "correct": 14,
-            "accuracy": 0.35,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.05
-          }
-        }
-      },
-      "average": {
-        "single": 0.505,
-        "agentic": 0.475,
-        "llm_calls_single": 2.29,
-        "llm_calls_agentic": 4.85
-      }
-    },
-    {
-      "model": "Qwen/Qwen3.5-27B",
-      "model_slug": "Qwen--Qwen3.5-27B",
-      "config": "temp1.0-reasoning-untracked",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/agentic",
-            "avg_llm_calls": null
-          },
-          "single": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/art/single",
-            "avg_llm_calls": null
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/agentic",
-            "avg_llm_calls": null
-          },
-          "single": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/company/single",
-            "avg_llm_calls": null
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 34,
-            "accuracy": 0.85,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/agentic",
-            "avg_llm_calls": null
-          },
-          "single": {
-            "total": 40,
-            "correct": 33,
-            "accuracy": 0.825,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/fictional_character/single",
-            "avg_llm_calls": null
+            "total": 100,
+            "correct": 63,
+            "accuracy": 0.63,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 3.02,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 38,
-            "accuracy": 0.95,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/agentic",
-            "avg_llm_calls": null
+            "total": 100,
+            "correct": 86,
+            "accuracy": 0.86,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 5.39,
+            "external_judge": {
+              "accuracy": 0.86,
+              "total": 100,
+              "correct": 86,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 35,
-            "accuracy": 0.875,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/flight_accident/single",
-            "avg_llm_calls": null
+            "total": 100,
+            "correct": 87,
+            "accuracy": 0.87,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.31,
+            "external_judge": {
+              "accuracy": 0.87,
+              "total": 100,
+              "correct": 87,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/agentic",
-            "avg_llm_calls": null
+            "total": 100,
+            "correct": 45,
+            "accuracy": 0.45,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 10.45,
+            "external_judge": {
+              "accuracy": 0.41,
+              "total": 100,
+              "correct": 41,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
-            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-untracked/geography/single",
-            "avg_llm_calls": null
+            "total": 100,
+            "correct": 42,
+            "accuracy": 0.42,
+            "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/single",
+            "avg_llm_calls": 3.1,
+            "external_judge": {
+              "accuracy": 0.42,
+              "total": 100,
+              "correct": 42,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.69,
-        "agentic": 0.765,
-        "llm_calls_single": null,
-        "llm_calls_agentic": null
+        "single": 0.5780000000000001,
+        "agentic": 0.6060000000000001,
+        "llm_calls_single": 2.862,
+        "llm_calls_agentic": 8.5,
+        "external_single": 0.562,
+        "external_agentic": 0.596,
+        "external_delta": 0.03400000000000001
       }
     },
     {
@@ -473,741 +672,661 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
+            "total": 100,
+            "correct": 64,
+            "accuracy": 0.64,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.25
+            "avg_llm_calls": 5.92,
+            "external_judge": {
+              "accuracy": 0.67,
+              "total": 100,
+              "correct": 67,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
+            "total": 100,
+            "correct": 58,
+            "accuracy": 0.58,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.325
+            "avg_llm_calls": 2.45,
+            "external_judge": {
+              "accuracy": 0.56,
+              "total": 100,
+              "correct": 56,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
+            "total": 100,
+            "correct": 73,
+            "accuracy": 0.73,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 7.7
+            "avg_llm_calls": 4.23,
+            "external_judge": {
+              "accuracy": 0.73,
+              "total": 100,
+              "correct": 73,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 77,
+            "accuracy": 0.77,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.4
+            "avg_llm_calls": 2.09,
+            "external_judge": {
+              "accuracy": 0.75,
+              "total": 100,
+              "correct": 75,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 82,
+            "accuracy": 0.82,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 7.625
+            "avg_llm_calls": 4.44,
+            "external_judge": {
+              "accuracy": 0.83,
+              "total": 100,
+              "correct": 83,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
+            "total": 100,
+            "correct": 83,
+            "accuracy": 0.83,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.55
+            "avg_llm_calls": 2.11,
+            "external_judge": {
+              "accuracy": 0.83,
+              "total": 100,
+              "correct": 83,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
+            "total": 100,
+            "correct": 87,
+            "accuracy": 0.87,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 6.375
+            "avg_llm_calls": 3.69,
+            "external_judge": {
+              "accuracy": 0.87,
+              "total": 100,
+              "correct": 87,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
+            "total": 100,
+            "correct": 90,
+            "accuracy": 0.9,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.3
+            "avg_llm_calls": 2.08,
+            "external_judge": {
+              "accuracy": 0.92,
+              "total": 100,
+              "correct": 92,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 23,
+            "accuracy": 0.23,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 9.55
+            "avg_llm_calls": 12.34,
+            "external_judge": {
+              "accuracy": 0.21,
+              "total": 100,
+              "correct": 21,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 14,
-            "accuracy": 0.35,
+            "total": 100,
+            "correct": 44,
+            "accuracy": 0.44,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.775
+            "avg_llm_calls": 2.73,
+            "external_judge": {
+              "accuracy": 0.43,
+              "total": 100,
+              "correct": 43,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        }
+      },
+      "average": {
+        "single": 0.704,
+        "agentic": 0.658,
+        "llm_calls_single": 2.2920000000000003,
+        "llm_calls_agentic": 6.1240000000000006,
+        "external_single": 0.6980000000000001,
+        "external_agentic": 0.662,
+        "external_delta": -0.03600000000000002
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
+      "config": "temp0.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 7.07,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 57,
+            "accuracy": 0.57,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.59,
+            "external_judge": {
+              "accuracy": 0.58,
+              "total": 100,
+              "correct": 58,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 100,
+            "correct": 70,
+            "accuracy": 0.7,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 5.73,
+            "external_judge": {
+              "accuracy": 0.65,
+              "total": 100,
+              "correct": 65,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 67,
+            "accuracy": 0.67,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.48,
+            "external_judge": {
+              "accuracy": 0.66,
+              "total": 100,
+              "correct": 66,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 100,
+            "correct": 70,
+            "accuracy": 0.7,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 7.04,
+            "external_judge": {
+              "accuracy": 0.71,
+              "total": 100,
+              "correct": 71,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 57,
+            "accuracy": 0.57,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.86,
+            "external_judge": {
+              "accuracy": 0.58,
+              "total": 100,
+              "correct": 58,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 100,
+            "correct": 85,
+            "accuracy": 0.85,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 4.54,
+            "external_judge": {
+              "accuracy": 0.84,
+              "total": 100,
+              "correct": 84,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 87,
+            "accuracy": 0.87,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.31,
+            "external_judge": {
+              "accuracy": 0.86,
+              "total": 100,
+              "correct": 86,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 8.84,
+            "external_judge": {
+              "accuracy": 0.56,
+              "total": 100,
+              "correct": 56,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 45,
+            "accuracy": 0.45,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/geography/single",
+            "avg_llm_calls": 3.28,
+            "external_judge": {
+              "accuracy": 0.46,
+              "total": 100,
+              "correct": 46,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        }
+      },
+      "average": {
+        "single": 0.626,
+        "agentic": 0.6859999999999999,
+        "llm_calls_single": 2.7039999999999997,
+        "llm_calls_agentic": 6.644,
+        "external_single": 0.628,
+        "external_agentic": 0.6719999999999999,
+        "external_delta": 0.044000000000000004
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
+      "config": "temp1.0-reasoning-medium",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 100,
+            "correct": 60,
+            "accuracy": 0.6,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/art/agentic",
+            "avg_llm_calls": 6.42,
+            "external_judge": {
+              "accuracy": 0.57,
+              "total": 100,
+              "correct": 57,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 51,
+            "accuracy": 0.51,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/art/single",
+            "avg_llm_calls": 2.43,
+            "external_judge": {
+              "accuracy": 0.51,
+              "total": 100,
+              "correct": 51,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 100,
+            "correct": 75,
+            "accuracy": 0.75,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/company/agentic",
+            "avg_llm_calls": 4.41,
+            "external_judge": {
+              "accuracy": 0.81,
+              "total": 100,
+              "correct": 81,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 78,
+            "accuracy": 0.78,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/company/single",
+            "avg_llm_calls": 2.12,
+            "external_judge": {
+              "accuracy": 0.78,
+              "total": 100,
+              "correct": 78,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 100,
+            "correct": 82,
+            "accuracy": 0.82,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/fictional_character/agentic",
+            "avg_llm_calls": 4.24,
+            "external_judge": {
+              "accuracy": 0.81,
+              "total": 100,
+              "correct": 81,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 84,
+            "accuracy": 0.84,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/fictional_character/single",
+            "avg_llm_calls": 2.13,
+            "external_judge": {
+              "accuracy": 0.84,
+              "total": 100,
+              "correct": 84,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 100,
+            "correct": 89,
+            "accuracy": 0.89,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/flight_accident/agentic",
+            "avg_llm_calls": 4.12,
+            "external_judge": {
+              "accuracy": 0.91,
+              "total": 100,
+              "correct": 91,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 86,
+            "accuracy": 0.86,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/flight_accident/single",
+            "avg_llm_calls": 2.04,
+            "external_judge": {
+              "accuracy": 0.87,
+              "total": 100,
+              "correct": 87,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 100,
+            "correct": 37,
+            "accuracy": 0.37,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/geography/agentic",
+            "avg_llm_calls": 10.24,
+            "external_judge": {
+              "accuracy": 0.36,
+              "total": 100,
+              "correct": 36,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 48,
+            "accuracy": 0.48,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/geography/single",
+            "avg_llm_calls": 2.65,
+            "external_judge": {
+              "accuracy": 0.47,
+              "total": 100,
+              "correct": 47,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        }
+      },
+      "average": {
+        "single": 0.694,
+        "agentic": 0.6859999999999999,
+        "llm_calls_single": 2.274,
+        "llm_calls_agentic": 5.886,
+        "external_single": 0.694,
+        "external_agentic": 0.692,
+        "external_delta": -0.0019999999999999797
+      }
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
+      "config": "temp1.0-reasoning-off",
+      "domains": {
+        "art": {
+          "agentic": {
+            "total": 100,
+            "correct": 51,
+            "accuracy": 0.51,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/art/agentic",
+            "avg_llm_calls": 7.8,
+            "external_judge": {
+              "accuracy": 0.49,
+              "total": 100,
+              "correct": 49,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 57,
+            "accuracy": 0.57,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/art/single",
+            "avg_llm_calls": 2.43,
+            "external_judge": {
+              "accuracy": 0.62,
+              "total": 100,
+              "correct": 62,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "company": {
+          "agentic": {
+            "total": 100,
+            "correct": 56,
+            "accuracy": 0.56,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/company/agentic",
+            "avg_llm_calls": 6.85,
+            "external_judge": {
+              "accuracy": 0.58,
+              "total": 100,
+              "correct": 58,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 65,
+            "accuracy": 0.65,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/company/single",
+            "avg_llm_calls": 2.36,
+            "external_judge": {
+              "accuracy": 0.67,
+              "total": 100,
+              "correct": 67,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "fictional_character": {
+          "agentic": {
+            "total": 100,
+            "correct": 64,
+            "accuracy": 0.64,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/fictional_character/agentic",
+            "avg_llm_calls": 7.43,
+            "external_judge": {
+              "accuracy": 0.67,
+              "total": 100,
+              "correct": 67,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 58,
+            "accuracy": 0.58,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/fictional_character/single",
+            "avg_llm_calls": 2.69,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "flight_accident": {
+          "agentic": {
+            "total": 100,
+            "correct": 85,
+            "accuracy": 0.85,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/flight_accident/agentic",
+            "avg_llm_calls": 4.83,
+            "external_judge": {
+              "accuracy": 0.84,
+              "total": 100,
+              "correct": 84,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 82,
+            "accuracy": 0.82,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/flight_accident/single",
+            "avg_llm_calls": 2.29,
+            "external_judge": {
+              "accuracy": 0.83,
+              "total": 100,
+              "correct": 83,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          }
+        },
+        "geography": {
+          "agentic": {
+            "total": 100,
+            "correct": 49,
+            "accuracy": 0.49,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/geography/agentic",
+            "avg_llm_calls": 9.61,
+            "external_judge": {
+              "accuracy": 0.48,
+              "total": 100,
+              "correct": 48,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
+          },
+          "single": {
+            "total": 100,
+            "correct": 43,
+            "accuracy": 0.43,
+            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/geography/single",
+            "avg_llm_calls": 2.97,
+            "external_judge": {
+              "accuracy": 0.43,
+              "total": 100,
+              "correct": 43,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
         "single": 0.61,
-        "agentic": 0.64,
-        "llm_calls_single": 2.4699999999999998,
-        "llm_calls_agentic": 7.7
-      }
-    },
-    {
-      "model": "deepseek-ai/DeepSeek-V4-Flash",
-      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
-      "config": "temp0.0-reasoning-off",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 7.275
-          },
-          "single": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/art/single",
-            "avg_llm_calls": 2.35
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 7.225
-          },
-          "single": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.45
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 7.775
-          },
-          "single": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.4
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 5.075
-          },
-          "single": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.25
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 8.75
-          },
-          "single": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.725
-          }
-        }
-      },
-      "average": {
-        "single": 0.605,
-        "agentic": 0.6599999999999999,
-        "llm_calls_single": 2.435,
-        "llm_calls_agentic": 7.220000000000001
-      }
-    },
-    {
-      "model": "deepseek-ai/DeepSeek-V4-Flash",
-      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
-      "config": "temp1.0-reasoning-medium",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 8.425
-          },
-          "single": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.35
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 8.6
-          },
-          "single": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.575
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 7.2
-          },
-          "single": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.425
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 5.4
-          },
-          "single": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.4
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 9.75
-          },
-          "single": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.975
-          }
-        }
-      },
-      "average": {
-        "single": 0.605,
-        "agentic": 0.585,
-        "llm_calls_single": 2.545,
-        "llm_calls_agentic": 7.875
-      }
-    },
-    {
-      "model": "deepseek-ai/DeepSeek-V4-Flash",
-      "model_slug": "deepseek-ai--DeepSeek-V4-Flash",
-      "config": "temp1.0-reasoning-off",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 8.275
-          },
-          "single": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/art/single",
-            "avg_llm_calls": 2.325
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 7.8
-          },
-          "single": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.5
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 9.075
-          },
-          "single": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.325
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 35,
-            "accuracy": 0.875,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 5.8
-          },
-          "single": {
-            "total": 40,
-            "correct": 37,
-            "accuracy": 0.925,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.35
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 9.775
-          },
-          "single": {
-            "total": 40,
-            "correct": 13,
-            "accuracy": 0.325,
-            "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.575
-          }
-        }
-      },
-      "average": {
-        "single": 0.65,
-        "agentic": 0.65,
-        "llm_calls_single": 2.415,
-        "llm_calls_agentic": 8.145
-      }
-    },
-    {
-      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "model_slug": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "config": "temp0.0-reasoning-medium",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 9.45
-          },
-          "single": {
-            "total": 40,
-            "correct": 21,
-            "accuracy": 0.525,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.925
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 21,
-            "accuracy": 0.525,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 9.2
-          },
-          "single": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.475
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 9.2
-          },
-          "single": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.675
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 7.075
-          },
-          "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.475
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 8.275
-          },
-          "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 3.1
-          }
-        }
-      },
-      "average": {
-        "single": 0.585,
-        "agentic": 0.505,
-        "llm_calls_single": 2.73,
-        "llm_calls_agentic": 8.639999999999999
-      }
-    },
-    {
-      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "model_slug": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "config": "temp0.0-reasoning-off",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 11,
-            "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 12.65
-          },
-          "single": {
-            "total": 40,
-            "correct": 9,
-            "accuracy": 0.225,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/art/single",
-            "avg_llm_calls": 3.625
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 7,
-            "accuracy": 0.175,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 15.325
-          },
-          "single": {
-            "total": 40,
-            "correct": 12,
-            "accuracy": 0.3,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/company/single",
-            "avg_llm_calls": 4.55
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 10,
-            "accuracy": 0.25,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 14.2
-          },
-          "single": {
-            "total": 40,
-            "correct": 7,
-            "accuracy": 0.175,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 4.125
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 11,
-            "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 14.65
-          },
-          "single": {
-            "total": 40,
-            "correct": 13,
-            "accuracy": 0.325,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 4.325
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 12,
-            "accuracy": 0.3,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 11.125
-          },
-          "single": {
-            "total": 40,
-            "correct": 11,
-            "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp0.0-reasoning-off/geography/single",
-            "avg_llm_calls": 3.7
-          }
-        }
-      },
-      "average": {
-        "single": 0.26,
-        "agentic": 0.255,
-        "llm_calls_single": 4.0649999999999995,
-        "llm_calls_agentic": 13.59
-      }
-    },
-    {
-      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "model_slug": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "config": "temp1.0-reasoning-medium",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 8.3
-          },
-          "single": {
-            "total": 40,
-            "correct": 22,
-            "accuracy": 0.55,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.725
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 7.05
-          },
-          "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.525
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 9.25
-          },
-          "single": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.825
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 7.7
-          },
-          "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 3.1
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 9.825
-          },
-          "single": {
-            "total": 40,
-            "correct": 14,
-            "accuracy": 0.35,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 3.0
-          }
-        }
-      },
-      "average": {
-        "single": 0.595,
-        "agentic": 0.49000000000000005,
-        "llm_calls_single": 2.835,
-        "llm_calls_agentic": 8.425
-      }
-    },
-    {
-      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "model_slug": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-      "config": "temp1.0-reasoning-off",
-      "domains": {
-        "art": {
-          "agentic": {
-            "total": 40,
-            "correct": 7,
-            "accuracy": 0.175,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 14.025
-          },
-          "single": {
-            "total": 40,
-            "correct": 11,
-            "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/art/single",
-            "avg_llm_calls": 3.825
-          }
-        },
-        "company": {
-          "agentic": {
-            "total": 40,
-            "correct": 8,
-            "accuracy": 0.2,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 14.375
-          },
-          "single": {
-            "total": 40,
-            "correct": 7,
-            "accuracy": 0.175,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/company/single",
-            "avg_llm_calls": 4.375
-          }
-        },
-        "fictional_character": {
-          "agentic": {
-            "total": 40,
-            "correct": 9,
-            "accuracy": 0.225,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 14.5
-          },
-          "single": {
-            "total": 40,
-            "correct": 10,
-            "accuracy": 0.25,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 3.475
-          }
-        },
-        "flight_accident": {
-          "agentic": {
-            "total": 40,
-            "correct": 13,
-            "accuracy": 0.325,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 13.35
-          },
-          "single": {
-            "total": 40,
-            "correct": 11,
-            "accuracy": 0.275,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 4.35
-          }
-        },
-        "geography": {
-          "agentic": {
-            "total": 40,
-            "correct": 7,
-            "accuracy": 0.175,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 12.825
-          },
-          "single": {
-            "total": 40,
-            "correct": 12,
-            "accuracy": 0.3,
-            "path": "nvidia--NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/temp1.0-reasoning-off/geography/single",
-            "avg_llm_calls": 3.8
-          }
-        }
-      },
-      "average": {
-        "single": 0.255,
-        "agentic": 0.22000000000000003,
-        "llm_calls_single": 3.965,
-        "llm_calls_agentic": 13.815000000000001
+        "agentic": 0.61,
+        "llm_calls_single": 2.548,
+        "llm_calls_agentic": 7.303999999999999,
+        "external_single": 0.63,
+        "external_agentic": 0.612,
+        "external_delta": -0.018000000000000006
       }
     },
     {
@@ -1217,90 +1336,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 48,
+            "accuracy": 0.48,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.425
+            "avg_llm_calls": 8.14,
+            "external_judge": {
+              "accuracy": 0.48,
+              "total": 100,
+              "correct": 48,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 22,
-            "accuracy": 0.55,
+            "total": 100,
+            "correct": 42,
+            "accuracy": 0.42,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.775
+            "avg_llm_calls": 2.94,
+            "external_judge": {
+              "accuracy": 0.41,
+              "total": 100,
+              "correct": 41,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
+            "total": 100,
+            "correct": 69,
+            "accuracy": 0.69,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.7
+            "avg_llm_calls": 4.44,
+            "external_judge": {
+              "accuracy": 0.69,
+              "total": 100,
+              "correct": 69,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 69,
+            "accuracy": 0.69,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.225
+            "avg_llm_calls": 2.22,
+            "external_judge": {
+              "accuracy": 0.67,
+              "total": 100,
+              "correct": 67,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 80,
+            "accuracy": 0.8,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 5.725
+            "avg_llm_calls": 5.31,
+            "external_judge": {
+              "accuracy": 0.76,
+              "total": 100,
+              "correct": 76,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 33,
-            "accuracy": 0.825,
+            "total": 100,
+            "correct": 78,
+            "accuracy": 0.78,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.25
+            "avg_llm_calls": 2.25,
+            "external_judge": {
+              "accuracy": 0.79,
+              "total": 100,
+              "correct": 79,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
+            "total": 100,
+            "correct": 83,
+            "accuracy": 0.83,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 4.2
+            "avg_llm_calls": 4.42,
+            "external_judge": {
+              "accuracy": 0.83,
+              "total": 100,
+              "correct": 83,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 33,
-            "accuracy": 0.825,
+            "total": 100,
+            "correct": 84,
+            "accuracy": 0.84,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.05
+            "avg_llm_calls": 2.07,
+            "external_judge": {
+              "accuracy": 0.84,
+              "total": 100,
+              "correct": 84,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 17,
-            "accuracy": 0.425,
+            "total": 100,
+            "correct": 51,
+            "accuracy": 0.51,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 7.2
+            "avg_llm_calls": 8.24,
+            "external_judge": {
+              "accuracy": 0.49,
+              "total": 100,
+              "correct": 49,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 41,
+            "accuracy": 0.41,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.55
+            "avg_llm_calls": 2.76,
+            "external_judge": {
+              "accuracy": 0.41,
+              "total": 100,
+              "correct": 41,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.67,
-        "agentic": 0.61,
-        "llm_calls_single": 2.37,
-        "llm_calls_agentic": 5.85
+        "single": 0.6279999999999999,
+        "agentic": 0.662,
+        "llm_calls_single": 2.448,
+        "llm_calls_agentic": 6.11,
+        "external_single": 0.624,
+        "external_agentic": 0.65,
+        "external_delta": 0.025999999999999978
       }
     },
     {
@@ -1310,90 +1502,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 39,
+            "accuracy": 0.39,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 8.45
+            "avg_llm_calls": 8.46,
+            "external_judge": {
+              "accuracy": 0.4,
+              "total": 100,
+              "correct": 40,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 49,
+            "accuracy": 0.49,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/single",
-            "avg_llm_calls": 3.0
+            "avg_llm_calls": 2.97,
+            "external_judge": {
+              "accuracy": 0.48,
+              "total": 100,
+              "correct": 48,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 70,
+            "accuracy": 0.7,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 5.1
+            "avg_llm_calls": 4.99,
+            "external_judge": {
+              "accuracy": 0.7,
+              "total": 100,
+              "correct": 70,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
+            "total": 100,
+            "correct": 67,
+            "accuracy": 0.67,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.175
+            "avg_llm_calls": 2.22,
+            "external_judge": {
+              "accuracy": 0.68,
+              "total": 100,
+              "correct": 68,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 78,
+            "accuracy": 0.78,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 5.75
+            "avg_llm_calls": 5.03,
+            "external_judge": {
+              "accuracy": 0.8,
+              "total": 100,
+              "correct": 80,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 33,
-            "accuracy": 0.825,
+            "total": 100,
+            "correct": 82,
+            "accuracy": 0.82,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.275
+            "avg_llm_calls": 2.23,
+            "external_judge": {
+              "accuracy": 0.82,
+              "total": 100,
+              "correct": 82,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 76,
+            "accuracy": 0.76,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.375
+            "avg_llm_calls": 4.65,
+            "external_judge": {
+              "accuracy": 0.77,
+              "total": 100,
+              "correct": 77,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 84,
+            "accuracy": 0.84,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.25
+            "avg_llm_calls": 2.14,
+            "external_judge": {
+              "accuracy": 0.85,
+              "total": 100,
+              "correct": 85,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 14,
-            "accuracy": 0.35,
+            "total": 100,
+            "correct": 52,
+            "accuracy": 0.52,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 7.275
+            "avg_llm_calls": 8.64,
+            "external_judge": {
+              "accuracy": 0.48,
+              "total": 100,
+              "correct": 48,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 12,
-            "accuracy": 0.3,
+            "total": 100,
+            "correct": 46,
+            "accuracy": 0.46,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.625
+            "avg_llm_calls": 2.65,
+            "external_judge": {
+              "accuracy": 0.45,
+              "total": 100,
+              "correct": 45,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.635,
-        "agentic": 0.61,
-        "llm_calls_single": 2.465,
-        "llm_calls_agentic": 6.1899999999999995
+        "single": 0.6559999999999999,
+        "agentic": 0.63,
+        "llm_calls_single": 2.442,
+        "llm_calls_agentic": 6.354000000000001,
+        "external_single": 0.6559999999999999,
+        "external_agentic": 0.63,
+        "external_delta": -0.02599999999999999
       }
     },
     {
@@ -1403,90 +1668,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 54,
+            "accuracy": 0.54,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.5
+            "avg_llm_calls": 7.94,
+            "external_judge": {
+              "accuracy": 0.52,
+              "total": 100,
+              "correct": 52,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 50,
+            "accuracy": 0.5,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.675
+            "avg_llm_calls": 3.0,
+            "external_judge": {
+              "accuracy": 0.49,
+              "total": 100,
+              "correct": 49,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 72,
+            "accuracy": 0.72,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 5.075
+            "avg_llm_calls": 4.95,
+            "external_judge": {
+              "accuracy": 0.69,
+              "total": 100,
+              "correct": 69,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
+            "total": 100,
+            "correct": 68,
+            "accuracy": 0.68,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.275
+            "avg_llm_calls": 2.17,
+            "external_judge": {
+              "accuracy": 0.68,
+              "total": 100,
+              "correct": 68,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 79,
+            "accuracy": 0.79,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 4.725
+            "avg_llm_calls": 4.94,
+            "external_judge": {
+              "accuracy": 0.8,
+              "total": 100,
+              "correct": 80,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 80,
+            "accuracy": 0.8,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.075
+            "avg_llm_calls": 2.25,
+            "external_judge": {
+              "accuracy": 0.79,
+              "total": 100,
+              "correct": 79,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 35,
-            "accuracy": 0.875,
+            "total": 100,
+            "correct": 81,
+            "accuracy": 0.81,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 3.6
+            "avg_llm_calls": 4.15,
+            "external_judge": {
+              "accuracy": 0.81,
+              "total": 100,
+              "correct": 81,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 84,
+            "accuracy": 0.84,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.1
+            "avg_llm_calls": 2.18,
+            "external_judge": {
+              "accuracy": 0.83,
+              "total": 100,
+              "correct": 83,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
+            "total": 100,
+            "correct": 45,
+            "accuracy": 0.45,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 6.475
+            "avg_llm_calls": 8.76,
+            "external_judge": {
+              "accuracy": 0.46,
+              "total": 100,
+              "correct": 46,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 47,
+            "accuracy": 0.47,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.45
+            "avg_llm_calls": 2.56,
+            "external_judge": {
+              "accuracy": 0.46,
+              "total": 100,
+              "correct": 46,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.615,
-        "agentic": 0.63,
-        "llm_calls_single": 2.315,
-        "llm_calls_agentic": 5.475
+        "single": 0.658,
+        "agentic": 0.662,
+        "llm_calls_single": 2.432,
+        "llm_calls_agentic": 6.148000000000001,
+        "external_single": 0.65,
+        "external_agentic": 0.656,
+        "external_delta": 0.006000000000000005
       }
     },
     {
@@ -1496,90 +1834,163 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
+            "total": 100,
+            "correct": 46,
+            "accuracy": 0.46,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 8.325
+            "avg_llm_calls": 8.16,
+            "external_judge": {
+              "accuracy": 0.46,
+              "total": 100,
+              "correct": 46,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 43,
+            "accuracy": 0.43,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/single",
-            "avg_llm_calls": 2.775
+            "avg_llm_calls": 2.92,
+            "external_judge": {
+              "accuracy": 0.46,
+              "total": 100,
+              "correct": 46,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
+            "total": 100,
+            "correct": 70,
+            "accuracy": 0.7,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 4.85
+            "avg_llm_calls": 4.4,
+            "external_judge": {
+              "accuracy": 0.69,
+              "total": 100,
+              "correct": 69,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 67,
+            "accuracy": 0.67,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.125
+            "avg_llm_calls": 2.14,
+            "external_judge": {
+              "accuracy": 0.69,
+              "total": 100,
+              "correct": 69,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 81,
+            "accuracy": 0.81,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 5.075
+            "avg_llm_calls": 4.64,
+            "external_judge": {
+              "accuracy": 0.81,
+              "total": 100,
+              "correct": 81,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 34,
-            "accuracy": 0.85,
+            "total": 100,
+            "correct": 82,
+            "accuracy": 0.82,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.15
+            "avg_llm_calls": 2.19,
+            "external_judge": {
+              "accuracy": 0.84,
+              "total": 100,
+              "correct": 84,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 34,
-            "accuracy": 0.85,
+            "total": 100,
+            "correct": 81,
+            "accuracy": 0.81,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.0
+            "avg_llm_calls": 4.33,
+            "external_judge": {
+              "accuracy": 0.79,
+              "total": 100,
+              "correct": 79,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 34,
-            "accuracy": 0.85,
+            "total": 100,
+            "correct": 82,
+            "accuracy": 0.82,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.15
+            "avg_llm_calls": 2.11,
+            "external_judge": {
+              "accuracy": 0.82,
+              "total": 100,
+              "correct": 82,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 17,
-            "accuracy": 0.425,
+            "total": 100,
+            "correct": 42,
+            "accuracy": 0.42,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 7.65
+            "avg_llm_calls": 8.84,
+            "external_judge": {
+              "accuracy": 0.41,
+              "total": 100,
+              "correct": 41,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
+            "total": 100,
+            "correct": 44,
+            "accuracy": 0.44,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.75
+            "avg_llm_calls": 2.6,
+            "external_judge": {
+              "accuracy": 0.45,
+              "total": 100,
+              "correct": 45,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.67,
-        "agentic": 0.635,
-        "llm_calls_single": 2.3899999999999997,
-        "llm_calls_agentic": 5.9799999999999995
+        "single": 0.6359999999999999,
+        "agentic": 0.64,
+        "llm_calls_single": 2.3920000000000003,
+        "llm_calls_agentic": 6.074,
+        "external_single": 0.6519999999999999,
+        "external_agentic": 0.632,
+        "external_delta": -0.019999999999999973
       }
     },
     {
@@ -1589,186 +2000,343 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 22,
-            "accuracy": 0.55,
+            "total": 100,
+            "correct": 46,
+            "accuracy": 0.46,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.25
+            "avg_llm_calls": 7.84,
+            "external_judge": {
+              "accuracy": 0.48,
+              "total": 100,
+              "correct": 48,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 42,
+            "accuracy": 0.42,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.625
+            "avg_llm_calls": 2.74,
+            "external_judge": {
+              "accuracy": 0.45,
+              "total": 100,
+              "correct": 45,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "biology": {
           "agentic": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 30,
+            "accuracy": 0.3,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/agentic",
-            "avg_llm_calls": 8.725
+            "avg_llm_calls": 9.54,
+            "external_judge": {
+              "accuracy": 0.3,
+              "total": 100,
+              "correct": 30,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 14,
+            "total": 100,
+            "correct": 35,
             "accuracy": 0.35,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/single",
-            "avg_llm_calls": 2.525
+            "avg_llm_calls": 2.56,
+            "external_judge": {
+              "accuracy": 0.36,
+              "total": 100,
+              "correct": 36,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 55,
+            "accuracy": 0.55,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 7.875
+            "avg_llm_calls": 7.08,
+            "external_judge": {
+              "accuracy": 0.56,
+              "total": 100,
+              "correct": 56,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 60,
+            "accuracy": 0.6,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.35
+            "avg_llm_calls": 2.5,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 28,
+            "total": 100,
+            "correct": 70,
             "accuracy": 0.7,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 6.4
+            "avg_llm_calls": 5.85,
+            "external_judge": {
+              "accuracy": 0.66,
+              "total": 100,
+              "correct": 66,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
+            "total": 100,
+            "correct": 67,
+            "accuracy": 0.67,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.325
+            "avg_llm_calls": 2.45,
+            "external_judge": {
+              "accuracy": 0.67,
+              "total": 100,
+              "correct": 67,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
+            "total": 100,
+            "correct": 71,
+            "accuracy": 0.71,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 5.95
+            "avg_llm_calls": 6.73,
+            "external_judge": {
+              "accuracy": 0.7,
+              "total": 100,
+              "correct": 70,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
+            "total": 100,
+            "correct": 78,
+            "accuracy": 0.78,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.4
+            "avg_llm_calls": 2.38,
+            "external_judge": {
+              "accuracy": 0.78,
+              "total": 100,
+              "correct": 78,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 42,
+            "accuracy": 0.42,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 8.725
+            "avg_llm_calls": 9.6,
+            "external_judge": {
+              "accuracy": 0.41,
+              "total": 100,
+              "correct": 41,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 13,
-            "accuracy": 0.325,
+            "total": 100,
+            "correct": 43,
+            "accuracy": 0.43,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.775
+            "avg_llm_calls": 2.66,
+            "external_judge": {
+              "accuracy": 0.43,
+              "total": 100,
+              "correct": 43,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "movie": {
           "agentic": {
-            "total": 40,
-            "correct": 21,
-            "accuracy": 0.525,
+            "total": 100,
+            "correct": 62,
+            "accuracy": 0.62,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/agentic",
-            "avg_llm_calls": 6.525
+            "avg_llm_calls": 6.99,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
+            "total": 100,
+            "correct": 61,
+            "accuracy": 0.61,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/single",
-            "avg_llm_calls": 2.225
+            "avg_llm_calls": 2.39,
+            "external_judge": {
+              "accuracy": 0.62,
+              "total": 100,
+              "correct": 62,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "nba": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 68,
+            "accuracy": 0.68,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/agentic",
-            "avg_llm_calls": 6.575
+            "avg_llm_calls": 6.12,
+            "external_judge": {
+              "accuracy": 0.67,
+              "total": 100,
+              "correct": 67,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
+            "total": 100,
+            "correct": 65,
+            "accuracy": 0.65,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/single",
-            "avg_llm_calls": 2.15
+            "avg_llm_calls": 2.06,
+            "external_judge": {
+              "accuracy": 0.64,
+              "total": 100,
+              "correct": 64,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "politics": {
           "agentic": {
-            "total": 40,
-            "correct": 10,
-            "accuracy": 0.25,
+            "total": 100,
+            "correct": 24,
+            "accuracy": 0.24,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/agentic",
-            "avg_llm_calls": 12.5
+            "avg_llm_calls": 12.92,
+            "external_judge": {
+              "accuracy": 0.25,
+              "total": 100,
+              "correct": 25,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 11,
-            "accuracy": 0.275,
+            "total": 100,
+            "correct": 26,
+            "accuracy": 0.26,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/single",
-            "avg_llm_calls": 2.775
+            "avg_llm_calls": 2.84,
+            "external_judge": {
+              "accuracy": 0.26,
+              "total": 100,
+              "correct": 26,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "soccer": {
           "agentic": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 37,
+            "accuracy": 0.37,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/agentic",
-            "avg_llm_calls": 11.0
+            "avg_llm_calls": 10.69,
+            "external_judge": {
+              "accuracy": 0.38,
+              "total": 100,
+              "correct": 38,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
+            "total": 100,
+            "correct": 34,
+            "accuracy": 0.34,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/single",
-            "avg_llm_calls": 2.4
+            "avg_llm_calls": 2.33,
+            "external_judge": {
+              "accuracy": 0.35,
+              "total": 100,
+              "correct": 35,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "terrorist_attack": {
           "agentic": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
+            "total": 100,
+            "correct": 73,
+            "accuracy": 0.73,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/agentic",
-            "avg_llm_calls": 5.9
+            "avg_llm_calls": 5.27,
+            "external_judge": {
+              "accuracy": 0.74,
+              "total": 100,
+              "correct": 74,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 73,
+            "accuracy": 0.73,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/single",
-            "avg_llm_calls": 2.35
+            "avg_llm_calls": 2.25,
+            "external_judge": {
+              "accuracy": 0.73,
+              "total": 100,
+              "correct": 73,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.5431818181818182,
-        "agentic": 0.5431818181818181,
-        "llm_calls_single": 2.4454545454545453,
-        "llm_calls_agentic": 7.947727272727272
+        "single": 0.5309090909090909,
+        "agentic": 0.5254545454545455,
+        "llm_calls_single": 2.4690909090909092,
+        "llm_calls_agentic": 8.057272727272727,
+        "external_single": 0.5354545454545454,
+        "external_agentic": 0.5227272727272727,
+        "external_delta": -0.012727272727272728
       }
     },
     {
@@ -1778,186 +2346,343 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 22,
-            "accuracy": 0.55,
+            "total": 100,
+            "correct": 51,
+            "accuracy": 0.51,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 6.65
+            "avg_llm_calls": 7.95,
+            "external_judge": {
+              "accuracy": 0.53,
+              "total": 100,
+              "correct": 53,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 48,
+            "accuracy": 0.48,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/single",
-            "avg_llm_calls": 2.475
+            "avg_llm_calls": 2.7,
+            "external_judge": {
+              "accuracy": 0.48,
+              "total": 100,
+              "correct": 48,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "biology": {
           "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 38,
+            "accuracy": 0.38,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/agentic",
-            "avg_llm_calls": 8.825
+            "avg_llm_calls": 9.33,
+            "external_judge": {
+              "accuracy": 0.38,
+              "total": 100,
+              "correct": 38,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 35,
+            "accuracy": 0.35,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/single",
-            "avg_llm_calls": 2.15
+            "avg_llm_calls": 2.61,
+            "external_judge": {
+              "accuracy": 0.33,
+              "total": 100,
+              "correct": 33,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 61,
+            "accuracy": 0.61,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 8.325
+            "avg_llm_calls": 6.6,
+            "external_judge": {
+              "accuracy": 0.62,
+              "total": 100,
+              "correct": 62,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
+            "total": 100,
+            "correct": 60,
+            "accuracy": 0.6,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.35
+            "avg_llm_calls": 2.4,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
+            "total": 100,
+            "correct": 68,
+            "accuracy": 0.68,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 6.4
+            "avg_llm_calls": 6.57,
+            "external_judge": {
+              "accuracy": 0.66,
+              "total": 100,
+              "correct": 66,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 72,
+            "accuracy": 0.72,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.4
+            "avg_llm_calls": 2.34,
+            "external_judge": {
+              "accuracy": 0.71,
+              "total": 100,
+              "correct": 71,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 32,
-            "accuracy": 0.8,
+            "total": 100,
+            "correct": 67,
+            "accuracy": 0.67,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 6.075
+            "avg_llm_calls": 5.96,
+            "external_judge": {
+              "accuracy": 0.68,
+              "total": 100,
+              "correct": 68,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 78,
+            "accuracy": 0.78,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.4
+            "avg_llm_calls": 2.59,
+            "external_judge": {
+              "accuracy": 0.77,
+              "total": 100,
+              "correct": 77,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
+            "total": 100,
+            "correct": 41,
+            "accuracy": 0.41,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 8.525
+            "avg_llm_calls": 9.73,
+            "external_judge": {
+              "accuracy": 0.38,
+              "total": 100,
+              "correct": 38,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 39,
+            "accuracy": 0.39,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.575
+            "avg_llm_calls": 2.52,
+            "external_judge": {
+              "accuracy": 0.38,
+              "total": 100,
+              "correct": 38,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "movie": {
           "agentic": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
+            "total": 100,
+            "correct": 56,
+            "accuracy": 0.56,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/agentic",
-            "avg_llm_calls": 5.95
+            "avg_llm_calls": 7.09,
+            "external_judge": {
+              "accuracy": 0.56,
+              "total": 100,
+              "correct": 56,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
+            "total": 100,
+            "correct": 61,
+            "accuracy": 0.61,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/single",
-            "avg_llm_calls": 2.325
+            "avg_llm_calls": 2.38,
+            "external_judge": {
+              "accuracy": 0.62,
+              "total": 100,
+              "correct": 62,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "nba": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 66,
+            "accuracy": 0.66,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/agentic",
-            "avg_llm_calls": 7.7
+            "avg_llm_calls": 6.25,
+            "external_judge": {
+              "accuracy": 0.65,
+              "total": 100,
+              "correct": 65,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
+            "total": 100,
+            "correct": 68,
+            "accuracy": 0.68,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/single",
-            "avg_llm_calls": 2.25
+            "avg_llm_calls": 2.08,
+            "external_judge": {
+              "accuracy": 0.66,
+              "total": 100,
+              "correct": 66,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "politics": {
           "agentic": {
-            "total": 40,
-            "correct": 9,
-            "accuracy": 0.225,
+            "total": 100,
+            "correct": 25,
+            "accuracy": 0.25,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/agentic",
-            "avg_llm_calls": 12.275
+            "avg_llm_calls": 12.88,
+            "external_judge": {
+              "accuracy": 0.25,
+              "total": 100,
+              "correct": 25,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 10,
-            "accuracy": 0.25,
+            "total": 100,
+            "correct": 26,
+            "accuracy": 0.26,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/single",
-            "avg_llm_calls": 2.55
+            "avg_llm_calls": 2.64,
+            "external_judge": {
+              "accuracy": 0.25,
+              "total": 100,
+              "correct": 25,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "soccer": {
           "agentic": {
-            "total": 40,
-            "correct": 17,
-            "accuracy": 0.425,
+            "total": 100,
+            "correct": 43,
+            "accuracy": 0.43,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/agentic",
-            "avg_llm_calls": 10.675
+            "avg_llm_calls": 10.4,
+            "external_judge": {
+              "accuracy": 0.43,
+              "total": 100,
+              "correct": 43,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 36,
+            "accuracy": 0.36,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/single",
-            "avg_llm_calls": 2.45
+            "avg_llm_calls": 2.34,
+            "external_judge": {
+              "accuracy": 0.36,
+              "total": 100,
+              "correct": 36,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "terrorist_attack": {
           "agentic": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
+            "total": 100,
+            "correct": 74,
+            "accuracy": 0.74,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/agentic",
-            "avg_llm_calls": 5.475
+            "avg_llm_calls": 5.68,
+            "external_judge": {
+              "accuracy": 0.74,
+              "total": 100,
+              "correct": 74,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 72,
+            "accuracy": 0.72,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/single",
-            "avg_llm_calls": 2.425
+            "avg_llm_calls": 2.35,
+            "external_judge": {
+              "accuracy": 0.71,
+              "total": 100,
+              "correct": 71,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.5454545454545454,
-        "agentic": 0.5704545454545454,
-        "llm_calls_single": 2.3954545454545455,
-        "llm_calls_agentic": 7.8977272727272725
+        "single": 0.5409090909090909,
+        "agentic": 0.5363636363636364,
+        "llm_calls_single": 2.4499999999999997,
+        "llm_calls_agentic": 8.04,
+        "external_single": 0.5336363636363637,
+        "external_agentic": 0.5345454545454545,
+        "external_delta": 0.0009090909090909301
       }
     },
     {
@@ -1967,186 +2692,343 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 50,
+            "accuracy": 0.5,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.825
+            "avg_llm_calls": 7.63,
+            "external_judge": {
+              "accuracy": 0.52,
+              "total": 100,
+              "correct": 52,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 47,
+            "accuracy": 0.47,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/single",
-            "avg_llm_calls": 2.725
+            "avg_llm_calls": 2.74,
+            "external_judge": {
+              "accuracy": 0.45,
+              "total": 100,
+              "correct": 45,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "biology": {
           "agentic": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
+            "total": 100,
+            "correct": 32,
+            "accuracy": 0.32,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/agentic",
-            "avg_llm_calls": 8.175
+            "avg_llm_calls": 9.86,
+            "external_judge": {
+              "accuracy": 0.34,
+              "total": 100,
+              "correct": 34,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 36,
+            "accuracy": 0.36,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/single",
-            "avg_llm_calls": 2.525
+            "avg_llm_calls": 2.66,
+            "external_judge": {
+              "accuracy": 0.33,
+              "total": 100,
+              "correct": 33,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 7.625
+            "avg_llm_calls": 6.58,
+            "external_judge": {
+              "accuracy": 0.61,
+              "total": 100,
+              "correct": 61,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 26,
-            "accuracy": 0.65,
+            "total": 100,
+            "correct": 63,
+            "accuracy": 0.63,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/single",
-            "avg_llm_calls": 2.7
+            "avg_llm_calls": 2.4,
+            "external_judge": {
+              "accuracy": 0.63,
+              "total": 100,
+              "correct": 63,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 25,
-            "accuracy": 0.625,
+            "total": 100,
+            "correct": 71,
+            "accuracy": 0.71,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 7.475
+            "avg_llm_calls": 6.21,
+            "external_judge": {
+              "accuracy": 0.69,
+              "total": 100,
+              "correct": 69,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 71,
+            "accuracy": 0.71,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/single",
-            "avg_llm_calls": 2.275
+            "avg_llm_calls": 2.39,
+            "external_judge": {
+              "accuracy": 0.68,
+              "total": 100,
+              "correct": 68,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 34,
-            "accuracy": 0.85,
+            "total": 100,
+            "correct": 76,
+            "accuracy": 0.76,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 4.725
+            "avg_llm_calls": 5.79,
+            "external_judge": {
+              "accuracy": 0.77,
+              "total": 100,
+              "correct": 77,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 33,
-            "accuracy": 0.825,
+            "total": 100,
+            "correct": 75,
+            "accuracy": 0.75,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/single",
-            "avg_llm_calls": 2.3
+            "avg_llm_calls": 2.35,
+            "external_judge": {
+              "accuracy": 0.75,
+              "total": 100,
+              "correct": 75,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 49,
+            "accuracy": 0.49,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 8.2
+            "avg_llm_calls": 9.28,
+            "external_judge": {
+              "accuracy": 0.46,
+              "total": 100,
+              "correct": 46,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 16,
-            "accuracy": 0.4,
+            "total": 100,
+            "correct": 37,
+            "accuracy": 0.37,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/single",
-            "avg_llm_calls": 2.6
+            "avg_llm_calls": 2.58,
+            "external_judge": {
+              "accuracy": 0.36,
+              "total": 100,
+              "correct": 36,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "movie": {
           "agentic": {
-            "total": 40,
-            "correct": 20,
-            "accuracy": 0.5,
+            "total": 100,
+            "correct": 60,
+            "accuracy": 0.6,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/agentic",
-            "avg_llm_calls": 7.725
+            "avg_llm_calls": 7.06,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 21,
-            "accuracy": 0.525,
+            "total": 100,
+            "correct": 74,
+            "accuracy": 0.74,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/single",
-            "avg_llm_calls": 2.325
+            "avg_llm_calls": 2.32,
+            "external_judge": {
+              "accuracy": 0.72,
+              "total": 100,
+              "correct": 72,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "nba": {
           "agentic": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 70,
+            "accuracy": 0.7,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/agentic",
-            "avg_llm_calls": 5.6
+            "avg_llm_calls": 5.35,
+            "external_judge": {
+              "accuracy": 0.68,
+              "total": 100,
+              "correct": 68,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 21,
-            "accuracy": 0.525,
+            "total": 100,
+            "correct": 61,
+            "accuracy": 0.61,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/single",
-            "avg_llm_calls": 2.3
+            "avg_llm_calls": 2.17,
+            "external_judge": {
+              "accuracy": 0.61,
+              "total": 100,
+              "correct": 61,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "politics": {
           "agentic": {
-            "total": 40,
-            "correct": 10,
-            "accuracy": 0.25,
+            "total": 100,
+            "correct": 18,
+            "accuracy": 0.18,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/agentic",
-            "avg_llm_calls": 11.6
+            "avg_llm_calls": 12.77,
+            "external_judge": {
+              "accuracy": 0.18,
+              "total": 100,
+              "correct": 18,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 14,
-            "accuracy": 0.35,
+            "total": 100,
+            "correct": 22,
+            "accuracy": 0.22,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/single",
-            "avg_llm_calls": 2.9
+            "avg_llm_calls": 2.66,
+            "external_judge": {
+              "accuracy": 0.21,
+              "total": 100,
+              "correct": 21,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "soccer": {
           "agentic": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 47,
+            "accuracy": 0.47,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/agentic",
-            "avg_llm_calls": 11.6
+            "avg_llm_calls": 10.57,
+            "external_judge": {
+              "accuracy": 0.48,
+              "total": 100,
+              "correct": 48,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 42,
+            "accuracy": 0.42,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/single",
-            "avg_llm_calls": 2.575
+            "avg_llm_calls": 2.64,
+            "external_judge": {
+              "accuracy": 0.42,
+              "total": 100,
+              "correct": 42,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "terrorist_attack": {
           "agentic": {
-            "total": 40,
-            "correct": 29,
-            "accuracy": 0.725,
+            "total": 100,
+            "correct": 75,
+            "accuracy": 0.75,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/agentic",
-            "avg_llm_calls": 5.85
+            "avg_llm_calls": 5.33,
+            "external_judge": {
+              "accuracy": 0.75,
+              "total": 100,
+              "correct": 75,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 24,
-            "accuracy": 0.6,
+            "total": 100,
+            "correct": 74,
+            "accuracy": 0.74,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/single",
-            "avg_llm_calls": 2.125
+            "avg_llm_calls": 2.44,
+            "external_judge": {
+              "accuracy": 0.7,
+              "total": 100,
+              "correct": 70,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.5477272727272727,
-        "agentic": 0.5431818181818181,
+        "single": 0.5472727272727272,
+        "agentic": 0.5518181818181819,
         "llm_calls_single": 2.4863636363636363,
-        "llm_calls_agentic": 7.854545454545454
+        "llm_calls_agentic": 7.8572727272727265,
+        "external_single": 0.5327272727272727,
+        "external_agentic": 0.5527272727272727,
+        "external_delta": 0.020000000000000004
       }
     },
     {
@@ -2156,186 +3038,343 @@
       "domains": {
         "art": {
           "agentic": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 53,
+            "accuracy": 0.53,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 7.0
+            "avg_llm_calls": 7.44,
+            "external_judge": {
+              "accuracy": 0.51,
+              "total": 100,
+              "correct": 51,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 21,
-            "accuracy": 0.525,
+            "total": 100,
+            "correct": 45,
+            "accuracy": 0.45,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/single",
-            "avg_llm_calls": 2.45
+            "avg_llm_calls": 2.61,
+            "external_judge": {
+              "accuracy": 0.45,
+              "total": 100,
+              "correct": 45,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "biology": {
           "agentic": {
-            "total": 40,
-            "correct": 14,
-            "accuracy": 0.35,
+            "total": 100,
+            "correct": 39,
+            "accuracy": 0.39,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/agentic",
-            "avg_llm_calls": 8.475
+            "avg_llm_calls": 9.9,
+            "external_judge": {
+              "accuracy": 0.38,
+              "total": 100,
+              "correct": 38,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 34,
+            "accuracy": 0.34,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/single",
-            "avg_llm_calls": 2.575
+            "avg_llm_calls": 2.62,
+            "external_judge": {
+              "accuracy": 0.34,
+              "total": 100,
+              "correct": 34,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "company": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 62,
+            "accuracy": 0.62,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 7.075
+            "avg_llm_calls": 6.42,
+            "external_judge": {
+              "accuracy": 0.61,
+              "total": 100,
+              "correct": 61,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/single",
-            "avg_llm_calls": 2.6
+            "avg_llm_calls": 2.43,
+            "external_judge": {
+              "accuracy": 0.58,
+              "total": 100,
+              "correct": 58,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "fictional_character": {
           "agentic": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
+            "total": 100,
+            "correct": 72,
+            "accuracy": 0.72,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 5.95
+            "avg_llm_calls": 6.72,
+            "external_judge": {
+              "accuracy": 0.71,
+              "total": 100,
+              "correct": 71,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 74,
+            "accuracy": 0.74,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/single",
-            "avg_llm_calls": 2.325
+            "avg_llm_calls": 2.46,
+            "external_judge": {
+              "accuracy": 0.76,
+              "total": 100,
+              "correct": 76,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "flight_accident": {
           "agentic": {
-            "total": 40,
-            "correct": 31,
-            "accuracy": 0.775,
+            "total": 100,
+            "correct": 72,
+            "accuracy": 0.72,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 6.125
+            "avg_llm_calls": 5.71,
+            "external_judge": {
+              "accuracy": 0.71,
+              "total": 100,
+              "correct": 71,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 33,
-            "accuracy": 0.825,
+            "total": 100,
+            "correct": 82,
+            "accuracy": 0.82,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/single",
-            "avg_llm_calls": 2.55
+            "avg_llm_calls": 2.47,
+            "external_judge": {
+              "accuracy": 0.82,
+              "total": 100,
+              "correct": 82,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "geography": {
           "agentic": {
-            "total": 40,
-            "correct": 17,
-            "accuracy": 0.425,
+            "total": 100,
+            "correct": 43,
+            "accuracy": 0.43,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 9.925
+            "avg_llm_calls": 8.88,
+            "external_judge": {
+              "accuracy": 0.43,
+              "total": 100,
+              "correct": 43,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 15,
-            "accuracy": 0.375,
+            "total": 100,
+            "correct": 33,
+            "accuracy": 0.33,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/single",
-            "avg_llm_calls": 2.7
+            "avg_llm_calls": 2.68,
+            "external_judge": {
+              "accuracy": 0.33,
+              "total": 100,
+              "correct": 33,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "movie": {
           "agentic": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 63,
+            "accuracy": 0.63,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/agentic",
-            "avg_llm_calls": 6.35
+            "avg_llm_calls": 6.98,
+            "external_judge": {
+              "accuracy": 0.6,
+              "total": 100,
+              "correct": 60,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 23,
-            "accuracy": 0.575,
+            "total": 100,
+            "correct": 59,
+            "accuracy": 0.59,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/single",
-            "avg_llm_calls": 2.4
+            "avg_llm_calls": 2.45,
+            "external_judge": {
+              "accuracy": 0.58,
+              "total": 100,
+              "correct": 58,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "nba": {
           "agentic": {
-            "total": 40,
-            "correct": 30,
-            "accuracy": 0.75,
+            "total": 100,
+            "correct": 68,
+            "accuracy": 0.68,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/agentic",
-            "avg_llm_calls": 5.125
+            "avg_llm_calls": 5.96,
+            "external_judge": {
+              "accuracy": 0.66,
+              "total": 100,
+              "correct": 66,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 66,
+            "accuracy": 0.66,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/single",
-            "avg_llm_calls": 2.175
+            "avg_llm_calls": 2.18,
+            "external_judge": {
+              "accuracy": 0.64,
+              "total": 100,
+              "correct": 64,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "politics": {
           "agentic": {
-            "total": 40,
-            "correct": 9,
-            "accuracy": 0.225,
+            "total": 100,
+            "correct": 24,
+            "accuracy": 0.24,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/agentic",
-            "avg_llm_calls": 12.3
+            "avg_llm_calls": 12.69,
+            "external_judge": {
+              "accuracy": 0.23,
+              "total": 100,
+              "correct": 23,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 11,
-            "accuracy": 0.275,
+            "total": 100,
+            "correct": 28,
+            "accuracy": 0.28,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/single",
-            "avg_llm_calls": 2.45
+            "avg_llm_calls": 2.6,
+            "external_judge": {
+              "accuracy": 0.27,
+              "total": 100,
+              "correct": 27,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "soccer": {
           "agentic": {
-            "total": 40,
-            "correct": 19,
-            "accuracy": 0.475,
+            "total": 100,
+            "correct": 48,
+            "accuracy": 0.48,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/agentic",
-            "avg_llm_calls": 10.35
+            "avg_llm_calls": 10.08,
+            "external_judge": {
+              "accuracy": 0.47,
+              "total": 100,
+              "correct": 47,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 18,
-            "accuracy": 0.45,
+            "total": 100,
+            "correct": 41,
+            "accuracy": 0.41,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/single",
-            "avg_llm_calls": 2.8
+            "avg_llm_calls": 2.47,
+            "external_judge": {
+              "accuracy": 0.4,
+              "total": 100,
+              "correct": 40,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         },
         "terrorist_attack": {
           "agentic": {
-            "total": 40,
-            "correct": 28,
-            "accuracy": 0.7,
+            "total": 100,
+            "correct": 75,
+            "accuracy": 0.75,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/agentic",
-            "avg_llm_calls": 6.575
+            "avg_llm_calls": 5.71,
+            "external_judge": {
+              "accuracy": 0.74,
+              "total": 100,
+              "correct": 74,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           },
           "single": {
-            "total": 40,
-            "correct": 27,
-            "accuracy": 0.675,
+            "total": 100,
+            "correct": 76,
+            "accuracy": 0.76,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/single",
-            "avg_llm_calls": 2.225
+            "avg_llm_calls": 2.39,
+            "external_judge": {
+              "accuracy": 0.72,
+              "total": 100,
+              "correct": 72,
+              "model": "deepseek-ai/DeepSeek-V4-Flash",
+              "calls_log": "judge_fixed_calls.jsonl"
+            }
           }
         }
       },
       "average": {
-        "single": 0.5681818181818182,
-        "agentic": 0.5704545454545454,
-        "llm_calls_single": 2.477272727272727,
-        "llm_calls_agentic": 7.75
+        "single": 0.5427272727272727,
+        "agentic": 0.5627272727272727,
+        "llm_calls_single": 2.4872727272727273,
+        "llm_calls_agentic": 7.862727272727272,
+        "external_single": 0.5354545454545454,
+        "external_agentic": 0.5499999999999999,
+        "external_delta": 0.01454545454545454
       }
     }
   ]

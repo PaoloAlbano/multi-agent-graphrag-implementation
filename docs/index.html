@@ -16,11 +16,18 @@
     <code>results/**/run.json</code> manifests -- see the repo README for how
     to reproduce a run or submit a new model's results via PR.
   </p>
+  <p id="methodology" class="note"></p>
   <p id="generated-at" class="note"></p>
   <div id="groups"></div>
 </main>
 <script type="module">
 import { fetchJSON, formatPct, formatDelta, escapeHtml } from "./app.js";
+
+function externalCell(mode) {
+  if (!mode?.external_judge) return "-";
+  const ext = mode.external_judge;
+  return `<a href="run.html?path=${encodeURIComponent(mode.path)}#external">${formatPct(ext.accuracy)}</a>`;
+}
 
 function renderGroup(group) {
   const domains = Object.entries(group.domains).sort(([a], [b]) => a.localeCompare(b));
@@ -35,32 +42,69 @@ function renderGroup(group) {
         ? `<a href="run.html?path=${encodeURIComponent(agentic.path)}">${formatPct(agentic.accuracy)}</a>`
         : "-";
       const delta = formatDelta(single?.accuracy, agentic?.accuracy);
-      return `<tr><td>${escapeHtml(domain)}</td><td>${singleCell}</td><td>${agenticCell}</td><td>${delta}</td></tr>`;
+      const extDelta = formatDelta(
+        single?.external_judge?.accuracy,
+        agentic?.external_judge?.accuracy
+      );
+      return `<tr><td>${escapeHtml(domain)}</td><td>${singleCell}</td><td>${agenticCell}</td><td>${delta}</td>`
+        + `<td>${externalCell(single)}</td><td>${externalCell(agentic)}</td><td>${extDelta}</td></tr>`;
     })
     .join("");
 
   const avgDelta = formatDelta(group.average.single, group.average.agentic);
+  const avgExtDelta = formatDelta(group.average.external_single, group.average.external_agentic);
+  const hasExternal = domains.some(
+    ([, modes]) => modes.single?.external_judge || modes.agentic?.external_judge
+  );
+
+  const groupHeaders = hasExternal
+    ? `<tr class="group-header"><th></th><th colspan="3">Self-judge</th><th colspan="3">Fixed judge (external)</th></tr>`
+    : "";
+  const extHeaders = hasExternal
+    ? `<th>ext single</th><th>ext agentic</th><th>ext delta</th>`
+    : "";
+  const extCells = hasExternal
+    ? `<td><strong>${formatPct(group.average.external_single)}</strong></td>`
+      + `<td><strong>${formatPct(group.average.external_agentic)}</strong></td>`
+      + `<td><strong>${avgExtDelta}</strong></td>`
+    : "";
 
   return `
     <section>
       <h2>${escapeHtml(group.model)} <span class="note">(${escapeHtml(group.config)})</span></h2>
       <table>
-        <thead><tr><th>Domain</th><th>single</th><th>agentic</th><th>delta</th></tr></thead>
+        <thead>${groupHeaders}<tr><th>Domain</th><th>single</th><th>agentic</th><th>delta</th>${extHeaders}</tr></thead>
         <tbody>
           ${rows}
           <tr><td><strong>Average</strong></td>
               <td><strong>${formatPct(group.average.single)}</strong></td>
               <td><strong>${formatPct(group.average.agentic)}</strong></td>
-              <td><strong>${avgDelta}</strong></td></tr>
+              <td><strong>${avgDelta}</strong></td>${extCells}</tr>
         </tbody>
       </table>
     </section>
   `;
 }
 
+function methodologyNote(data) {
+  const groups = data.groups || [];
+  const anyExternal = groups.some((g) =>
+    Object.values(g.domains).some((m) => m.single?.external_judge || m.agentic?.external_judge)
+  );
+  if (anyExternal) {
+    return "Scores are LLM-as-a-judge. The primary (single/agentic) columns are each model's own "
+      + "self-judge; the ext columns are one fixed judge applied to every model for "
+      + "cross-model-comparable numbers. Click a cell for details.";
+  }
+  return "Scores are LLM-as-a-judge (each model judging its own answers). "
+    + "This carries a self-serving-bias risk -- compare across models with care, "
+    + "or run `make rejudge-fixed` to add a single fixed judge's score (ext columns).";
+}
+
 async function main() {
   const data = await fetchJSON("data.json");
   document.getElementById("generated-at").textContent = `Generated ${data.generated_at}`;
+  document.getElementById("methodology").textContent = methodologyNote(data);
   const container = document.getElementById("groups");
   if (!data.groups.length) {
     container.innerHTML = '<p class="note">No results yet -- submit a PR under results/.</p>';

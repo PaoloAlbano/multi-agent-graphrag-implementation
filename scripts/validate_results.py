@@ -55,11 +55,45 @@ RUN_RESULT_ENTRY_REQUIRED_FIELDS = {
     "accuracy": (int, float),
 }
 
+# Optional fields that newer runs record; validated only when present.
+RUN_MANIFEST_OPTIONAL_FIELDS = {
+    "limit": int,
+    "concurrency": int,
+    "graph_variant": str,
+    "judge_mode": str,
+    "use_judge": bool,
+    "judge_calls_log": str,
+    "calls_log": str,
+    "calls_log_scoped": bool,
+    "generated_at": str,
+}
+EXTERNAL_JUDGE_FIELDS = {
+    "model": str,
+    "total": int,
+    "correct": int,
+    "accuracy": (int, float),
+    "calls_log": str,
+    "judge_mode": str,
+}
+
 
 def _check_fields(record: dict, required: dict, *, where: str, errors: list[str]) -> None:
     for field, expected_type in required.items():
         if field not in record:
             errors.append(f"{where}: missing field {field!r}")
+            continue
+        value = record[field]
+        if value is not None and not isinstance(value, expected_type):
+            errors.append(
+                f"{where}: field {field!r} has type {type(value).__name__}, expected {expected_type}"
+            )
+
+
+def _check_optional_fields(record: dict, optional: dict, *, where: str, errors: list[str]) -> None:
+    """Validate optional fields only when present -- older runs legitimately
+    predate them (e.g. `judge_mode`, `limit`, `external_judge`)."""
+    for field, expected_type in optional.items():
+        if field not in record:
             continue
         value = record[field]
         if value is not None and not isinstance(value, expected_type):
@@ -102,6 +136,15 @@ def _validate_run_json(path: Path, errors: list[str]) -> None:
         errors.append(f"{path}: root is not a JSON object")
         return
     _check_fields(manifest, RUN_MANIFEST_REQUIRED_FIELDS, where=str(path), errors=errors)
+    _check_optional_fields(manifest, RUN_MANIFEST_OPTIONAL_FIELDS, where=str(path), errors=errors)
+    external_judge = manifest.get("external_judge")
+    if external_judge is not None:
+        if not isinstance(external_judge, dict):
+            errors.append(f"{path}: external_judge is not a JSON object")
+        else:
+            _check_fields(
+                external_judge, EXTERNAL_JUDGE_FIELDS, where=f"{path}:external_judge", errors=errors
+            )
     for i, entry in enumerate(manifest.get("results", [])):
         if not isinstance(entry, dict):
             errors.append(f"{path}: results[{i}] is not a JSON object")
@@ -119,7 +162,11 @@ def main() -> None:
     for trace_path in RESULTS_ROOT.rglob("trace.jsonl"):
         _validate_jsonl(trace_path, TRACE_REQUIRED_FIELDS, errors=errors, extra_check=_validate_trace_row)
 
-    for calls_path in (*RESULTS_ROOT.rglob("calls.jsonl"), *RESULTS_ROOT.rglob("judge_calls.jsonl")):
+    for calls_path in (
+        *RESULTS_ROOT.rglob("calls.jsonl"),
+        *RESULTS_ROOT.rglob("judge_calls.jsonl"),
+        *RESULTS_ROOT.rglob("judge_fixed_calls.jsonl"),
+    ):
         _validate_jsonl(calls_path, CALLS_REQUIRED_FIELDS, errors=errors)
 
     for run_json_path in RESULTS_ROOT.rglob("run.json"):

@@ -117,6 +117,14 @@ def build_single_pass_runner(
     return runner, clients
 
 
+def evaluation_judge_configured(settings: Settings) -> bool:
+    """True when a dedicated judge is explicitly configured via
+    `MULTIGRAPHRAG_EVALUATION__JUDGE__*` (vs. falling back to the model under
+    test, i.e. self-judging). Used to record the primary score's methodology
+    in `run.json` (`judge_mode`)."""
+    return settings.evaluation.judge is not None
+
+
 def build_llm_judge(
     settings: Settings, *, call_logger: CallLogger | None = None
 ) -> tuple["LLMJudge", LLMClient]:

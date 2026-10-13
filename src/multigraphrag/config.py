@@ -55,8 +55,12 @@ class LLMSettings(BaseModel):
             "often large share of this on chain-of-thought before ever writing "
             "the final `content` (observed: 100-350+ reasoning tokens for a "
             "trivial prompt), so a low/unset cap risks silently truncating the "
-            "structured JSON output every agent depends on. Set to None to let "
-            "the endpoint apply its own default instead."
+            "structured JSON output every agent depends on. Set to None **or -1** "
+            "to let the endpoint apply its own default instead: with either value "
+            "the `max_tokens` field is omitted from the request payload. `-1` is "
+            "the conventional \"no cap\" sentinel (vLLM/OpenAI CLI) and is handy "
+            "when a huge cap makes a backend emit lots of empty padding tokens "
+            "(observed with Qwen3.5-27B on the gateway)."
         ),
     )
     reasoning_enabled: bool = Field(

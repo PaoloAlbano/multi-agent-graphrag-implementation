@@ -7,10 +7,11 @@ records where `graph` is the domain/category (e.g. "geography", "art"). Each
 domain's property graph is available in two variants under `graphs/`:
 
 - `simplekg/<domain>_simplekg.json`: the full graph (hundreds of MB for some
-  domains).
+  domains). This is the default (`graph_variant="simplekg"`) -- the
+  publishable variant used for the results matrix.
 - `simplekg_sampled/<domain>_sampled_simplekg.json`: a much smaller sampled
-  subgraph (a few MB), used here as the default so a full download + local
-  Memgraph load stays fast; pass `graph_variant="simplekg"` for full-scale runs.
+  subgraph (a few MB), available for quick demos; pass
+  `graph_variant="simplekg_sampled"` explicitly to use it.
 
 Both graph files are self-contained: `{"schema": {...}, "entities": [...],
 "relations": [...]}`, so no separate schema file needs to be fetched.
@@ -123,7 +124,7 @@ async def download_cypherbench(
     *,
     domains: list[str] | None = None,
     splits: list[str] | None = None,
-    graph_variant: str = "simplekg_sampled",
+    graph_variant: str = "simplekg",
     force: bool = False,
     max_concurrency: int = 4,
 ) -> list[Path]:
@@ -174,6 +175,7 @@ def load_tasks(
     *,
     domains: list[str] | None = None,
     limit: int | None = None,
+    qids: set[str] | None = None,
 ) -> list[CypherBenchTask]:
     """Load a split's tasks, optionally filtered to a subset of domains and
     capped at `limit` questions *per domain* (not a global cap across the
@@ -181,6 +183,9 @@ def load_tasks(
     cap would let questions from whichever domain happens to appear first in
     the file crowd out the rest, e.g. domains later in file order silently
     getting 0 questions even though they matched the filter).
+
+    `qids` further narrows to an explicit set of question ids (used to repair
+    a broken results leaf by re-running only the questions that failed).
     """
     path = dest_dir / _task_file_name(split)
     if not path.exists():
@@ -190,6 +195,9 @@ def load_tasks(
     if domains:
         allowed = set(domains)
         tasks = [t for t in tasks if t.graph in allowed]
+    if qids:
+        allowed_qids = set(qids)
+        tasks = [t for t in tasks if t.qid in allowed_qids]
     if limit is None:
         return tasks
 
@@ -204,7 +212,7 @@ def load_tasks(
     return capped
 
 
-def load_domain_graph(dest_dir: Path, domain: str, *, graph_variant: str = "simplekg_sampled") -> dict:
+def load_domain_graph(dest_dir: Path, domain: str, *, graph_variant: str = "simplekg") -> dict:
     path = dest_dir / _graph_file_path(domain, graph_variant)
     if not path.exists():
         raise FileNotFoundError(f"{path} not found -- run `download_cypherbench` first.")

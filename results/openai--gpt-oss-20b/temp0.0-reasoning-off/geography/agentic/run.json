@@ -3,7 +3,7 @@
   "temperature": 0.0,
   "reasoning_enabled": false,
   "reasoning_effort": "medium",
-  "max_tokens": 16000,
+  "max_tokens": 32768,
   "structured_output_mode": "json_schema",
   "split": "test",
   "domains": [
@@ -13,20 +13,29 @@
     "agentic"
   ],
   "graph_variant": "simplekg",
-  "concurrency": 40,
-  "limit": 40,
+  "concurrency": 20,
+  "limit": 100,
   "use_judge": true,
+  "judge_mode": "self",
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
-  "generated_at": "2026-07-24T02:23:17.381005+00:00",
+  "generated_at": "2026-10-01T01:54:08.371052+00:00",
   "results": [
     {
       "domain": "geography",
       "mode": "agentic",
-      "total": 40,
-      "correct": 16,
-      "accuracy": 0.4
+      "total": 100,
+      "correct": 41,
+      "accuracy": 0.41
     }
   ],
-  "judge_calls_log": "judge_calls.jsonl"
+  "judge_calls_log": "judge_calls.jsonl",
+  "external_judge": {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "total": 100,
+    "correct": 38,
+    "accuracy": 0.38,
+    "calls_log": "judge_fixed_calls.jsonl",
+    "judge_mode": "fixed"
+  }
 }

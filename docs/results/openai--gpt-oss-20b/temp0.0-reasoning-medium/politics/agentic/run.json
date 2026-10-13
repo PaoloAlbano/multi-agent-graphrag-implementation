@@ -3,7 +3,7 @@
   "temperature": 0.0,
   "reasoning_enabled": true,
   "reasoning_effort": "medium",
-  "max_tokens": 16000,
+  "max_tokens": 32768,
   "structured_output_mode": "json_schema",
   "split": "test",
   "domains": [
@@ -14,19 +14,28 @@
   ],
   "graph_variant": "simplekg",
   "concurrency": 20,
-  "limit": 40,
+  "limit": 100,
   "use_judge": true,
+  "judge_mode": "self",
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
-  "generated_at": "2026-07-23T23:15:14.824929+00:00",
+  "generated_at": "2026-09-29T09:32:01.758830+00:00",
   "results": [
     {
       "domain": "politics",
       "mode": "agentic",
-      "total": 40,
-      "correct": 10,
-      "accuracy": 0.25
+      "total": 100,
+      "correct": 24,
+      "accuracy": 0.24
     }
   ],
-  "judge_calls_log": "judge_calls.jsonl"
+  "judge_calls_log": "judge_calls.jsonl",
+  "external_judge": {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "total": 100,
+    "correct": 25,
+    "accuracy": 0.25,
+    "calls_log": "judge_fixed_calls.jsonl",
+    "judge_mode": "fixed"
+  }
 }

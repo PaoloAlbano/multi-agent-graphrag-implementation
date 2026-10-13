@@ -3,7 +3,7 @@
   "temperature": 1.0,
   "reasoning_enabled": true,
   "reasoning_effort": "medium",
-  "max_tokens": 16000,
+  "max_tokens": 32768,
   "structured_output_mode": "json_schema",
   "split": "test",
   "domains": [
@@ -13,20 +13,29 @@
     "agentic"
   ],
   "graph_variant": "simplekg",
-  "concurrency": 10,
-  "limit": 40,
+  "concurrency": 20,
+  "limit": 100,
   "use_judge": true,
+  "judge_mode": "self",
   "calls_log": "calls.jsonl",
   "calls_log_scoped": true,
-  "generated_at": "2026-07-24T19:11:32.565250+00:00",
+  "generated_at": "2026-09-30T14:24:57.447364+00:00",
   "results": [
     {
       "domain": "company",
       "mode": "agentic",
-      "total": 40,
-      "correct": 26,
-      "accuracy": 0.65
+      "total": 100,
+      "correct": 72,
+      "accuracy": 0.72
     }
   ],
+  "external_judge": {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "total": 100,
+    "correct": 68,
+    "accuracy": 0.68,
+    "calls_log": "judge_fixed_calls.jsonl",
+    "judge_mode": "fixed"
+  },
   "judge_calls_log": "judge_calls.jsonl"
 }

@@ -12,7 +12,13 @@ from rich.console import Console
 from rich.markdown import Markdown
 from rich.table import Table
 
-from multigraphrag.composition import build_llm_judge, build_pipeline, build_self_judge, load_settings
+from multigraphrag.composition import (
+    build_llm_judge,
+    build_pipeline,
+    build_self_judge,
+    evaluation_judge_configured,
+    load_settings,
+)
 from multigraphrag.config import Settings
 from multigraphrag.evaluation.cypherbench import CYPHERBENCH_DOMAINS, download_cypherbench
 from multigraphrag.evaluation.rejudge import find_leaves, read_leaf_model, rejudge_leaf
@@ -84,7 +90,7 @@ def cypherbench_download(
     ),
     splits: str = typer.Option("train,test", help="Comma-separated splits to download."),
     graph_variant: str = typer.Option(
-        "simplekg_sampled", help="'simplekg_sampled' (small, default) or 'simplekg' (full-scale, large)."
+        "simplekg", help="'simplekg' (full-scale, default) or 'simplekg_sampled' (small, quick demos)."
     ),
     force: bool = typer.Option(False, help="Re-download files even if already present."),
     max_concurrency: int = typer.Option(4, help="Max concurrent downloads."),
@@ -115,10 +121,20 @@ def cypherbench_evaluate(
         None, help="Comma-separated domain subset (default: all present in the split)."
     ),
     limit: int = typer.Option(None, help="Cap the number of questions per domain (applied before grouping)."),
+    qids: str = typer.Option(
+        None,
+        "--qids",
+        help=(
+            "Comma-separated list of question ids to run (repairs a broken leaf "
+            "by re-running only the questions that failed). When set, the run's "
+            "results are MERGED into an existing --trace/--run-manifest: existing "
+            "rows for these qids are replaced by the fresh run, other rows are kept."
+        ),
+    ),
     mode: str = typer.Option(
         "both", help="'single', 'agentic', or 'both' (compare, like the paper's Table 1)."
     ),
-    graph_variant: str = typer.Option("simplekg_sampled", help="Graph variant matching what was downloaded."),
+    graph_variant: str = typer.Option("simplekg", help="Graph variant matching what was downloaded."),
     trace: Path = typer.Option(None, help="Optional path to write a JSONL trace of every scored item."),
     concurrency: int = typer.Option(
         None,
@@ -176,6 +192,11 @@ def cypherbench_evaluate(
         raise typer.BadParameter("mode must be 'single', 'agentic', or 'both'")
 
     judge_built = build_llm_judge(settings) if use_judge else None
+    qids_set: set[str] | None = None
+    if qids:
+        qids_set = {q.strip() for q in qids.split(",") if q.strip()}
+        if not qids_set:
+            raise typer.BadParameter("--qids must name at least one question id")
 
     async def _run() -> None:
         judge, judge_client = judge_built if judge_built else (None, None)
@@ -187,6 +208,7 @@ def cypherbench_evaluate(
                 split=split,
                 domains=_parse_csv_option(domains),
                 limit=limit,
+                qids=qids_set,
                 modes=modes,
                 graph_variant=graph_variant,
                 trace_path=trace,
@@ -246,6 +268,13 @@ def cypherbench_evaluate(
                 "concurrency": (concurrency if concurrency is not None else settings.evaluation.concurrency),
                 "limit": limit,
                 "use_judge": judge is not None,
+                # Judge methodology used for the primary score: "self" (each
+                # model judges its own answers) when the pipeline's judge was
+                # built from the model's own settings, "fixed" (one dedicated
+                # judge model) when MULTIGRAPHRAG_EVALUATION__JUDGE__* was set.
+                # An optional external_judge block may later be added by
+                # `make rejudge-fixed` without touching this field.
+                "judge_mode": "fixed" if evaluation_judge_configured(settings) else "self",
                 "calls_log": (
                     str(Path(os.path.relpath(call_log, run_manifest.parent))) if call_log else None
                 ),
@@ -289,14 +318,52 @@ def cypherbench_rejudge(
         True,
         "--self-judge/--fixed-judge",
         help=(
-            "Judge each leaf with the same model that produced it (ignoring any dedicated "
-            "MULTIGRAPHRAG_EVALUATION__JUDGE__* config). Default on. Pass --fixed-judge to "
-            "instead use one fixed judge (MULTIGRAPHRAG_EVALUATION__JUDGE__* if configured, "
-            "otherwise MULTIGRAPHRAG_LLM__*) for every leaf, for a paper-faithful "
-            "cross-model-comparable score at the cost of self-serving bias risk."
+            "How to score: --self-judge (default) judges each leaf with the same model "
+            "that produced it (ignoring any dedicated MULTIGRAPHRAG_EVALUATION__JUDGE__* "
+            "config) and overwrites the leaf's primary score. --fixed-judge instead uses "
+            "one fixed judge (MULTIGRAPHRAG_EVALUATION__JUDGE__* if configured, otherwise "
+            "MULTIGRAPHRAG_LLM__*) for every leaf and records it as an *external* score "
+            "(run.json `external_judge` block + `fixed_correct` on each trace row) without "
+            "touching the primary score -- for a paper-faithful cross-model-comparable "
+            "number alongside the self-judged one."
         ),
     ),
     concurrency: int = typer.Option(10, help="Max questions judged concurrently per leaf."),
+    qids: str = typer.Option(
+        None,
+        "--qids",
+        help=(
+            "Comma-separated list of question ids to (re)judge per leaf. When set, "
+            "only the rows whose qid is listed are re-scored; all other rows are "
+            "left untouched (used to judge freshly repaired rows without re-scoring "
+            "an entire leaf)."
+        ),
+    ),
+    only_repaired: bool = typer.Option(
+        False,
+        "--only-repaired",
+        help=(
+            "Only re-score rows that were freshly repaired (iterations>0 but no "
+            "judge verdict yet, because the repair pass runs with --no-judge): "
+            "rows without `fixed_correct` in --fixed-judge mode, rows without "
+            "`judge_reasoning` in --self-judge mode. Already-judged rows are left "
+            "untouched. Use after `scripts/repair_broken.py` to bring the repaired "
+            "rows' self/fixed verdicts in line with the rest of the leaf."
+        ),
+    ),
+    only_failed: bool = typer.Option(
+        False,
+        "--only-failed",
+        help=(
+            "Only re-score rows whose judge verdict is missing (a previously failed "
+            "judge call): in --fixed-judge mode rows without `fixed_correct`, in "
+            "--self-judge mode rows with a `judge_error`. Already-judged rows are left "
+            "untouched, so this is a cheap retry of a handful of failed calls without "
+            "re-running (and re-logging) the ~99 already-correct rows of a leaf. "
+            "Requires leaves to already have an external_judge/use_judge block (i.e. "
+            "run a full rejudge first); pass --force to retry even otherwise."
+        ),
+    ),
     verbose: bool = typer.Option(False, "--verbose", "-v"),
 ) -> None:
     """Re-score existing results/**/trace.jsonl files with an LLM-as-a-judge,
@@ -306,7 +373,20 @@ def cypherbench_rejudge(
     logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO)
     settings = load_settings()
 
-    leaves = find_leaves(Path("results"), prefix=results_prefix, force=force)
+    judge_mode = "self" if self_judge else "fixed"
+    qids_set: set[str] | None = None
+    if qids:
+        qids_set = {q.strip() for q in qids.split(",") if q.strip()}
+        if not qids_set:
+            raise typer.BadParameter("--qids must name at least one question id")
+    leaves = find_leaves(
+        Path("results"),
+        prefix=results_prefix,
+        force=force,
+        judge_mode=judge_mode,
+        only_failed=only_failed,
+        only_repaired=only_repaired,
+    )
     if not leaves:
         console.print(
             "No leaves to rejudge (nothing matched, or everything is already judged -- try --force)."
@@ -315,15 +395,30 @@ def cypherbench_rejudge(
 
     async def _run() -> None:
         for leaf_dir in leaves:
-            call_logger = CallLogger(leaf_dir / "judge_calls.jsonl")
-            if self_judge:
+            if judge_mode == "fixed":
+                call_logger = CallLogger(leaf_dir / "judge_fixed_calls.jsonl")
+                judge, judge_client = build_llm_judge(settings, call_logger=call_logger)
+            else:
+                call_logger = CallLogger(leaf_dir / "judge_calls.jsonl")
                 judge, judge_client = build_self_judge(
                     settings, read_leaf_model(leaf_dir), call_logger=call_logger
                 )
-            else:
-                judge, judge_client = build_llm_judge(settings, call_logger=call_logger)
             try:
-                summary = await rejudge_leaf(leaf_dir, dest, judge, concurrency=concurrency)
+                summary = await rejudge_leaf(
+                    leaf_dir,
+                    dest,
+                    judge,
+                    judge_mode=judge_mode,
+                    judge_model=(
+                        (settings.evaluation.judge or settings.llm).model
+                        if judge_mode == "fixed"
+                        else None
+                    ),
+                    concurrency=concurrency,
+                    only_failed=only_failed,
+                    only_repaired=only_repaired,
+                    qids=qids_set,
+                )
             except Exception as exc:  # noqa: BLE001 -- one broken leaf must not abort the whole batch
                 console.print(f"[red]{leaf_dir}[/red] failed: {exc}")
                 continue

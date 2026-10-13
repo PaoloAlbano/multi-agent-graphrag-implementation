@@ -18,7 +18,7 @@ CYPHERBENCH_SPLIT := test
 CYPHERBENCH_DOMAINS :=
 CYPHERBENCH_LIMIT :=
 CYPHERBENCH_MODE := both
-CYPHERBENCH_GRAPH_VARIANT := simplekg_sampled
+CYPHERBENCH_GRAPH_VARIANT := simplekg
 CYPHERBENCH_CONCURRENCY :=
 CYPHERBENCH_TRACE := $(CYPHERBENCH_DIR)/trace_$(CYPHERBENCH_SPLIT)_$(CYPHERBENCH_MODE).jsonl
 
@@ -108,8 +108,8 @@ MODEL :=
 DOMAIN :=
 TEMP := 0.0
 REASONING := medium
-LIMIT := 40
-RUN_CONCURRENCY := 2
+IMIT := 100
+RUN_CONCURRENCY := 20
 RUN_GRAPH_VARIANT := simplekg
 
 MODEL_SLUG := $(subst /,--,$(MODEL))
@@ -156,10 +156,21 @@ site: ## Local preview only -- CI regenerates this on merge to main, don't commi
 validate-results: ## Check results/**/{trace,calls,run}.jsonl|json are well-formed
 	$(UV) run python scripts/validate_results.py
 
-rejudge: ## Re-score existing results/**/trace.jsonl with an LLM-as-a-judge, no pipeline re-run. PREFIX=Qwen--Qwen3.5-27B FORCE=1 (optional)
+rejudge: ## Re-score existing results/**/trace.jsonl with an LLM-as-a-judge (self-judge: each model judges its own answers), no pipeline re-run. PREFIX=Qwen--Qwen3.5-27B FORCE=1 ONLY_FAILED=1 ONLY_REPAIRED=1 (optional)
 	$(UV) run multigraphrag cypherbench rejudge --dest $(CYPHERBENCH_DIR) \
+		--self-judge \
 		$(if $(PREFIX),--results-prefix $(PREFIX),) \
-		$(if $(FORCE),--force,)
+		$(if $(FORCE),--force,) \
+		$(if $(ONLY_FAILED),--only-failed,) \
+		$(if $(ONLY_REPAIRED),--only-repaired,)
+
+rejudge-fixed: ## Re-score with ONE fixed judge (MULTIGRAPHRAG_EVALUATION__JUDGE__* if configured, else MULTIGRAPHRAG_LLM__*) for cross-model-comparable numbers, no pipeline re-run. PREFIX=... FORCE=1 ONLY_FAILED=1 ONLY_REPAIRED=1 (optional)
+	$(UV) run multigraphrag cypherbench rejudge --dest $(CYPHERBENCH_DIR) \
+		--fixed-judge \
+		$(if $(PREFIX),--results-prefix $(PREFIX),) \
+		$(if $(FORCE),--force,) \
+		$(if $(ONLY_FAILED),--only-failed,) \
+		$(if $(ONLY_REPAIRED),--only-repaired,)
 
 clean: ## Remove caches and build artifacts
 	rm -rf .venv .ruff_cache .pytest_cache dist build
