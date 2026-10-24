@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T06:59:03.767455+00:00",
+  "generated_at": "2026-10-24T17:50:28.687634+00:00",
   "groups": [
     {
       "model": "Qwen/Qwen3.5-27B",
@@ -12,7 +12,7 @@
             "correct": 59,
             "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 6.42,
+            "avg_llm_calls": 7.0,
             "external_judge": {
               "accuracy": 0.54,
               "total": 100,
@@ -42,7 +42,7 @@
             "correct": 80,
             "accuracy": 0.8,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.74,
+            "avg_llm_calls": 5.08,
             "external_judge": {
               "accuracy": 0.73,
               "total": 100,
@@ -72,7 +72,7 @@
             "correct": 81,
             "accuracy": 0.81,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 5.88,
+            "avg_llm_calls": 6.54,
             "external_judge": {
               "accuracy": 0.79,
               "total": 100,
@@ -102,7 +102,7 @@
             "correct": 92,
             "accuracy": 0.92,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 4.0,
+            "avg_llm_calls": 4.15,
             "external_judge": {
               "accuracy": 0.9,
               "total": 100,
@@ -132,7 +132,7 @@
             "correct": 59,
             "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 8.42,
+            "avg_llm_calls": 9.27,
             "external_judge": {
               "accuracy": 0.55,
               "total": 100,
@@ -161,7 +161,7 @@
         "single": 0.7060000000000001,
         "agentic": 0.742,
         "llm_calls_single": 2.38,
-        "llm_calls_agentic": 5.892,
+        "llm_calls_agentic": 6.4079999999999995,
         "external_single": 0.6759999999999999,
         "external_agentic": 0.7020000000000001,
         "external_delta": 0.026000000000000023
@@ -178,7 +178,7 @@
             "correct": 45,
             "accuracy": 0.45,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 8.92,
+            "avg_llm_calls": 10.36,
             "external_judge": {
               "accuracy": 0.44,
               "total": 100,
@@ -208,7 +208,7 @@
             "correct": 61,
             "accuracy": 0.61,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 7.41,
+            "avg_llm_calls": 8.61,
             "external_judge": {
               "accuracy": 0.59,
               "total": 100,
@@ -238,7 +238,7 @@
             "correct": 59,
             "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 8.07,
+            "avg_llm_calls": 9.44,
             "external_judge": {
               "accuracy": 0.58,
               "total": 100,
@@ -268,7 +268,7 @@
             "correct": 85,
             "accuracy": 0.85,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.97,
+            "avg_llm_calls": 5.39,
             "external_judge": {
               "accuracy": 0.85,
               "total": 100,
@@ -298,7 +298,7 @@
             "correct": 47,
             "accuracy": 0.47,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 9.34,
+            "avg_llm_calls": 10.9,
             "external_judge": {
               "accuracy": 0.44,
               "total": 100,
@@ -312,7 +312,7 @@
             "correct": 33,
             "accuracy": 0.33,
             "path": "Qwen--Qwen3.5-27B/temp0.0-reasoning-off/geography/single",
-            "avg_llm_calls": 3.38,
+            "avg_llm_calls": 3.35,
             "external_judge": {
               "accuracy": 0.32,
               "total": 100,
@@ -326,8 +326,8 @@
       "average": {
         "single": 0.536,
         "agentic": 0.594,
-        "llm_calls_single": 3.022,
-        "llm_calls_agentic": 7.742,
+        "llm_calls_single": 3.016,
+        "llm_calls_agentic": 8.94,
         "external_single": 0.52,
         "external_agentic": 0.58,
         "external_delta": 0.05999999999999998
@@ -344,7 +344,7 @@
             "correct": 57,
             "accuracy": 0.57,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.85,
+            "avg_llm_calls": 8.83,
             "external_judge": {
               "accuracy": 0.55,
               "total": 100,
@@ -374,7 +374,7 @@
             "correct": 72,
             "accuracy": 0.72,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 5.0,
+            "avg_llm_calls": 5.45,
             "external_judge": {
               "accuracy": 0.68,
               "total": 100,
@@ -404,7 +404,7 @@
             "correct": 83,
             "accuracy": 0.83,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 5.97,
+            "avg_llm_calls": 6.62,
             "external_judge": {
               "accuracy": 0.8,
               "total": 100,
@@ -434,7 +434,7 @@
             "correct": 89,
             "accuracy": 0.89,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 4.65,
+            "avg_llm_calls": 4.97,
             "external_judge": {
               "accuracy": 0.88,
               "total": 100,
@@ -464,7 +464,7 @@
             "correct": 59,
             "accuracy": 0.59,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 8.61,
+            "avg_llm_calls": 9.73,
             "external_judge": {
               "accuracy": 0.56,
               "total": 100,
@@ -493,7 +493,7 @@
         "single": 0.714,
         "agentic": 0.72,
         "llm_calls_single": 2.386,
-        "llm_calls_agentic": 6.4159999999999995,
+        "llm_calls_agentic": 7.12,
         "external_single": 0.6839999999999999,
         "external_agentic": 0.6940000000000001,
         "external_delta": 0.01000000000000002
@@ -510,7 +510,7 @@
             "correct": 44,
             "accuracy": 0.44,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 10.2,
+            "avg_llm_calls": 11.87,
             "external_judge": {
               "accuracy": 0.43,
               "total": 100,
@@ -540,7 +540,7 @@
             "correct": 63,
             "accuracy": 0.63,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 8.33,
+            "avg_llm_calls": 9.62,
             "external_judge": {
               "accuracy": 0.64,
               "total": 100,
@@ -570,7 +570,7 @@
             "correct": 65,
             "accuracy": 0.65,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 8.13,
+            "avg_llm_calls": 9.41,
             "external_judge": {
               "accuracy": 0.64,
               "total": 100,
@@ -600,7 +600,7 @@
             "correct": 86,
             "accuracy": 0.86,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 5.39,
+            "avg_llm_calls": 5.9,
             "external_judge": {
               "accuracy": 0.86,
               "total": 100,
@@ -630,7 +630,7 @@
             "correct": 45,
             "accuracy": 0.45,
             "path": "Qwen--Qwen3.5-27B/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 10.45,
+            "avg_llm_calls": 12.2,
             "external_judge": {
               "accuracy": 0.41,
               "total": 100,
@@ -659,7 +659,7 @@
         "single": 0.5780000000000001,
         "agentic": 0.6060000000000001,
         "llm_calls_single": 2.862,
-        "llm_calls_agentic": 8.5,
+        "llm_calls_agentic": 9.8,
         "external_single": 0.562,
         "external_agentic": 0.596,
         "external_delta": 0.03400000000000001
@@ -676,7 +676,7 @@
             "correct": 64,
             "accuracy": 0.64,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 5.92,
+            "avg_llm_calls": 6.47,
             "external_judge": {
               "accuracy": 0.67,
               "total": 100,
@@ -706,7 +706,7 @@
             "correct": 73,
             "accuracy": 0.73,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.23,
+            "avg_llm_calls": 4.45,
             "external_judge": {
               "accuracy": 0.73,
               "total": 100,
@@ -736,7 +736,7 @@
             "correct": 82,
             "accuracy": 0.82,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 4.44,
+            "avg_llm_calls": 4.67,
             "external_judge": {
               "accuracy": 0.83,
               "total": 100,
@@ -766,7 +766,7 @@
             "correct": 87,
             "accuracy": 0.87,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 3.69,
+            "avg_llm_calls": 3.76,
             "external_judge": {
               "accuracy": 0.87,
               "total": 100,
@@ -796,7 +796,7 @@
             "correct": 23,
             "accuracy": 0.23,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 12.34,
+            "avg_llm_calls": 14.83,
             "external_judge": {
               "accuracy": 0.21,
               "total": 100,
@@ -825,7 +825,7 @@
         "single": 0.704,
         "agentic": 0.658,
         "llm_calls_single": 2.2920000000000003,
-        "llm_calls_agentic": 6.1240000000000006,
+        "llm_calls_agentic": 6.836,
         "external_single": 0.6980000000000001,
         "external_agentic": 0.662,
         "external_delta": -0.03600000000000002
@@ -842,7 +842,7 @@
             "correct": 59,
             "accuracy": 0.59,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 7.07,
+            "avg_llm_calls": 7.7,
             "external_judge": {
               "accuracy": 0.6,
               "total": 100,
@@ -872,7 +872,7 @@
             "correct": 70,
             "accuracy": 0.7,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 5.73,
+            "avg_llm_calls": 6.34,
             "external_judge": {
               "accuracy": 0.65,
               "total": 100,
@@ -902,7 +902,7 @@
             "correct": 70,
             "accuracy": 0.7,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 7.04,
+            "avg_llm_calls": 7.93,
             "external_judge": {
               "accuracy": 0.71,
               "total": 100,
@@ -932,7 +932,7 @@
             "correct": 85,
             "accuracy": 0.85,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.54,
+            "avg_llm_calls": 4.8,
             "external_judge": {
               "accuracy": 0.84,
               "total": 100,
@@ -962,7 +962,7 @@
             "correct": 59,
             "accuracy": 0.59,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 8.84,
+            "avg_llm_calls": 10.03,
             "external_judge": {
               "accuracy": 0.56,
               "total": 100,
@@ -991,7 +991,7 @@
         "single": 0.626,
         "agentic": 0.6859999999999999,
         "llm_calls_single": 2.7039999999999997,
-        "llm_calls_agentic": 6.644,
+        "llm_calls_agentic": 7.359999999999999,
         "external_single": 0.628,
         "external_agentic": 0.6719999999999999,
         "external_delta": 0.044000000000000004
@@ -1008,7 +1008,7 @@
             "correct": 60,
             "accuracy": 0.6,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 6.42,
+            "avg_llm_calls": 7.07,
             "external_judge": {
               "accuracy": 0.57,
               "total": 100,
@@ -1038,7 +1038,7 @@
             "correct": 75,
             "accuracy": 0.75,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.41,
+            "avg_llm_calls": 4.64,
             "external_judge": {
               "accuracy": 0.81,
               "total": 100,
@@ -1068,7 +1068,7 @@
             "correct": 82,
             "accuracy": 0.82,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 4.24,
+            "avg_llm_calls": 4.43,
             "external_judge": {
               "accuracy": 0.81,
               "total": 100,
@@ -1098,7 +1098,7 @@
             "correct": 89,
             "accuracy": 0.89,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 4.12,
+            "avg_llm_calls": 4.27,
             "external_judge": {
               "accuracy": 0.91,
               "total": 100,
@@ -1128,7 +1128,7 @@
             "correct": 37,
             "accuracy": 0.37,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 10.24,
+            "avg_llm_calls": 12.11,
             "external_judge": {
               "accuracy": 0.36,
               "total": 100,
@@ -1157,7 +1157,7 @@
         "single": 0.694,
         "agentic": 0.6859999999999999,
         "llm_calls_single": 2.274,
-        "llm_calls_agentic": 5.886,
+        "llm_calls_agentic": 6.504,
         "external_single": 0.694,
         "external_agentic": 0.692,
         "external_delta": -0.0019999999999999797
@@ -1174,7 +1174,7 @@
             "correct": 51,
             "accuracy": 0.51,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 7.8,
+            "avg_llm_calls": 8.61,
             "external_judge": {
               "accuracy": 0.49,
               "total": 100,
@@ -1204,7 +1204,7 @@
             "correct": 56,
             "accuracy": 0.56,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 6.85,
+            "avg_llm_calls": 7.71,
             "external_judge": {
               "accuracy": 0.58,
               "total": 100,
@@ -1234,7 +1234,7 @@
             "correct": 64,
             "accuracy": 0.64,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 7.43,
+            "avg_llm_calls": 8.35,
             "external_judge": {
               "accuracy": 0.67,
               "total": 100,
@@ -1264,7 +1264,7 @@
             "correct": 85,
             "accuracy": 0.85,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.83,
+            "avg_llm_calls": 5.12,
             "external_judge": {
               "accuracy": 0.84,
               "total": 100,
@@ -1294,7 +1294,7 @@
             "correct": 49,
             "accuracy": 0.49,
             "path": "deepseek-ai--DeepSeek-V4-Flash/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 9.61,
+            "avg_llm_calls": 10.93,
             "external_judge": {
               "accuracy": 0.48,
               "total": 100,
@@ -1323,7 +1323,7 @@
         "single": 0.61,
         "agentic": 0.61,
         "llm_calls_single": 2.548,
-        "llm_calls_agentic": 7.303999999999999,
+        "llm_calls_agentic": 8.144,
         "external_single": 0.63,
         "external_agentic": 0.612,
         "external_delta": -0.018000000000000006
@@ -1340,7 +1340,7 @@
             "correct": 48,
             "accuracy": 0.48,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 8.14,
+            "avg_llm_calls": 9.4,
             "external_judge": {
               "accuracy": 0.48,
               "total": 100,
@@ -1370,7 +1370,7 @@
             "correct": 69,
             "accuracy": 0.69,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.44,
+            "avg_llm_calls": 4.62,
             "external_judge": {
               "accuracy": 0.69,
               "total": 100,
@@ -1400,7 +1400,7 @@
             "correct": 80,
             "accuracy": 0.8,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 5.31,
+            "avg_llm_calls": 5.79,
             "external_judge": {
               "accuracy": 0.76,
               "total": 100,
@@ -1430,7 +1430,7 @@
             "correct": 83,
             "accuracy": 0.83,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 4.42,
+            "avg_llm_calls": 4.64,
             "external_judge": {
               "accuracy": 0.83,
               "total": 100,
@@ -1460,7 +1460,7 @@
             "correct": 51,
             "accuracy": 0.51,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 8.24,
+            "avg_llm_calls": 9.37,
             "external_judge": {
               "accuracy": 0.49,
               "total": 100,
@@ -1489,7 +1489,7 @@
         "single": 0.6279999999999999,
         "agentic": 0.662,
         "llm_calls_single": 2.448,
-        "llm_calls_agentic": 6.11,
+        "llm_calls_agentic": 6.764,
         "external_single": 0.624,
         "external_agentic": 0.65,
         "external_delta": 0.025999999999999978
@@ -1506,7 +1506,7 @@
             "correct": 39,
             "accuracy": 0.39,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 8.46,
+            "avg_llm_calls": 9.95,
             "external_judge": {
               "accuracy": 0.4,
               "total": 100,
@@ -1536,7 +1536,7 @@
             "correct": 70,
             "accuracy": 0.7,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 4.99,
+            "avg_llm_calls": 5.38,
             "external_judge": {
               "accuracy": 0.7,
               "total": 100,
@@ -1566,7 +1566,7 @@
             "correct": 78,
             "accuracy": 0.78,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 5.03,
+            "avg_llm_calls": 5.33,
             "external_judge": {
               "accuracy": 0.8,
               "total": 100,
@@ -1596,7 +1596,7 @@
             "correct": 76,
             "accuracy": 0.76,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.65,
+            "avg_llm_calls": 4.91,
             "external_judge": {
               "accuracy": 0.77,
               "total": 100,
@@ -1626,7 +1626,7 @@
             "correct": 52,
             "accuracy": 0.52,
             "path": "openai--gpt-oss-120b/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 8.64,
+            "avg_llm_calls": 9.93,
             "external_judge": {
               "accuracy": 0.48,
               "total": 100,
@@ -1655,7 +1655,7 @@
         "single": 0.6559999999999999,
         "agentic": 0.63,
         "llm_calls_single": 2.442,
-        "llm_calls_agentic": 6.354000000000001,
+        "llm_calls_agentic": 7.1,
         "external_single": 0.6559999999999999,
         "external_agentic": 0.63,
         "external_delta": -0.02599999999999999
@@ -1672,7 +1672,7 @@
             "correct": 54,
             "accuracy": 0.54,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.94,
+            "avg_llm_calls": 9.06,
             "external_judge": {
               "accuracy": 0.52,
               "total": 100,
@@ -1702,7 +1702,7 @@
             "correct": 72,
             "accuracy": 0.72,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 4.95,
+            "avg_llm_calls": 5.28,
             "external_judge": {
               "accuracy": 0.69,
               "total": 100,
@@ -1732,7 +1732,7 @@
             "correct": 79,
             "accuracy": 0.79,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 4.94,
+            "avg_llm_calls": 5.35,
             "external_judge": {
               "accuracy": 0.8,
               "total": 100,
@@ -1762,7 +1762,7 @@
             "correct": 81,
             "accuracy": 0.81,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 4.15,
+            "avg_llm_calls": 4.44,
             "external_judge": {
               "accuracy": 0.81,
               "total": 100,
@@ -1792,7 +1792,7 @@
             "correct": 45,
             "accuracy": 0.45,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 8.76,
+            "avg_llm_calls": 10.0,
             "external_judge": {
               "accuracy": 0.46,
               "total": 100,
@@ -1821,7 +1821,7 @@
         "single": 0.658,
         "agentic": 0.662,
         "llm_calls_single": 2.432,
-        "llm_calls_agentic": 6.148000000000001,
+        "llm_calls_agentic": 6.8260000000000005,
         "external_single": 0.65,
         "external_agentic": 0.656,
         "external_delta": 0.006000000000000005
@@ -1838,7 +1838,7 @@
             "correct": 46,
             "accuracy": 0.46,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 8.16,
+            "avg_llm_calls": 9.42,
             "external_judge": {
               "accuracy": 0.46,
               "total": 100,
@@ -1868,7 +1868,7 @@
             "correct": 70,
             "accuracy": 0.7,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 4.4,
+            "avg_llm_calls": 4.61,
             "external_judge": {
               "accuracy": 0.69,
               "total": 100,
@@ -1898,7 +1898,7 @@
             "correct": 81,
             "accuracy": 0.81,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 4.64,
+            "avg_llm_calls": 4.98,
             "external_judge": {
               "accuracy": 0.81,
               "total": 100,
@@ -1928,7 +1928,7 @@
             "correct": 81,
             "accuracy": 0.81,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 4.33,
+            "avg_llm_calls": 4.6,
             "external_judge": {
               "accuracy": 0.79,
               "total": 100,
@@ -1958,7 +1958,7 @@
             "correct": 42,
             "accuracy": 0.42,
             "path": "openai--gpt-oss-120b/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 8.84,
+            "avg_llm_calls": 10.33,
             "external_judge": {
               "accuracy": 0.41,
               "total": 100,
@@ -1987,7 +1987,7 @@
         "single": 0.6359999999999999,
         "agentic": 0.64,
         "llm_calls_single": 2.3920000000000003,
-        "llm_calls_agentic": 6.074,
+        "llm_calls_agentic": 6.787999999999999,
         "external_single": 0.6519999999999999,
         "external_agentic": 0.632,
         "external_delta": -0.019999999999999973
@@ -2004,7 +2004,7 @@
             "correct": 46,
             "accuracy": 0.46,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.84,
+            "avg_llm_calls": 8.87,
             "external_judge": {
               "accuracy": 0.48,
               "total": 100,
@@ -2034,7 +2034,7 @@
             "correct": 30,
             "accuracy": 0.3,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/biology/agentic",
-            "avg_llm_calls": 9.54,
+            "avg_llm_calls": 10.64,
             "external_judge": {
               "accuracy": 0.3,
               "total": 100,
@@ -2064,7 +2064,7 @@
             "correct": 55,
             "accuracy": 0.55,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 7.08,
+            "avg_llm_calls": 8.01,
             "external_judge": {
               "accuracy": 0.56,
               "total": 100,
@@ -2094,7 +2094,7 @@
             "correct": 70,
             "accuracy": 0.7,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 5.85,
+            "avg_llm_calls": 6.35,
             "external_judge": {
               "accuracy": 0.66,
               "total": 100,
@@ -2124,7 +2124,7 @@
             "correct": 71,
             "accuracy": 0.71,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 6.73,
+            "avg_llm_calls": 7.61,
             "external_judge": {
               "accuracy": 0.7,
               "total": 100,
@@ -2154,7 +2154,7 @@
             "correct": 42,
             "accuracy": 0.42,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 9.6,
+            "avg_llm_calls": 10.74,
             "external_judge": {
               "accuracy": 0.41,
               "total": 100,
@@ -2184,7 +2184,7 @@
             "correct": 62,
             "accuracy": 0.62,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/movie/agentic",
-            "avg_llm_calls": 6.99,
+            "avg_llm_calls": 7.79,
             "external_judge": {
               "accuracy": 0.6,
               "total": 100,
@@ -2214,7 +2214,7 @@
             "correct": 68,
             "accuracy": 0.68,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/nba/agentic",
-            "avg_llm_calls": 6.12,
+            "avg_llm_calls": 6.46,
             "external_judge": {
               "accuracy": 0.67,
               "total": 100,
@@ -2244,7 +2244,7 @@
             "correct": 24,
             "accuracy": 0.24,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/politics/agentic",
-            "avg_llm_calls": 12.92,
+            "avg_llm_calls": 14.55,
             "external_judge": {
               "accuracy": 0.25,
               "total": 100,
@@ -2274,7 +2274,7 @@
             "correct": 37,
             "accuracy": 0.37,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/soccer/agentic",
-            "avg_llm_calls": 10.69,
+            "avg_llm_calls": 11.85,
             "external_judge": {
               "accuracy": 0.38,
               "total": 100,
@@ -2304,7 +2304,7 @@
             "correct": 73,
             "accuracy": 0.73,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-medium/terrorist_attack/agentic",
-            "avg_llm_calls": 5.27,
+            "avg_llm_calls": 5.62,
             "external_judge": {
               "accuracy": 0.74,
               "total": 100,
@@ -2333,7 +2333,7 @@
         "single": 0.5309090909090909,
         "agentic": 0.5254545454545455,
         "llm_calls_single": 2.4690909090909092,
-        "llm_calls_agentic": 8.057272727272727,
+        "llm_calls_agentic": 8.953636363636363,
         "external_single": 0.5354545454545454,
         "external_agentic": 0.5227272727272727,
         "external_delta": -0.012727272727272728
@@ -2350,7 +2350,7 @@
             "correct": 51,
             "accuracy": 0.51,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 7.95,
+            "avg_llm_calls": 9.18,
             "external_judge": {
               "accuracy": 0.53,
               "total": 100,
@@ -2380,7 +2380,7 @@
             "correct": 38,
             "accuracy": 0.38,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/biology/agentic",
-            "avg_llm_calls": 9.33,
+            "avg_llm_calls": 10.55,
             "external_judge": {
               "accuracy": 0.38,
               "total": 100,
@@ -2410,7 +2410,7 @@
             "correct": 61,
             "accuracy": 0.61,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 6.6,
+            "avg_llm_calls": 7.39,
             "external_judge": {
               "accuracy": 0.62,
               "total": 100,
@@ -2440,7 +2440,7 @@
             "correct": 68,
             "accuracy": 0.68,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 6.57,
+            "avg_llm_calls": 7.15,
             "external_judge": {
               "accuracy": 0.66,
               "total": 100,
@@ -2470,7 +2470,7 @@
             "correct": 67,
             "accuracy": 0.67,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 5.96,
+            "avg_llm_calls": 6.68,
             "external_judge": {
               "accuracy": 0.68,
               "total": 100,
@@ -2500,7 +2500,7 @@
             "correct": 41,
             "accuracy": 0.41,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 9.73,
+            "avg_llm_calls": 10.72,
             "external_judge": {
               "accuracy": 0.38,
               "total": 100,
@@ -2530,7 +2530,7 @@
             "correct": 56,
             "accuracy": 0.56,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/movie/agentic",
-            "avg_llm_calls": 7.09,
+            "avg_llm_calls": 8.01,
             "external_judge": {
               "accuracy": 0.56,
               "total": 100,
@@ -2560,7 +2560,7 @@
             "correct": 66,
             "accuracy": 0.66,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/nba/agentic",
-            "avg_llm_calls": 6.25,
+            "avg_llm_calls": 6.61,
             "external_judge": {
               "accuracy": 0.65,
               "total": 100,
@@ -2590,7 +2590,7 @@
             "correct": 25,
             "accuracy": 0.25,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/politics/agentic",
-            "avg_llm_calls": 12.88,
+            "avg_llm_calls": 14.46,
             "external_judge": {
               "accuracy": 0.25,
               "total": 100,
@@ -2620,7 +2620,7 @@
             "correct": 43,
             "accuracy": 0.43,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/soccer/agentic",
-            "avg_llm_calls": 10.4,
+            "avg_llm_calls": 11.36,
             "external_judge": {
               "accuracy": 0.43,
               "total": 100,
@@ -2650,7 +2650,7 @@
             "correct": 74,
             "accuracy": 0.74,
             "path": "openai--gpt-oss-20b/temp0.0-reasoning-off/terrorist_attack/agentic",
-            "avg_llm_calls": 5.68,
+            "avg_llm_calls": 6.13,
             "external_judge": {
               "accuracy": 0.74,
               "total": 100,
@@ -2679,7 +2679,7 @@
         "single": 0.5409090909090909,
         "agentic": 0.5363636363636364,
         "llm_calls_single": 2.4499999999999997,
-        "llm_calls_agentic": 8.04,
+        "llm_calls_agentic": 8.93090909090909,
         "external_single": 0.5336363636363637,
         "external_agentic": 0.5345454545454545,
         "external_delta": 0.0009090909090909301
@@ -2696,7 +2696,7 @@
             "correct": 50,
             "accuracy": 0.5,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/art/agentic",
-            "avg_llm_calls": 7.63,
+            "avg_llm_calls": 8.72,
             "external_judge": {
               "accuracy": 0.52,
               "total": 100,
@@ -2726,7 +2726,7 @@
             "correct": 32,
             "accuracy": 0.32,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/biology/agentic",
-            "avg_llm_calls": 9.86,
+            "avg_llm_calls": 11.48,
             "external_judge": {
               "accuracy": 0.34,
               "total": 100,
@@ -2756,7 +2756,7 @@
             "correct": 59,
             "accuracy": 0.59,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/company/agentic",
-            "avg_llm_calls": 6.58,
+            "avg_llm_calls": 7.36,
             "external_judge": {
               "accuracy": 0.61,
               "total": 100,
@@ -2786,7 +2786,7 @@
             "correct": 71,
             "accuracy": 0.71,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/fictional_character/agentic",
-            "avg_llm_calls": 6.21,
+            "avg_llm_calls": 6.84,
             "external_judge": {
               "accuracy": 0.69,
               "total": 100,
@@ -2816,7 +2816,7 @@
             "correct": 76,
             "accuracy": 0.76,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/flight_accident/agentic",
-            "avg_llm_calls": 5.79,
+            "avg_llm_calls": 6.4,
             "external_judge": {
               "accuracy": 0.77,
               "total": 100,
@@ -2846,7 +2846,7 @@
             "correct": 49,
             "accuracy": 0.49,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/geography/agentic",
-            "avg_llm_calls": 9.28,
+            "avg_llm_calls": 10.52,
             "external_judge": {
               "accuracy": 0.46,
               "total": 100,
@@ -2876,7 +2876,7 @@
             "correct": 60,
             "accuracy": 0.6,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/movie/agentic",
-            "avg_llm_calls": 7.06,
+            "avg_llm_calls": 7.88,
             "external_judge": {
               "accuracy": 0.6,
               "total": 100,
@@ -2906,7 +2906,7 @@
             "correct": 70,
             "accuracy": 0.7,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/nba/agentic",
-            "avg_llm_calls": 5.35,
+            "avg_llm_calls": 5.85,
             "external_judge": {
               "accuracy": 0.68,
               "total": 100,
@@ -2936,7 +2936,7 @@
             "correct": 18,
             "accuracy": 0.18,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/politics/agentic",
-            "avg_llm_calls": 12.77,
+            "avg_llm_calls": 14.71,
             "external_judge": {
               "accuracy": 0.18,
               "total": 100,
@@ -2966,7 +2966,7 @@
             "correct": 47,
             "accuracy": 0.47,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/soccer/agentic",
-            "avg_llm_calls": 10.57,
+            "avg_llm_calls": 12.24,
             "external_judge": {
               "accuracy": 0.48,
               "total": 100,
@@ -2996,7 +2996,7 @@
             "correct": 75,
             "accuracy": 0.75,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-medium/terrorist_attack/agentic",
-            "avg_llm_calls": 5.33,
+            "avg_llm_calls": 5.76,
             "external_judge": {
               "accuracy": 0.75,
               "total": 100,
@@ -3025,7 +3025,7 @@
         "single": 0.5472727272727272,
         "agentic": 0.5518181818181819,
         "llm_calls_single": 2.4863636363636363,
-        "llm_calls_agentic": 7.8572727272727265,
+        "llm_calls_agentic": 8.887272727272729,
         "external_single": 0.5327272727272727,
         "external_agentic": 0.5527272727272727,
         "external_delta": 0.020000000000000004
@@ -3042,7 +3042,7 @@
             "correct": 53,
             "accuracy": 0.53,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/art/agentic",
-            "avg_llm_calls": 7.44,
+            "avg_llm_calls": 8.44,
             "external_judge": {
               "accuracy": 0.51,
               "total": 100,
@@ -3072,7 +3072,7 @@
             "correct": 39,
             "accuracy": 0.39,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/biology/agentic",
-            "avg_llm_calls": 9.9,
+            "avg_llm_calls": 11.59,
             "external_judge": {
               "accuracy": 0.38,
               "total": 100,
@@ -3102,7 +3102,7 @@
             "correct": 62,
             "accuracy": 0.62,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/company/agentic",
-            "avg_llm_calls": 6.42,
+            "avg_llm_calls": 7.21,
             "external_judge": {
               "accuracy": 0.61,
               "total": 100,
@@ -3132,7 +3132,7 @@
             "correct": 72,
             "accuracy": 0.72,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/fictional_character/agentic",
-            "avg_llm_calls": 6.72,
+            "avg_llm_calls": 7.47,
             "external_judge": {
               "accuracy": 0.71,
               "total": 100,
@@ -3162,7 +3162,7 @@
             "correct": 72,
             "accuracy": 0.72,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/flight_accident/agentic",
-            "avg_llm_calls": 5.71,
+            "avg_llm_calls": 6.27,
             "external_judge": {
               "accuracy": 0.71,
               "total": 100,
@@ -3192,7 +3192,7 @@
             "correct": 43,
             "accuracy": 0.43,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/geography/agentic",
-            "avg_llm_calls": 8.88,
+            "avg_llm_calls": 10.05,
             "external_judge": {
               "accuracy": 0.43,
               "total": 100,
@@ -3222,7 +3222,7 @@
             "correct": 63,
             "accuracy": 0.63,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/movie/agentic",
-            "avg_llm_calls": 6.98,
+            "avg_llm_calls": 7.74,
             "external_judge": {
               "accuracy": 0.6,
               "total": 100,
@@ -3252,7 +3252,7 @@
             "correct": 68,
             "accuracy": 0.68,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/nba/agentic",
-            "avg_llm_calls": 5.96,
+            "avg_llm_calls": 6.48,
             "external_judge": {
               "accuracy": 0.66,
               "total": 100,
@@ -3282,7 +3282,7 @@
             "correct": 24,
             "accuracy": 0.24,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/politics/agentic",
-            "avg_llm_calls": 12.69,
+            "avg_llm_calls": 14.92,
             "external_judge": {
               "accuracy": 0.23,
               "total": 100,
@@ -3312,7 +3312,7 @@
             "correct": 48,
             "accuracy": 0.48,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/soccer/agentic",
-            "avg_llm_calls": 10.08,
+            "avg_llm_calls": 11.64,
             "external_judge": {
               "accuracy": 0.47,
               "total": 100,
@@ -3342,7 +3342,7 @@
             "correct": 75,
             "accuracy": 0.75,
             "path": "openai--gpt-oss-20b/temp1.0-reasoning-off/terrorist_attack/agentic",
-            "avg_llm_calls": 5.71,
+            "avg_llm_calls": 6.2,
             "external_judge": {
               "accuracy": 0.74,
               "total": 100,
@@ -3371,7 +3371,7 @@
         "single": 0.5427272727272727,
         "agentic": 0.5627272727272727,
         "llm_calls_single": 2.4872727272727273,
-        "llm_calls_agentic": 7.862727272727272,
+        "llm_calls_agentic": 8.91,
         "external_single": 0.5354545454545454,
         "external_agentic": 0.5499999999999999,
         "external_delta": 0.01454545454545454
