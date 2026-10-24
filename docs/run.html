@@ -27,7 +27,7 @@
 
   <table id="questions">
     <thead>
-      <tr><th>Question</th><th>Result</th><th>Similarity</th><th>Iterations</th><th>Query calls</th><th></th></tr>
+      <tr><th>Question</th><th>Result</th><th>Similarity</th><th>LLM calls</th><th></th></tr>
     </thead>
     <tbody id="rows"></tbody>
   </table>
@@ -105,46 +105,90 @@ function renderManifest(manifest, entry) {
   }
 }
 
+// Core query pipeline agents. Recheck/refix agents (entity_extractor,
+// verification_ranker, instructions_generator, feedback_aggregator) only
+// fire when a query is not accepted, but they are real LLM calls too and are
+// included in the total so the count reflects every agent involved.
+//
+// query_evaluator is not counted from the log directly: the historical
+// calls.jsonl systematically undercounts it (the pipeline calls evaluator
+// once per query_generator, but many leaves log fewer evaluator entries).
+// We derive it as equal to query_generator, which the pipeline guarantees.
+const CORE_AGENTS = new Set(["query_generator", "query_evaluator", "interpreter"]);
+
+function coreCallCount(breakdown, mode) {
+  if (!breakdown) return 0;
+  // Count every logged agent call (query_generator, interpreter, and any
+  // recheck/refix agent such as entity_extractor, verification_ranker,
+  // instructions_generator, feedback_aggregator), skipping query_evaluator
+  // because it is derived below.
+  let total = 0;
+  for (const [agent, n] of Object.entries(breakdown)) {
+    if (agent !== "query_evaluator") total += n;
+  }
+  // query_evaluator is derived = qg (pipeline calls them 1:1). In single
+  // mode there is no evaluator agent.
+  if (mode === "agentic") total += breakdown.query_generator || 0;
+  return total;
+}
+
 function questionRowHtml(item, index, callBreakdown) {
   const q = escapeHtml(item.question);
   const breakdown = callBreakdown ? callBreakdown.get(item.qid) : null;
-  const qgCount = breakdown ? (breakdown.query_generator || 0) : 0;
-  // Number of query-generation calls. In single mode this is always 1 (retry
-  // attempts and errors are not counted); in agentic mode it reflects the
-  // refinement iterations.
-  let callsCell = "-";
-  if (item.mode === "single") {
-    if ((item.iterations ?? 0) > 0) {
-      const title = qgCount > 1 ? `1 query generated (${qgCount} attempts)` : "1 query generated";
-      callsCell = `<span class="calls" title="${escapeHtml(title)}">1</span>`;
-    }
-  } else if (qgCount > 0) {
-    const title = qgCount === 1 ? "1 query generated" : `${qgCount} queries generated`;
-    callsCell = `<span class="calls" title="${escapeHtml(title)}">${qgCount}</span>`;
-  }
+  const llmCalls = coreCallCount(breakdown, item.mode);
+  const iters = item.iterations ?? "?";
+  const title = llmCalls > 0
+    ? `${llmCalls} LLM calls across all agents (query generation + evaluation + interpretation + recheck/refix; ${iters} iteration${iters === 1 ? "" : "s"})`
+    : "No call log";  const callsCell = llmCalls > 0
+    ? `<span class="calls" title="${escapeHtml(title)}">${llmCalls}</span>`
+    : "-";
   return `
     <tr class="q-row" data-index="${index}" data-correct="${item.correct}">
       <td>${q}</td>
       <td>${badge(item.correct)}</td>
       <td>${item.similarity != null ? item.similarity.toFixed(2) : "-"}</td>
-      <td>${item.iterations ?? "-"}</td>
       <td>${callsCell}</td>
       <td><button class="toggle-btn" data-index="${index}">details</button></td>
     </tr>
     <tr class="detail-row" id="detail-${index}">
-      <td colspan="6"></td>
+      <td colspan="5"></td>
     </tr>
   `;
 }
 
-function agentBreakdownHtml(qid, callsByQid) {
+function agentBreakdownHtml(qid, callsByQid, mode) {
   if (!callsByQid) return "";
   const calls = callsByQid.get(qid);
   if (!calls || !calls.length) return "";
   const byAgent = new Map();
-  for (const c of calls) byAgent.set(c.agent, (byAgent.get(c.agent) || 0) + 1);
-  const parts = [...byAgent.entries()].map(([agent, n]) => `${escapeHtml(agent)}: ${n}`);
-  return `<p><strong>LLM calls for this question (${calls.length} total):</strong> ${parts.join(", ")}</p>`;
+  let failed = 0;
+  for (const c of calls) {
+    if (c.error) { failed++; continue; }
+    byAgent.set(c.agent, (byAgent.get(c.agent) || 0) + 1);
+  }
+  const qg = byAgent.get("query_generator") || 0;
+  const qeLogged = byAgent.get("query_evaluator") || 0;
+  const interp = byAgent.get("interpreter") || 0;
+  // query_evaluator derived = query_generator (pipeline calls them 1:1); in
+  // single mode there is no evaluator agent.
+  const coreTotal = mode === "agentic" ? qg * 2 + interp : qg + interp;
+  const coreParts = [
+    `query_generator: ${qg}`,
+    mode === "agentic"
+      ? `query_evaluator: ${qg}${qeLogged !== qg ? ` (${qeLogged} logged)` : ""}`
+      : null,
+    `interpreter: ${interp}`,
+  ].filter(Boolean);
+  const recheck = [...byAgent.entries()].filter(([a]) => !CORE_AGENTS.has(a));
+  const recheckTotal = recheck.reduce((s, [, n]) => s + n, 0);
+  const grandTotal = coreTotal + recheckTotal;
+  let html = `<p><strong>LLM calls for this question (${grandTotal} total):</strong> core ${coreTotal} (${coreParts.join(", ")})${recheckTotal ? `, recheck/refix ${recheckTotal}` : ""}</p>`;
+  if (recheck.length) {
+    const recheckParts = recheck.map(([agent, n]) => `${escapeHtml(agent)}: ${n}`);
+    html += `<p class="note">Recheck/refix agents: ${recheckParts.join(", ")}</p>`;
+  }
+  if (failed) html += `<p class="note">${failed} failed call${failed === 1 ? "" : "s"} not counted.</p>`;
+  return html;
 }
 
 function detailHtml(item, callsByQid) {
@@ -160,7 +204,7 @@ function detailHtml(item, callsByQid) {
     <p><strong>Answer</strong></p>
     <pre>${escapeHtml(item.answer || "(none)")}</pre>
     ${errorBlock}
-    ${agentBreakdownHtml(item.qid, callsByQid)}
+    ${agentBreakdownHtml(item.qid, callsByQid, item.mode)}
     <button class="toggle-btn" data-calls-for="${escapeHtml(item.qid)}">show LLM calls</button>
     <div class="calls-container" data-calls-container-for="${escapeHtml(item.qid)}"></div>
   `;
@@ -216,11 +260,12 @@ async function main() {
         callBreakdown = new Map();
         callsByQid = new Map();
         for (const c of allCalls) {
+          if (!callsByQid.has(c.qid)) callsByQid.set(c.qid, []);
+          callsByQid.get(c.qid).push(c);
+          if (c.error) continue; // failed calls are not counted
           if (!callBreakdown.has(c.qid)) callBreakdown.set(c.qid, {});
           const bd = callBreakdown.get(c.qid);
           bd[c.agent] = (bd[c.agent] || 0) + 1;
-          if (!callsByQid.has(c.qid)) callsByQid.set(c.qid, []);
-          callsByQid.get(c.qid).push(c);
         }
       }
     } catch (err) {

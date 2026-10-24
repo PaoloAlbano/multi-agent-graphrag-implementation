@@ -30,20 +30,57 @@ def _leaf_group_key(run_json_path: Path) -> tuple[str, str]:
     return model_dir.name, config_dir.name
 
 
-def _avg_calls_per_question(run_json_path: Path, manifest: dict, total_questions: int) -> float | None:
-    """Average number of LLM calls (across every agent) per question, for
-    leaves whose call log carries `qid` (i.e. not a legacy pre-qid-tagging
-    run) -- lets the site/recap show how many agent calls the pipeline
-    actually makes before landing on an answer, not just `iterations`
-    (which only counts Query Generator retries, not the other six agents).
+# Core query pipeline agents. Recheck/refix agents (entity_extractor,
+# verification_ranker, instructions_generator, feedback_aggregator) only
+# fire when a query is not accepted, but they are real LLM calls too and are
+# included in the per-question count so it reflects every agent involved.
+#
+# query_evaluator is not counted from the log directly: the historical
+# calls.jsonl systematically undercounts it (the pipeline calls evaluator
+# once per query_generator, but many leaves log fewer evaluator entries).
+# We derive it as equal to query_generator, which the pipeline guarantees.
+CORE_AGENTS = {"query_generator", "query_evaluator", "interpreter"}
+
+
+def _avg_calls_per_question(
+    run_json_path: Path, manifest: dict, total_questions: int, mode: str
+) -> float | None:
+    """Average number of LLM calls per question across ALL agents: the core
+    query pipeline (query_generator + query_evaluator + interpreter) plus any
+    recheck/refix agent that fired (entity_extractor, verification_ranker,
+    instructions_generator, feedback_aggregator). query_evaluator is derived
+    as equal to query_generator (the pipeline calls them 1:1) because the
+    historical calls.jsonl systematically undercounts evaluator entries; in
+    single mode there is no evaluator agent. For leaves whose call log
+    carries `qid` (i.e. not a legacy pre-qid-tagging run) -- lets the
+    site/recap show the real query cost, not just `iterations` (which only
+    counts Query Generator retries).
     """
     if not manifest.get("calls_log_scoped") or not manifest.get("calls_log") or not total_questions:
         return None
     calls_path = run_json_path.parent / manifest["calls_log"]
     if not calls_path.exists():
         return None
-    total_calls = sum(1 for line in calls_path.read_text(encoding="utf-8").splitlines() if line.strip())
-    return total_calls / total_questions
+    total_qg = 0
+    total = 0
+    for line in calls_path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        try:
+            entry = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if entry.get("error"):
+            continue  # failed calls are not counted
+        agent = entry.get("agent")
+        if agent == "query_evaluator":
+            continue  # derived below (= query_generator)
+        total += 1
+        if agent == "query_generator":
+            total_qg += 1
+    if mode == "agentic":
+        total += total_qg  # derived query_evaluator
+    return total / total_questions
 
 
 def _collect_groups() -> dict[tuple[str, str], dict]:
@@ -74,7 +111,7 @@ def _collect_groups() -> dict[tuple[str, str], dict]:
                 "correct": entry["correct"],
                 "accuracy": entry["accuracy"],
                 "path": str(leaf_dir),
-                "avg_llm_calls": _avg_calls_per_question(run_json_path, manifest, entry["total"]),
+                "avg_llm_calls": _avg_calls_per_question(run_json_path, manifest, entry["total"], mode),
                 # Optional fixed-judge score (run.json `external_judge` block,
                 # written by `make rejudge-fixed`). None when not (yet) done.
                 "external_judge": (
@@ -163,6 +200,11 @@ def _format_calls(value: float | None) -> str:
 
 def _build_recap_md(recap: dict) -> str:
     lines = ["# Results recap", "", f"_Generated {recap['generated_at']}_", ""]
+    lines.append(
+        "_LLM calls columns count every successful agent call (query generation + evaluation + "
+        "interpretation + recheck/refix), excluding failed calls; query_evaluator is derived from query_generator._"
+    )
+    lines.append("")
     for group in recap["groups"]:
         lines.append(f"## {group['model']} ({group['config']})")
         lines.append("")
