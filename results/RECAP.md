@@ -1,6 +1,6 @@
 # Results recap
 
-_Generated 2026-10-24T17:50:28.687634+00:00_
+_Generated 2026-10-24T17:55:17.175302+00:00_
 
 _LLM calls columns count every successful agent call (query generation + evaluation + interpretation + recheck/refix), excluding failed calls; query_evaluator is derived from query_generator._
 
